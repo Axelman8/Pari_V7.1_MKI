@@ -1,0 +1,512 @@
+000  	Petrucci REC
+001  	Petrucci Rig 2020
+002  	Boogie IIC++
+003  	JP2C Best Rig
+004  	JP2C+
+005  	JohnP MarkIIC+
+006  	JP's IIC+ v12
+007  	Mesa MarkIV
+008  	Mesa TriAxess
+009  	VidarAus JP2C Rigv5
+010  	MESA TRIAXIS
+011  	Mark's Recto TNT
+012  	Mark's Recto 2
+013  	Mark Journey Set
+014  	L.O.G.
+015  	L.O.G. To Rest
+016  	L.O.G 11th Hour
+017  	L.O.G 11th Hour
+018  	Mark Morton Mesa
+019  	MarkIV_NKD
+020  	Evailution 1
+021  	Evailution 2
+022  	Legator Ninja (Fishman Modern)
+023  	Legator Ninja (Fishman Modern)
+024  	Sacrament
+025  	LAMB OF GOD
+026  	LAMB OF GOD
+027  	LAMB OF GOD
+028  	Instant Room Cab - CCFF#19
+029  	Lonestar rig
+030  	TM Lukather
+031  	Farfegnugen
+032  	Zakk's Marshall #34
+033  	Two Amps
+034  	LAMB OF GOD
+035  	DiG
+036  	LT MK IV Cygnus
+037  	LT Rack Delays (Filth)
+038  	LT Rack Delays (Clean)
+039  	F.A.R.K
+040  	LT Crunch
+041  	LT Chunk
+042  	MCU
+043  	Rockbone! (mas bueno)
+044  	Skull Crusher
+045  	Powerball ENGL AX3 -c
+046  	NKP Dream Theater
+047  	NKP metallica
+048  	NKP malmsteen
+049  	NKP muse (plug in baby)
+050  	NKP meshuggah
+051  	NKP hendrix
+052  	NKP nirvana
+053  	NKP guns N roses
+054  	NKP Slayer
+055  	NKP AC DC
+056  	DJENT La Tempesta
+057  	Bag Pipes drone
+058  	<EMPTY>
+059  	<EMPTY>
+060  	8 String Djent
+061  	FAS Me!
+062  	Ambient Djentymist
+063  	6160 Rhythm
+064  	GHoffman's Djent Scenes
+065  	GOJIRA
+066  	<EMPTY>
+067  	<EMPTY>
+068  	<EMPTY>
+069  	<EMPTY>
+070  	<EMPTY>
+071  	<EMPTY>
+072  	<EMPTY>
+073  	<EMPTY>
+074  	<EMPTY>
+075  	<EMPTY>
+076  	<EMPTY>
+077  	<EMPTY>
+078  	<EMPTY>
+079  	<EMPTY>
+080  	<EMPTY>
+081  	<EMPTY>
+082  	<EMPTY>
+083  	<EMPTY>
+084  	<EMPTY>
+085  	<EMPTY>
+086  	<EMPTY>
+087  	<EMPTY>
+088  	<EMPTY>
+089  	<EMPTY>
+090  	<EMPTY>
+091  	<EMPTY>
+092  	<EMPTY>
+093  	<EMPTY>
+094  	<EMPTY>
+095  	<EMPTY>
+096  	<EMPTY>
+097  	<EMPTY>
+098  	<EMPTY>
+099  	<EMPTY>
+100  	Rockin' Train
+101  	Dr Z's blues
+102  	Carol-Ann OD2 lead 1
+103  	Carol-Ann OD2 lead 2
+104  	Carol-Ann OD2 lead 3
+105  	Fat Buddah
+106  	Bright Buddah
+107  	Bludojai Lead 1
+108  	Bludojai Lead 2
+109  	Two Rock to rock
+110  	Two Rock to rock II
+111  	Zen Wreck
+112  	FAS Wreck
+113  	What the Fuchs is goin'
+114  	ODS-100 Lead 1
+115  	ODS-100 Lead 2
+116  	ODS-100 Lead 3
+117  	ODS-100 Lead 4 Joe B
+118  	ODS-100 HRM Mid lead
+119  	ODS-100 Ford lead 1
+120  	ODS-100 Ford lead 2
+121  	ODS-100 Ford lead 3
+122  	Dumble and Dumbler
+123  	Fat ODS-100
+124  	Fat lead
+125  	Komet Concorde 1
+126  	Komet Concorde 2
+127  	Komet Concorde 3
+128  	Tucana blues 1
+129  	Tucana blues 2
+130  	Hook blues
+131  	Warm BogFish lead
+132  	5F1 Tweed EC
+133  	Blues Jr Fat
+134  	Texas Blues - Lonestar
+135  	Texas Blues - Vibroking
+136  	Texas Blues - VibratoVerb
+137  	Texas Blues - Bandmaster
+138  	Texas Blues - Super Reverb
+139  	Texas Blues - Princeton
+140  	Texas Blues - Dr Z
+141  	Texas Blues - Bassman
+142  	Dirty tweed
+143  	Andy Little Wing
+144  	Just one night
+145  	AC20 crunch
+146  	AC20 crunch 2
+147  	AC20 fusion 1
+148  	AC20 fusion 2
+149  	AC20 fusion 3
+150  	Crunchy D30
+151  	Div/13 crunch
+152  	J. Mayer I
+153  	J. Mayer II
+154  	<EMPTY>
+155  	<EMPTY>
+156  	<EMPTY>
+157  	<EMPTY>
+158  	<EMPTY>
+159  	<EMPTY>
+160  	<EMPTY>
+161  	<EMPTY>
+162  	<EMPTY>
+163  	<EMPTY>
+164  	<EMPTY>
+165  	<EMPTY>
+166  	<EMPTY>
+167  	<EMPTY>
+168  	<EMPTY>
+169  	<EMPTY>
+170  	<EMPTY>
+171  	<EMPTY>
+172  	<EMPTY>
+173  	<EMPTY>
+174  	<EMPTY>
+175  	<EMPTY>
+176  	<EMPTY>
+177  	<EMPTY>
+178  	<EMPTY>
+179  	<EMPTY>
+180  	<EMPTY>
+181  	<EMPTY>
+182  	<EMPTY>
+183  	<EMPTY>
+184  	<EMPTY>
+185  	<EMPTY>
+186  	<EMPTY>
+187  	<EMPTY>
+188  	<EMPTY>
+189  	<EMPTY>
+190  	<EMPTY>
+191  	<EMPTY>
+192  	<EMPTY>
+193  	<EMPTY>
+194  	<EMPTY>
+195  	<EMPTY>
+196  	<EMPTY>
+197  	<EMPTY>
+198  	<EMPTY>
+199  	<EMPTY>
+200  	<EMPTY>
+201  	<EMPTY>
+202  	<EMPTY>
+203  	<EMPTY>
+204  	<EMPTY>
+205  	<EMPTY>
+206  	<EMPTY>
+207  	<EMPTY>
+208  	<EMPTY>
+209  	<EMPTY>
+210  	<EMPTY>
+211  	<EMPTY>
+212  	<EMPTY>
+213  	<EMPTY>
+214  	<EMPTY>
+215  	<EMPTY>
+216  	<EMPTY>
+217  	<EMPTY>
+218  	<EMPTY>
+219  	<EMPTY>
+220  	<EMPTY>
+221  	<EMPTY>
+222  	<EMPTY>
+223  	<EMPTY>
+224  	<EMPTY>
+225  	<EMPTY>
+226  	<EMPTY>
+227  	<EMPTY>
+228  	<EMPTY>
+229  	<EMPTY>
+230  	<EMPTY>
+231  	<EMPTY>
+232  	<EMPTY>
+233  	<EMPTY>
+234  	<EMPTY>
+235  	<EMPTY>
+236  	<EMPTY>
+237  	<EMPTY>
+238  	<EMPTY>
+239  	<EMPTY>
+240  	<EMPTY>
+241  	<EMPTY>
+242  	<EMPTY>
+243  	<EMPTY>
+244  	<EMPTY>
+245  	<EMPTY>
+246  	<EMPTY>
+247  	<EMPTY>
+248  	<EMPTY>
+249  	<EMPTY>
+250  	<EMPTY>
+251  	<EMPTY>
+252  	<EMPTY>
+253  	<EMPTY>
+254  	<EMPTY>
+255  	<EMPTY>
+256  	<EMPTY>
+257  	<EMPTY>
+258  	<EMPTY>
+259  	<EMPTY>
+260  	<EMPTY>
+261  	<EMPTY>
+262  	<EMPTY>
+263  	<EMPTY>
+264  	<EMPTY>
+265  	<EMPTY>
+266  	<EMPTY>
+267  	<EMPTY>
+268  	<EMPTY>
+269  	<EMPTY>
+270  	<EMPTY>
+271  	<EMPTY>
+272  	<EMPTY>
+273  	<EMPTY>
+274  	<EMPTY>
+275  	<EMPTY>
+276  	<EMPTY>
+277  	<EMPTY>
+278  	<EMPTY>
+279  	<EMPTY>
+280  	<EMPTY>
+281  	<EMPTY>
+282  	<EMPTY>
+283  	<EMPTY>
+284  	<EMPTY>
+285  	<EMPTY>
+286  	<EMPTY>
+287  	<EMPTY>
+288  	<EMPTY>
+289  	<EMPTY>
+290  	<EMPTY>
+291  	<EMPTY>
+292  	<EMPTY>
+293  	<EMPTY>
+294  	<EMPTY>
+295  	<EMPTY>
+296  	<EMPTY>
+297  	<EMPTY>
+298  	<EMPTY>
+299  	<EMPTY>
+300  	<EMPTY>
+301  	<EMPTY>
+302  	<EMPTY>
+303  	<EMPTY>
+304  	<EMPTY>
+305  	<EMPTY>
+306  	<EMPTY>
+307  	<EMPTY>
+308  	<EMPTY>
+309  	<EMPTY>
+310  	<EMPTY>
+311  	<EMPTY>
+312  	<EMPTY>
+313  	<EMPTY>
+314  	<EMPTY>
+315  	<EMPTY>
+316  	<EMPTY>
+317  	<EMPTY>
+318  	<EMPTY>
+319  	<EMPTY>
+320  	<EMPTY>
+321  	<EMPTY>
+322  	<EMPTY>
+323  	<EMPTY>
+324  	<EMPTY>
+325  	<EMPTY>
+326  	<EMPTY>
+327  	<EMPTY>
+328  	<EMPTY>
+329  	<EMPTY>
+330  	<EMPTY>
+331  	<EMPTY>
+332  	<EMPTY>
+333  	<EMPTY>
+334  	<EMPTY>
+335  	<EMPTY>
+336  	<EMPTY>
+337  	<EMPTY>
+338  	<EMPTY>
+339  	<EMPTY>
+340  	<EMPTY>
+341  	<EMPTY>
+342  	<EMPTY>
+343  	<EMPTY>
+344  	<EMPTY>
+345  	<EMPTY>
+346  	<EMPTY>
+347  	<EMPTY>
+348  	<EMPTY>
+349  	<EMPTY>
+350  	<EMPTY>
+351  	<EMPTY>
+352  	<EMPTY>
+353  	<EMPTY>
+354  	<EMPTY>
+355  	<EMPTY>
+356  	<EMPTY>
+357  	<EMPTY>
+358  	<EMPTY>
+359  	<EMPTY>
+360  	<EMPTY>
+361  	<EMPTY>
+362  	<EMPTY>
+363  	<EMPTY>
+364  	<EMPTY>
+365  	<EMPTY>
+366  	<EMPTY>
+367  	<EMPTY>
+368  	<EMPTY>
+369  	<EMPTY>
+370  	<EMPTY>
+371  	<EMPTY>
+372  	<EMPTY>
+373  	<EMPTY>
+374  	<EMPTY>
+375  	<EMPTY>
+376  	<EMPTY>
+377  	<EMPTY>
+378  	<EMPTY>
+379  	<EMPTY>
+380  	<EMPTY>
+381  	<EMPTY>
+382  	<EMPTY>
+383  	<EMPTY>
+384  	<EMPTY>
+385  	<EMPTY>
+386  	<EMPTY>
+387  	<EMPTY>
+388  	<EMPTY>
+389  	<EMPTY>
+390  	<EMPTY>
+391  	<EMPTY>
+392  	<EMPTY>
+393  	<EMPTY>
+394  	<EMPTY>
+395  	<EMPTY>
+396  	<EMPTY>
+397  	<EMPTY>
+398  	<EMPTY>
+399  	<EMPTY>
+400  	<EMPTY>
+401  	<EMPTY>
+402  	<EMPTY>
+403  	<EMPTY>
+404  	<EMPTY>
+405  	<EMPTY>
+406  	<EMPTY>
+407  	<EMPTY>
+408  	<EMPTY>
+409  	<EMPTY>
+410  	<EMPTY>
+411  	<EMPTY>
+412  	<EMPTY>
+413  	<EMPTY>
+414  	<EMPTY>
+415  	<EMPTY>
+416  	<EMPTY>
+417  	<EMPTY>
+418  	<EMPTY>
+419  	<EMPTY>
+420  	<EMPTY>
+421  	<EMPTY>
+422  	<EMPTY>
+423  	<EMPTY>
+424  	<EMPTY>
+425  	<EMPTY>
+426  	<EMPTY>
+427  	<EMPTY>
+428  	<EMPTY>
+429  	<EMPTY>
+430  	<EMPTY>
+431  	<EMPTY>
+432  	<EMPTY>
+433  	<EMPTY>
+434  	<EMPTY>
+435  	<EMPTY>
+436  	<EMPTY>
+437  	<EMPTY>
+438  	<EMPTY>
+439  	<EMPTY>
+440  	<EMPTY>
+441  	<EMPTY>
+442  	<EMPTY>
+443  	<EMPTY>
+444  	<EMPTY>
+445  	<EMPTY>
+446  	<EMPTY>
+447  	<EMPTY>
+448  	<EMPTY>
+449  	<EMPTY>
+450  	<EMPTY>
+451  	<EMPTY>
+452  	<EMPTY>
+453  	<EMPTY>
+454  	<EMPTY>
+455  	<EMPTY>
+456  	<EMPTY>
+457  	<EMPTY>
+458  	<EMPTY>
+459  	<EMPTY>
+460  	<EMPTY>
+461  	<EMPTY>
+462  	<EMPTY>
+463  	<EMPTY>
+464  	<EMPTY>
+465  	<EMPTY>
+466  	<EMPTY>
+467  	<EMPTY>
+468  	<EMPTY>
+469  	Ping-Pong Pong-Ping
+470  	8-Voice Chorus
+471  	Dual Clean
+472  	New Country
+473  	In a Fixx
+474  	L.A. Session Clean
+475  	Yngwie!
+476  	Mr.Gilmour Lead
+477  	Plate Collection
+478  	Chugnuts
+479  	Ned Beatty
+480  	A Kind of Dream
+481  	Spandex & Hairspray
+482  	Avant Jazz
+483  	Stone in Love
+484  	Fifth Tribe
+485  	Ambient Guitar
+486  	Eruption
+487  	Thrilling Chilling
+488  	Mr.Floyd
+489  	Barracuda
+490  	Solar Eclipses
+491  	Comb Delays
+492  	Blitz III
+493  	Pitch Follower
+494  	The Infield
+495  	Polychromatic Shifter
+496  	1987 Clean
+497  	Sultans
+498  	RockMeOn CLN2
+499  	Jeff Gets Ready
+500  	Diamonique Rain
+501  	Pete-a-Palooza
+502  	Larry Mitchell NY Steak
+503  	Mark's Day's Recto Cygnus
+504  	Fremen's Drones of Arrakis
+505  	Brett's Party Pack
+506  	Brett's Party Pack 2
+507  	AustinBuddy's XTCs
+508  	Leon's Live
+509  	Out1:FOH Out2:Cab
+510  	Amp Match Template
+511  	BYPASS
