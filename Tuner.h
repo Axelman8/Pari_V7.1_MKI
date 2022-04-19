@@ -1,5 +1,6 @@
 #pragma once
 
+
 /*=======================================================================================================================*/
 
 uint8_t check[8] = {0x0, 0x1 ,0x3, 0x16, 0x1c, 0x8, 0x0};   //this is the checkmark when "IN TUNE"
@@ -154,8 +155,7 @@ void onTunerStatus(bool engaged) {
     debugln(); debug(" *-> TUNER ended");
     sceneTopscreens();   
     ini_scenes();
-    Axe.refresh();
-  delay(200);
+    delay(200);
     }
   else
   {auditionmodePage_tuner_OFF_selection();}  //quick and dirty, but it works. 

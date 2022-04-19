@@ -12,63 +12,65 @@
 void presetRange()
 {
   debugln(); debugln(); debug(" * function presetRange started on Preset_range.h"); 
-if ((PresetNumb >=0) && (PresetNumb<10)) {PresetNumb = 0;}
-if ((PresetNumb >=10) && (PresetNumb<20)) {PresetNumb = 10;}
-if ((PresetNumb >=20) && (PresetNumb<30)) {PresetNumb = 20;}
-if ((PresetNumb >=30) && (PresetNumb<40)) {PresetNumb = 30;}
-if ((PresetNumb >=40) && (PresetNumb<50)) {PresetNumb = 40;}
-if ((PresetNumb >=50) && (PresetNumb<60)) {PresetNumb = 50;}
-if ((PresetNumb >=60) && (PresetNumb<70)) {PresetNumb = 60;}
-if ((PresetNumb >=70) && (PresetNumb<80)) {PresetNumb = 70;}
-if ((PresetNumb >=80) && (PresetNumb<90)) {PresetNumb = 80;}
-if ((PresetNumb >=90) && (PresetNumb<100)) {PresetNumb = 90;}
-if ((PresetNumb >=100) && (PresetNumb<110)) {PresetNumb = 100;}
-if ((PresetNumb >=110) && (PresetNumb<120)) {PresetNumb = 110;}
-if ((PresetNumb >=120) && (PresetNumb<130)) {PresetNumb = 120;}
-if ((PresetNumb >=130) && (PresetNumb<140)) {PresetNumb = 130;}
-if ((PresetNumb >=140) && (PresetNumb<150)) {PresetNumb = 140;}
-if ((PresetNumb >=150) && (PresetNumb<160)) {PresetNumb = 150;}
-if ((PresetNumb >=160) && (PresetNumb<170)) {PresetNumb = 160;}
-if ((PresetNumb >=170) && (PresetNumb<180)) {PresetNumb = 170;}
-if ((PresetNumb >=180) && (PresetNumb<190)) {PresetNumb = 180;}
-if ((PresetNumb >=190) && (PresetNumb<200)) {PresetNumb = 190;}
-if ((PresetNumb >=200) && (PresetNumb<210)) {PresetNumb = 200;}
-if ((PresetNumb >=210) && (PresetNumb<220)) {PresetNumb = 210;}
-if ((PresetNumb >=220) && (PresetNumb<230)) {PresetNumb = 220;}
-if ((PresetNumb >=230) && (PresetNumb<240)) {PresetNumb = 230;}
-if ((PresetNumb >=240) && (PresetNumb<250)) {PresetNumb = 240;}
-if ((PresetNumb >=250) && (PresetNumb<260)) {PresetNumb = 250;}
-if ((PresetNumb >=260) && (PresetNumb<270)) {PresetNumb = 260;}
-if ((PresetNumb >=270) && (PresetNumb<280)) {PresetNumb = 270;}
-if ((PresetNumb >=280) && (PresetNumb<290)) {PresetNumb = 280;}
-if ((PresetNumb >=290) && (PresetNumb<300)) {PresetNumb = 290;}
-if ((PresetNumb >=300) && (PresetNumb<310)) {PresetNumb = 300;}
-if ((PresetNumb >=310) && (PresetNumb<320)) {PresetNumb = 310;}
-if ((PresetNumb >=320) && (PresetNumb<330)) {PresetNumb = 320;}
-if ((PresetNumb >=330) && (PresetNumb<340)) {PresetNumb = 330;}
-if ((PresetNumb >=340) && (PresetNumb<350)) {PresetNumb = 340;}
-if ((PresetNumb >=350) && (PresetNumb<360)) {PresetNumb = 350;}
-if ((PresetNumb >=360) && (PresetNumb<370)) {PresetNumb = 360;}
-if ((PresetNumb >=370) && (PresetNumb<380)) {PresetNumb = 370;}
-if ((PresetNumb >=380) && (PresetNumb<390)) {PresetNumb = 380;}
-if ((PresetNumb >=390) && (PresetNumb<400)) {PresetNumb = 390;}
-if ((PresetNumb >=400) && (PresetNumb<410)) {PresetNumb = 400;}
-if ((PresetNumb >=410) && (PresetNumb<420)) {PresetNumb = 410;}
-if ((PresetNumb >=420) && (PresetNumb<430)) {PresetNumb = 420;}
-if ((PresetNumb >=430) && (PresetNumb<440)) {PresetNumb = 430;}
-if ((PresetNumb >=440) && (PresetNumb<450)) {PresetNumb = 440;}
-if ((PresetNumb >=450) && (PresetNumb<460)) {PresetNumb = 450;}
-if ((PresetNumb >=460) && (PresetNumb<470)) {PresetNumb = 460;}
-if ((PresetNumb >=470) && (PresetNumb<480)) {PresetNumb = 470;}
-if ((PresetNumb >=480) && (PresetNumb<490)) {PresetNumb = 480;}
-if ((PresetNumb >=490) && (PresetNumb<500)) {PresetNumb = 490;}
-if ((PresetNumb >=500) && (PresetNumb<510)) {PresetNumb = 500;}
-if ((PresetNumb >=510) && (PresetNumb<520)) {PresetNumb = 510;}
- 
+
+switch (PresetNumb)
+{
+case 0 ... 9: {PresetNumb = 0;} break;
+case 10 ... 19: {PresetNumb = 10;} break;
+case 20 ... 29: {PresetNumb = 20;} break;
+case 30 ... 39: {PresetNumb = 30;} break;
+case 40 ... 49: {PresetNumb = 40;} break;
+case 50 ... 59: {PresetNumb = 50;} break;
+case 60 ... 69: {PresetNumb = 60;} break;
+case 70 ... 79: {PresetNumb = 70;} break;
+case 80 ... 89: {PresetNumb = 80;} break;
+case 90 ... 99: {PresetNumb = 90;} break;
+case 100 ... 109: {PresetNumb = 100;} break;
+case 110 ... 119: {PresetNumb = 110;} break;
+case 120 ... 129: {PresetNumb = 120;} break;
+case 130 ... 139: {PresetNumb = 130;} break;
+case 140 ... 149: {PresetNumb = 140;} break;
+case 150 ... 159: {PresetNumb = 150;} break;
+case 160 ... 169: {PresetNumb = 160;} break;
+case 170 ... 179: {PresetNumb = 170;} break;
+case 180 ... 189: {PresetNumb = 180;} break;
+case 190 ... 199: {PresetNumb = 190;} break;
+case 200 ... 209: {PresetNumb = 200;} break;
+case 210 ... 219: {PresetNumb = 210;} break;
+case 220 ... 229: {PresetNumb = 220;} break;
+case 230 ... 239: {PresetNumb = 230;} break;
+case 240 ... 249: {PresetNumb = 240;} break;
+case 250 ... 259: {PresetNumb = 250;} break;
+case 260 ... 269: {PresetNumb = 260;} break;
+case 270 ... 279: {PresetNumb = 270;} break;
+case 280 ... 289: {PresetNumb = 280;} break;
+case 290 ... 299: {PresetNumb = 290;} break;
+case 300 ... 309: {PresetNumb = 300;} break;
+case 310 ... 319: {PresetNumb = 310;} break;
+case 320 ... 329: {PresetNumb = 320;} break;
+case 330 ... 339: {PresetNumb = 330;} break;
+case 340 ... 349: {PresetNumb = 340;} break;
+case 350 ... 359: {PresetNumb = 350;} break;
+case 360 ... 369: {PresetNumb = 360;} break;
+case 370 ... 379: {PresetNumb = 370;} break;
+case 380 ... 389: {PresetNumb = 380;} break;
+case 390 ... 399: {PresetNumb = 390;} break;
+case 400 ... 409: {PresetNumb = 400;} break;
+case 410 ... 419: {PresetNumb = 410;} break;
+case 420 ... 429: {PresetNumb = 420;} break;
+case 430 ... 439: {PresetNumb = 430;} break;
+case 440 ... 449: {PresetNumb = 440;} break;
+case 450 ... 459: {PresetNumb = 450;} break;
+case 460 ... 469: {PresetNumb = 460;} break;
+case 470 ... 479: {PresetNumb = 470;} break;
+case 480 ... 489: {PresetNumb = 480;} break;
+case 490 ... 499: {PresetNumb = 490;} break;
+case 500 ... 509: {PresetNumb = 500;} break;
+case 510 ... 519: {PresetNumb = 510;} break;
+}
  if (strcmp(page, "preset") == 0)
  {
    debugln(); debugln();   debug(" * function preset_Names called on preset_range.h");
     preset_Names();
-
  }
 }

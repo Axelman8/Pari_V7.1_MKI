@@ -139,8 +139,16 @@
 *                           - Remove variables_ini.h from the libriary                                        -> DONE
 *                           - ADD millis timer BANKUP/BANKDOWN:  button fucntion freeze after quick push      -> DONE
 *                           - ADD presetBank value 0 or 1 for beeing sure the button wont freeze up           -> DONE
-*                           
-*                                             
-*                           
+*               18-05-2022  - FIX activescene not showing correctly in SCENE PAGE after TUNER MODE            -> DONE            
+*                           - ADD preset active bezel with color changing ability                             -> DONE
+*                           - ADD preset active bezel AUDITIONMODE with color changing ability                -> DONE
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!  - USER NEEDS TO overwrite SD_ini.h   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*                        
+*                           - CHANGE preset names on the TFT. Now all presetnames are centered                -> DONE 
+*                           - CHANGE preset_range.h  ->  now using switch statement instead of IF()  
+*                             This speeds up the program                                                      -> DONE
+*                            
+*             
 ========================================================================================================================*/
 /*Axelman8*/

@@ -52,10 +52,9 @@ void presetPage_selection()
   getScenes = false;
   effectCycle = true;
   debugln(); debug(" -> effectcycle set to: "); debug(effectCycle);
-  debugln(); debug(" -> getScenes set to: ");     debug(getScenes); 
+  debugln(); debug(" -> getScenes set to: ");   debug(getScenes); 
   presetRange();
   ini_preset();
-  strcpy(page, "preset");
   delay(50);
 }
 
@@ -202,8 +201,6 @@ void tunerPage_selection()
     tuner_startScreens();
   }
   Axe.toggleTuner();
-  
-delay(50);
 }
 
 /*================================================================================================================================*/
@@ -226,14 +223,13 @@ void sceneSelection()
 
   debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1); debug(" | Buttonpin = "); debug(SWITCH);
   debugln(); debug(" -> Screenpin = "); debug(CS);
-  debugln(); debug(" -> Active Scene = "); debug(sceneNumber);
+  debugln(); debug(" -> Active sceneNumber = "); debug(sceneNumber);;
 
   digitalWrite (CS, LOW);
   activesceneStyle1();
   tft.println(sceneNumber);
   scene_ACTIVEbezel();
   digitalWrite (CS, HIGH);
-delay(50);
 }
 
 /*================================================================================================================================*/
@@ -253,16 +249,15 @@ void presetSelection()
             debugln(); debug(" While Auditionmode ON CurPreset = "); debug(CurPreset);
             debugln(); debug(" While Auditionmode ON PresetNumb = "); debug(PresetNumb);
             }
-          Axe.sendPresetChange(CurPreset);
           effectCycle = true;
           getScenes = true;
           debugln(); debug(" -> effectcycle set to: "); debug(effectCycle);
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);        
+          Axe.sendPresetChange(CurPreset);
           presetRange();
           tapTempo_flash_selection_screen();
           tuner_selectionScreen();
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
-          delay(50);
           }
             else
               {
@@ -274,15 +269,14 @@ void presetSelection()
                 debugln(); debug(" PresetSelection CurPreset = "); debug(CurPreset);    
                   } 
               debugln(); debug(" PresetSelection CurPreset = "); debug(CurPreset);            
-              Axe.sendPresetChange(CurPreset);
               sceneTopscreens();
               getScenes = true;
               effectCycle = true;
               debugln(); debug(" -> getScenes set to: "); debug(getScenes);
               debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
+              Axe.sendPresetChange(CurPreset);
               tapTempo_screen();
               debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
-              delay(50);
               }
 }
 
@@ -298,8 +292,6 @@ void auditionmodeEnd_Selection()
             ini_scenes();            
             debugln(); debug(" Auditionmode OFF CurPreset = "); debug(CurPreset);            
             debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
-          delay(50);
-
 }
 
 /*================================================================================================================================*/
@@ -336,7 +328,6 @@ void effectSelection()
                }
     digitalWrite (CS, HIGH);
     }
-  delay(50);
 }
 
 /*================================================================================================================================*/
@@ -367,7 +358,6 @@ void bankDown_selection()
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch - 10);  
-          delay(50);
         }
           else // -->> ON presetpage
         {  
@@ -383,7 +373,6 @@ void bankDown_selection()
           CurPreset = PresetNumb;          
           debugln(); debug(" preset bankDown CurPreset = "); debug(CurPreset);   
           auditionmode_LCD_text();
-          delay(50);
           }
           else
             {
@@ -392,7 +381,6 @@ void bankDown_selection()
           bankDown_LCD_text();
           debugln(); debugln(" Switch-6");
           presetRange();
-          delay(50);
             }
           ini_preset();
         }
@@ -425,7 +413,6 @@ void bankUp_selection()
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 10);
-          delay(50);
           }
           else  // ON presetpage
           {
@@ -439,7 +426,6 @@ void bankUp_selection()
           CurPreset = PresetNumb;
           debugln(); debug(" preset bankUp CurPreset = "); debug(CurPreset);  
           auditionmode_LCD_text();
-          delay(50);
             }
           else
           {
@@ -448,7 +434,6 @@ void bankUp_selection()
           bankUp_LCD_text();
           debugln(); debug(" Switch-12 ");
           presetRange();
-          delay(50);
             }
           ini_preset();
           }
@@ -458,51 +443,47 @@ void bankUp_selection()
 /*==================   OR  ========================*/   //  -1
 void presetDown_selection()
 {
-          if ((CurPreset != 0) || (previousPreset != maxPreset) || active_Preset != 0)
-          {
-            PresetNumb = PresetNumb - 1;
-          }
-          else 
+          if (CurPreset == 0)
           {
             CurPreset = maxPreset;
-          debugln(); debug(" presetDown CurPreset = "); debug(CurPreset);             
+            debugln(); debug(" presetDown CurPreset = "); debug(CurPreset);             
             PresetNumb = maxPreset;
+          }
+          else 
+           {
+            PresetNumb = PresetNumb - 1;
           }
           getScenes = true;
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           effectCycle = true;
           auditionMode = false;
           debugln(); debug(" -> effectcycle set to: "); debug(effectCycle);
-          Axe.sendPresetChange(PresetNumb);
           scene_LCD_text();
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
-          delay(50);
-
+          Axe.sendPresetChange(PresetNumb);
 }
 
 /*==================   OR  ========================*/   //  +1
 void presetUp_selection()
 {
-          if ((CurPreset != maxPreset) || (nextPreset != 0) || active_Preset != maxPreset)
+          if (CurPreset == 511)
           {
-            PresetNumb = PresetNumb + 1;
+          CurPreset = 0;
+          debugln(); debug(" presetUp CurPreset = "); debug(CurPreset); 
+          PresetNumb = 0;
           }
           else 
           {
-            CurPreset = 0;
-          debugln(); debug(" presetUp CurPreset = "); debug(CurPreset); 
-            PresetNumb = 0;
+            PresetNumb = PresetNumb + 1;
           }
           getScenes = true;
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           effectCycle = true;
           auditionMode = false;
           debugln(); debug(" -> effectcycle set to: "); debug(effectCycle);
-          Axe.sendPresetChange(PresetNumb);
           scene_LCD_text();
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
-          delay(50);
-
+          Axe.sendPresetChange(PresetNumb);
 }
 
 void auditionmodePage_selection()

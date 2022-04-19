@@ -267,10 +267,10 @@ void AMP_ABCD()
   ampabcdStyle_blackBezelLine();
   digitalWrite (CS1, HIGH);  digitalWrite (CS2, HIGH);  digitalWrite (CS6, HIGH);  digitalWrite (CS7, HIGH);
 
-  digitalWrite (CS9, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println(" AMP A ");  digitalWrite (CS9, HIGH);
-  digitalWrite (CS10,LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println(" AMP B ");  digitalWrite (CS10,HIGH);
-  digitalWrite (CS4, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println(" AMP C ");  digitalWrite (CS4, HIGH);
-  digitalWrite (CS5, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println(" AMP D ");  digitalWrite (CS5, HIGH);
+  digitalWrite (CS9, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   A   ");  digitalWrite (CS9, HIGH);
+  digitalWrite (CS10,LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   B   ");  digitalWrite (CS10,HIGH);
+  digitalWrite (CS4, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   C   ");  digitalWrite (CS4, HIGH);
+  digitalWrite (CS5, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   D   ");  digitalWrite (CS5, HIGH);
   ampabcdStyle4();
   presetName_setting(preset);
    }

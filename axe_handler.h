@@ -128,7 +128,63 @@ void PresetName_helper()
   pre1.toCharArray(PRE11, P11 + 1); pre2.toCharArray(PRE12, P12 + 1); pre3.toCharArray(PRE13, P13 + 1);
 }
 
+void presetName_buildup()
+{
+    if (P11 > 10)
+    {  tft.setCursor(1, 10); }
+    else
+    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE11);
 
+    //row 2
+    if (P12 > 10)
+    { tft.setCursor(1, 39); }
+    else
+    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE12);
+
+    //row 3
+    if (P13 > 10)
+    { tft.setCursor(1, 68); }    
+    else
+    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE13);
+} 
+
+void active_presetName_buildup()
+{
+    if (P11 > 10)
+    {  tft.setCursor(1, 10); }
+    else
+    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE11);
+
+    //row 2
+    if (P12 > 10)
+    { tft.setCursor(1, 39); }
+    else
+    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE12);
+
+    //row 3
+    if (P13 > 10)
+    { tft.setCursor(1, 68); }    
+    else
+    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE13);
+} 
 
 /*=========================================================================================================================
        Set active presetname in screen 13
@@ -150,14 +206,14 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
   else if ((preset.getPresetNumber() >= 100) && (preset.getPresetNumber() < 1000))
   { Cursor = 29;  }
 
-
+  digitalWrite (CS13, LOW);
   if (P13 == 0)
   {
     //Init screen 13
-    digitalWrite (CS13, LOW);
+
     screen13Style();
     tft.println(preset.getPresetNumber());
-    digitalWrite (CS13, HIGH);
+    //digitalWrite (CS13, HIGH);
 
    if ((strcmp(page, "scene")) == 0) // On scenepage
     {
@@ -170,7 +226,6 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
     debugln(); debug(" nextPreset = "); debug(nextPreset);
     }
 
-    digitalWrite (CS13, LOW);
     //row 1
     if (P11 > 10)
     {  tft.setCursor(1, 60); }
@@ -181,7 +236,6 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
        tft.println(PRE11);
 
     //row 2
-
     if (P12 > 10)
     { tft.setCursor(1, 90); }
     else
@@ -189,14 +243,12 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
       tft.setTextSize(3);
       tft.setTextColor(screen13Style_txt2_color);
       tft.println(PRE12);
-    digitalWrite (CS13, HIGH);
   }
   else {
     //Init screen 13
-    digitalWrite (CS13, LOW);
     screen13Style();
     tft.println(preset.getPresetNumber());
-    digitalWrite (CS13, HIGH);
+    //digitalWrite (CS13, HIGH);
  
     if ((strcmp(page, "scene")) == 0) // On scenepage
     {
@@ -208,7 +260,6 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
     debugln(); debug(" previousPreset = "); debug(previousPreset); 
     debugln(); debug(" nextPreset = "); debug(nextPreset);
     }
-
     digitalWrite (CS13, LOW);
     //row 1
     if (P11 > 10)
@@ -237,9 +288,9 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
       tft.setTextSize(3);
       tft.setTextColor(screen13Style_txt2_color);
       tft.println(PRE13);
-  }
-  digitalWrite (CS13, HIGH);
- if ((strcmp(page, "AMP_effect") != 0) || (auditionMode != 0))
+    }
+    digitalWrite (CS13, HIGH);
+    if ((strcmp(page, "AMP_effect") != 0) || (auditionMode != 0))
     {presetUpDownscreens();}
 }
 
@@ -282,10 +333,9 @@ void wah_looper()
 void ini_scenes()  //setup scene screens
 {
   debugln();  debugln();  debug(" * function ini_scenes started on axe_handler.h");  
-
-   Axe.refresh();
-
-    scene_LCD_text();
+  
+     debugln(); debug(" -> Active sceneNumber = "); debug(sceneNumber);
+     scene_LCD_text();
     
     /* =============== printing scenes on the screens ==============*/
 
@@ -306,7 +356,7 @@ void ini_scenes()  //setup scene screens
 
 
       digitalWrite (CS1, LOW);
-      if (active_Scene == 1)
+      if (sceneNumber == 1)
       {activesceneStyle1(); tft.println("1"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("1");}
@@ -325,7 +375,7 @@ void ini_scenes()  //setup scene screens
 
       //2
       digitalWrite (CS2, LOW);
-      if (active_Scene == 2)
+      if (sceneNumber == 2)
       {activesceneStyle1(); tft.println("2"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("2");}
@@ -343,7 +393,7 @@ void ini_scenes()  //setup scene screens
 
       //3
       digitalWrite (CS3, LOW);
-      if (active_Scene == 3)
+      if (sceneNumber == 3)
       {activesceneStyle1(); tft.println("3"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("3");}
@@ -362,7 +412,7 @@ void ini_scenes()  //setup scene screens
 
       //4
       digitalWrite (CS4, LOW);
-      if (active_Scene == 4)
+      if (sceneNumber == 4)
       {activesceneStyle1(); tft.println("4"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("4");}
@@ -381,7 +431,7 @@ void ini_scenes()  //setup scene screens
 
       //5
       digitalWrite (CS6, LOW);
-      if (active_Scene == 5)
+      if (sceneNumber == 5)
       {activesceneStyle1(); tft.println("5"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("5");}
@@ -400,7 +450,7 @@ void ini_scenes()  //setup scene screens
 
       //6
       digitalWrite (CS7, LOW);
-      if (active_Scene == 6)
+      if (sceneNumber == 6)
       {activesceneStyle1(); tft.println("6"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("6");}
@@ -419,7 +469,7 @@ void ini_scenes()  //setup scene screens
 
       //7
       digitalWrite (CS8, LOW);
-      if (active_Scene == 7)
+      if (sceneNumber == 7)
       {activesceneStyle1(); tft.println("7"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("7");}
@@ -438,7 +488,7 @@ void ini_scenes()  //setup scene screens
 
       //8
       digitalWrite (CS9, LOW);
-      if (active_Scene == 8)
+      if (sceneNumber == 8)
       {activesceneStyle1(); tft.println("8"); scene_ACTIVEbezel();}
       else
       {sceneStyle1(); tft.println("8");}
@@ -529,7 +579,7 @@ void onSceneName(const SceneNumber number, const char* name, const byte length)
       }
       if (i == 7) {
 
-        debugln(); debugln();   debug(" * function effectvariable_reset called function onscenename() on axe_handler.h");
+        debugln(); debugln();   debug(" * function effectvariable_reset called from function onscenename() on axe_handler.h");
         effectvariable_reset(); // reset or set the effectvariable to zero
 
         debugln(); debugln();   debug(" * function ini_scenes called from function onscenename() on axe_handler.h");
@@ -1012,7 +1062,7 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
 
 void presetBank_settings()
 {
-  presetBank = 1; 
+  presetBank = 1;  // setting the number to 1 so it can finnish the job and in the end go to zero (0)
   debugln();debugln();  debug(" * presetBank is set to 1");
   
   debugln();debugln();  debug(" * function presetBank_settings started on axe_handler.h");
@@ -1021,7 +1071,8 @@ void presetBank_settings()
   digitalWrite(CS6, LOW), digitalWrite(CS7, LOW), digitalWrite(CS8, LOW), digitalWrite(CS9, LOW), digitalWrite(CS10, LOW);
 
   tft.fillScreen(presetNumberStyle1_fillscreen);
-  tft.setTextWrap(true);
+  //tft.setTextWrap(true);
+  tft.setTextWrap(false); // we dont need this anymore
 
   digitalWrite(CS1, HIGH), digitalWrite(CS2, HIGH), digitalWrite(CS3, HIGH), digitalWrite(CS4, HIGH), digitalWrite(CS5, HIGH),
   digitalWrite(CS6, HIGH), digitalWrite(CS7, HIGH), digitalWrite(CS8, HIGH), digitalWrite(CS9, HIGH), digitalWrite(CS10, HIGH);
@@ -1032,6 +1083,7 @@ void presetBank_settings()
     PresetNumb = CurPreset;
     presetRange();
     }
+
 
   if (PresetNumb < 10)
   {
@@ -1046,148 +1098,167 @@ void presetBank_settings()
     PNtxtWidth = 105;
   }
 
-   
       digitalWrite (CS1, LOW);
+      strcpy(active_PresetName, PresetName0);
+      PresetName_helper();
       if (PresetNumb != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb);
-        presetNameStyle1(); tft.println(PresetName0);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb);
-        presetNameStyle2(); tft.println(PresetName0);
       }
       digitalWrite (CS1, HIGH);
 
       digitalWrite (CS2, LOW);
+      strcpy(active_PresetName, PresetName1);
+      PresetName_helper();
       if ((PresetNumb + 1) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 1);
-        presetNameStyle1(); tft.println(PresetName1);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 1);
-        presetNameStyle2(); tft.println(PresetName1);
       }
       digitalWrite (CS2, HIGH);
 
       digitalWrite (CS3, LOW);
+      strcpy(active_PresetName, PresetName2);
+      PresetName_helper();
       if ((PresetNumb + 2) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 2);
-        presetNameStyle1(); tft.println(PresetName2);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 2);
-        presetNameStyle2(); tft.println(PresetName2);
       }
       digitalWrite (CS3, HIGH);
     
       digitalWrite (CS4, LOW);
+      strcpy(active_PresetName, PresetName3);
+      PresetName_helper();
       if ((PresetNumb + 3) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 3);
-        presetNameStyle1(); tft.println(PresetName3);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 3);
-        presetNameStyle2(); tft.println(PresetName3);
       }
       digitalWrite (CS4, HIGH);
     
       digitalWrite (CS5, LOW);
+      strcpy(active_PresetName, PresetName4);
+      PresetName_helper();
       if ((PresetNumb + 4) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 4);
-        presetNameStyle1(); tft.println(PresetName4);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 4);
-        presetNameStyle2(); tft.println(PresetName4);
       }
       digitalWrite (CS5, HIGH);
     
       digitalWrite (CS6, LOW);
+      strcpy(active_PresetName, PresetName5);
+      PresetName_helper();
       if ((PresetNumb + 5) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 5);
-        presetNameStyle1(); tft.println(PresetName5);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 5);
-        presetNameStyle2(); tft.println(PresetName5);
       }
       digitalWrite (CS6, HIGH);
     
       digitalWrite (CS7, LOW);
+      strcpy(active_PresetName, PresetName6);
+      PresetName_helper();
       if ((PresetNumb + 6) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 6);
-        presetNameStyle1(); tft.println(PresetName6);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 6);
-        presetNameStyle2(); tft.println(PresetName6);
       }
       digitalWrite (CS7, HIGH);
     
       digitalWrite (CS8, LOW);
+      strcpy(active_PresetName, PresetName7);
+      PresetName_helper();
       if ((PresetNumb + 7) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 7);
-        presetNameStyle1(); tft.println(PresetName7);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 7);
-        presetNameStyle2(); tft.println(PresetName7);
       }
       digitalWrite (CS8, HIGH);
     
       digitalWrite (CS9, LOW);
+      strcpy(active_PresetName, PresetName8);
+      PresetName_helper();
       if ((PresetNumb + 8) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 8);
-        presetNameStyle1(); tft.println(PresetName8);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 8);
-        presetNameStyle2(); tft.println(PresetName8);
       }
       digitalWrite (CS9, HIGH);
     
       digitalWrite (CS10, LOW);
+      strcpy(active_PresetName, PresetName9);
+      PresetName_helper();
       if ((PresetNumb + 9) != (active_Preset))
       {
+        presetName_buildup();
         presetNumberStyle1(); tft.println(PresetNumb + 9);
-        presetNameStyle1(); tft.println(PresetName9);
       }
       else 
       {
         presetNumberStyle2_fillscreen;
+        active_presetName_buildup();
         presetNumberStyle2(); tft.println(PresetNumb + 9);
-        presetNameStyle2(); tft.println(PresetName9);
       }
       digitalWrite (CS10, HIGH);
-      debugln();debugln();  debug(" * presetBank is set to 0");
       presetBank = 0;
+      debugln();debugln();  debug(" * presetBank is set to 0");
       delay(50);
 }
 
@@ -1214,8 +1285,8 @@ void onPresetChange(AxePreset preset)
   // fill Presets for use in screens
   //================================
 
-  /* setting the activescene and active_Preset for other functions */
-  active_Scene  =  (preset.getSceneNumber()); //setting the active scenenumber
+  /* setting the active sceneNumber and active_Preset for other functions */
+  sceneNumber  =  (preset.getSceneNumber()); //setting the active scenenumber
   active_Preset =  (preset.getPresetNumber()); //setting the AxeFX active presetnumber
   CurPreset = active_Preset;
   debugln(); debug(" variable active_Preset = "); debug(active_Preset);
@@ -1224,7 +1295,7 @@ void onPresetChange(AxePreset preset)
 
   if (auditionMode == true)
   {
-    PresetNumb = CurPreset;  // setting the active preset as presetnumb
+    PresetNumb = CurPreset;   //setting the Current preset like presetnumb
     presetBank_settings();    // build up presetscreens and stay on preset screen
   }
   debugln(); debugln();   debug(" * function onSceneName started on axe_handler.h");

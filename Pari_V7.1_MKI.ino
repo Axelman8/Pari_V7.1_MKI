@@ -23,7 +23,7 @@ using AxeFxControl libriary from @tysonIT -> Without this libriary, this project
 Started from scratch with help of the shared programming of: @prongs_386 | @tysonIT | @Piing from the Fractal audio forum.
 =========================================================================================================================
 
-(on SD_program.h)
+(on SD_ini.h)
 @@@  DEBUGGING the program:  
   -> DEBUG (serial) code OFF = 0  | DEBUG output is very usefull to see the flow of the program code 
   -> Set to DEBUG and flash to Arduino to see program output in the Serial monitor  
@@ -32,7 +32,6 @@ Started from scratch with help of the shared programming of: @prongs_386 | @tyso
   
   NOTE to the reader:   
   -> See y_changeLog.h for any changes in this or previous versions
-  -> See z_readme.h for the program info.  Proces Flow, variables and functions   !!(Still under construction)
 
 /*=======================================================================================================================================*/
 //    INCLUDE LIBRIARY'S
@@ -44,8 +43,6 @@ Started from scratch with help of the shared programming of: @prongs_386 | @tyso
 #include <AxeFxControl.h>
 #include <Wire.h>
 #include <malloc.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <SD_ini.h>
 
 //RAM usage shown in the serial monitor
@@ -74,7 +71,7 @@ void setup()
   //Serial.begin(9600);   // Works good with the Serial.  Not very quick screen refresh on the peddleboard but it works good.
   //Serial.begin(115200); // Works good with the Serial.  Some quicker screen refresh on the peddleboard. Looks very nice i like it.
   //Serial.begin(230400); // Does not work good with the Serial. Good screen refresh rates on the peddleboard :) 
-  //Serial.begin(500000); // Forget the Serial, but screen refresh rate,  I like it alot!. #TESTED: It will work good for at least 3 hours straight!
+  //Serial.begin(500000); // Forget the Serial, but screen refresh rate.  #TESTED:  It will work good for at least 3 hours straight!
   Serial.begin(1000000);  // Screen refresh rate is awesome, my favor-it. #NOT TESTED: I dont know if it will hold up for 3 hours straight!
   Serial.flush();
 
@@ -142,13 +139,13 @@ void setup()
 
 /* AxeController settings -- */
   Axe.begin(serial);
-  Axe.registerSystemChangeCallback(onSystemChange);  // tab tempo
-  Axe.registerPresetChangeCallback(onPresetChange);  // New preset selection:  update info new presetname, active scenename, effects
-  Axe.registerPresetChangingCallback(onPresetChanging); // New preset with all scenenames, effects
-  Axe.registerSceneNameCallback(onSceneName); // run after onPresetChanging.  get all scenenames
-  Axe.registerEffectFilterCallback(onEffectFilter);
-  Axe.registerEffectsReceivedCallback(onEffectsReceived);
   Axe.requestPresetDetails();
+  Axe.registerSystemChangeCallback(onSystemChange);  // tab tempo
+  Axe.registerPresetChangingCallback(onPresetChanging); // New preset with all scenenames, effects
+  Axe.registerPresetChangeCallback(onPresetChange);  // New preset selection:  update info new presetname, active scenename, effects
+  Axe.registerSceneNameCallback(onSceneName); // run after onPresetChanging.  get all scenenames
+  Axe.registerEffectsReceivedCallback(onEffectsReceived);
+  Axe.registerEffectFilterCallback(onEffectFilter);
   Axe.registerTapTempoCallback(onTapTempo);
   Axe.registerTunerStatusCallback(onTunerStatus);
   Axe.registerTunerDataCallback(onTunerData);
@@ -243,7 +240,6 @@ if (Axe.isTunerEngaged() == false)
   { onlyTuner();}  // this shuts all off just for the tuner ... it works really good ... see Tuner.h
 
 }
-
 
 /*===================================================================================*/
 /*Axelman8*/

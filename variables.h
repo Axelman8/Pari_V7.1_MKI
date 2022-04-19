@@ -143,6 +143,7 @@ A_41,A_42,A_43;
 byte P11,P12,P13;
 byte Cursor;
 byte PNtxtWidth = 0;
+byte PNtxtHeight = 100;
 
 //extracted word from the string max 4 words
 String str1,str2,str3;

@@ -45,7 +45,7 @@ Just edit and save and then flash the program to the arduino
 
 
 // Using the Serial DEBUGGER  
-#ifdef DEBUG == DEBUG1
+#ifdef DEBUG == DEBUG
 #define debug(x) Serial.print(x)
 #define debugln(x) Serial.println(x)
 #else
@@ -83,11 +83,7 @@ bool tempoflash_bar = false;  // true  = show   90x30px | single BAR on top of s
                               // false = show   30x20px | 4 NOTES on top of screen 14
 
 
-/*=======================================================================================================================================*/
-//    Various variables with non changing values
-/*=======================================================================================================================================*/
 
-#define PNtxtHeight 100
 
 /* ======================================================================================================================================= 
 
@@ -429,31 +425,41 @@ presetScenes_Tuner_selection()
 
 /*=======================================================================================================================================*/
 
-//STARTUP screen for preset info  NO(txt1) INFO(txt2)
+
+//STARTUP screen 13 for preset info  NO(txt1) INFO(txt2)
 #define presetNameNumber_screen_fillscreen TFT_BLACK
 #define presetNameNumber_screen_txt1_color TFT_CYAN
 #define presetNameNumber_screen_txt1_BGcolor presetNameNumber_screen_fillscreen
 #define presetNameNumber_screen_txt2_color TFT_CYAN
 #define presetNameNumber_screen_txt2_BGcolor presetNameNumber_screen_fillscreen
 
+
 //Not active PRESET number text color settings  //All preset screens number text 
+#define presetStyle_notACTIVEbezel TFT_BLACK
 #define presetNumberStyle1_fillscreen TFT_BLACK
 #define presetNumberStyle1_txt1_color TFT_YELLOW
 #define presetNumberStyle1_txt1_BGcolor presetNumberStyle1_fillscreen
 
 //PRESET name text color settings              //All preset screens number text 
+#define presetNameStyle1_txt1_fillscreen TFT_BLACK
 #define presetNameStyle1_txt1_color TFT_CYAN
-#define presetNameStyle1_txt1_BGcolor presetNumberStyle1_fillscreen
+#define presetNameStyle1_txt1_BGcolor presetNameStyle1_txt1_fillscreen
 
 //Active preset settings text color settings
+#define presetStyle_ACTIVEbezel TFT_GREEN
 #define presetNumberStyle2_fillscreen TFT_BLACK
-#define presetNumberStyle2_txt1_color TFT_YELLOW
-#define presetNumberStyle2_txt1_BGcolor presetNumberStyle2_fillscreen
+#define presetNumberStyle2_txt1_color TFT_BLACK
+#define presetNumberStyle2_txt1_BGcolor presetStyle_ACTIVEbezel
 
 //Active preset settings
-#define presetNameStyle2_fillscreen TFT_GREEN
-#define presetNameStyle2_txt1_color TFT_BLACK
-#define presetNameStyle2_txt1_BGcolor presetNameStyle2_fillscreen
+#define presetNameStyle2_txt1_color TFT_CYAN
+#define presetNameStyle2_txt1_BGcolor presetNumberStyle2_fillscreen
+
+//AUDITIONMODE Active preset settings text color settings
+#define presetStyle_auditionMode_ACTIVEbezel TFT_RED
+#define presetNumberStyle2_auditionMode_fillscreen TFT_BLACK
+#define presetNumberStyle2_txt1_auditionMode_color TFT_YELLOW
+#define presetNumberStyle2_txt1_auditionMode_BGcolor presetStyle_auditionMode_ACTIVEbezel
 
 // PRESET DOWN screen (Screen 5) ->  1 screen configuration of the screen background and txt1(number) and txt2(name) color
 #define presetDown_screen_fillscreen TFT_BLACK

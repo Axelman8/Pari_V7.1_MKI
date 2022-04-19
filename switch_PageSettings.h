@@ -222,10 +222,10 @@ void AMP_effect_settings()
                 channel = "C";                
                 effect->switchChannel(2);
 
-                digitalWrite(CS4, LOW); ampabcdStyle2(); tft.println(" AMP C "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println(" AMP D "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println(" AMP A "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println(" AMP B "); digitalWrite(CS10, HIGH);
+                digitalWrite(CS4, LOW); ampabcdStyle2(); tft.println("   C   "); digitalWrite(CS4, HIGH);
+                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
+                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
+                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
                 channelSwitch();
               }
 
@@ -239,10 +239,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "D";
                 effect->switchChannel(3);
-                digitalWrite(CS5, LOW); ampabcdStyle2(); tft.println(" AMP D "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println(" AMP C "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println(" AMP A "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println(" AMP B "); digitalWrite(CS10, HIGH);
+                digitalWrite(CS5, LOW); ampabcdStyle2(); tft.println("   D   "); digitalWrite(CS5, HIGH);
+                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
+                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
+                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
                 channelSwitch();
               }
 
@@ -351,10 +351,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "A";
                 effect->switchChannel(0);
-                digitalWrite(CS9, LOW); ampabcdStyle2(); tft.println(" AMP A "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println(" AMP D "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println(" AMP C "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println(" AMP B "); digitalWrite(CS10, HIGH);
+                digitalWrite(CS9, LOW); ampabcdStyle2(); tft.println("   A   "); digitalWrite(CS9, HIGH);
+                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
+                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
+                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
                 channelSwitch(); 
               }
             }
@@ -367,10 +367,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "B";
                 effect->switchChannel(1);
-                digitalWrite(CS10, LOW);ampabcdStyle2(); tft.println(" AMP B "); digitalWrite(CS10, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println(" AMP D "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println(" AMP A "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println(" AMP C "); digitalWrite(CS4, HIGH);
+                digitalWrite(CS10, LOW);ampabcdStyle2(); tft.println("   B   "); digitalWrite(CS10, HIGH);
+                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
+                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
+                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
                 channelSwitch(); 
               }
             }

@@ -250,7 +250,32 @@ void presetUp_Style1()
 /*===========================================================================================================================
     PRESET STYLE
   ===========================================================================================================================*/ 
-void presetStyle1()
+
+void preset_ACTIVEbezel()  // for preset
+{
+   tft.drawRect(0, 0, 160, 128, presetStyle_ACTIVEbezel); // Draw bezel line
+   tft.drawRect(1, 1, 158, 126, presetStyle_ACTIVEbezel); // Draw bezel line
+   tft.drawRect(0, 95, 160, 128, presetStyle_ACTIVEbezel);  // Draw bezel line 
+   tft.fillRect(0, 95, 160, 128, presetStyle_ACTIVEbezel);  // Draw bezel line
+}
+
+void preset_auditionMode_ACTIVEbezel()  // for preset
+{
+   tft.drawRect(0, 0, 160, 128, presetStyle_auditionMode_ACTIVEbezel); // Draw bezel line
+   tft.drawRect(1, 1, 158, 126, presetStyle_auditionMode_ACTIVEbezel); // Draw bezel line
+   tft.drawRect(0, 95, 160, 128, presetStyle_auditionMode_ACTIVEbezel);  // Draw bezel line 
+   tft.fillRect(0, 95, 160, 128, presetStyle_auditionMode_ACTIVEbezel);  // Draw bezel line
+}
+
+void preset_notACTIVEbezel()  // for preset
+{
+   tft.drawRect(0, 0, 160, 128, presetStyle_notACTIVEbezel); // Draw bezel line
+   tft.drawRect(1, 1, 158, 126, presetStyle_notACTIVEbezel); // Draw bezel line
+   tft.drawRect(0, 95, 160, 128, presetStyle_notACTIVEbezel);  // Draw bezel line 
+   tft.fillRect(0, 95, 160, 128, presetStyle_notACTIVEbezel);  // Draw bezel line
+}
+
+void presetStyle1()   // is not used at the moment
 { tft.setTextColor(presetStyle1_txt1_color, presetStyle1_txt1_BGcolor);
   tft.setTextSize(3); tft.setCursor(30, 30);
   tft.println("PRESET");
@@ -258,18 +283,26 @@ void presetStyle1()
 }
 
 void presetNumberStyle1() 
-{ tft.setTextSize(3);
+{ preset_notACTIVEbezel(); tft.setTextSize(3);
   tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle1_txt1_color, presetNumberStyle1_txt1_BGcolor);}
 
 void presetNameStyle1()  //Not active preset settings
-{  tft.setTextSize(2);  tft.setCursor(0, 10); tft.setTextColor(presetNameStyle1_txt1_color, presetNameStyle1_txt1_BGcolor);}
+{  tft.setTextSize(3);  tft.setCursor(3, 10); tft.setTextColor(presetNameStyle1_txt1_color, presetNameStyle1_txt1_BGcolor);}
 
 void presetNumberStyle2()
-{ tft.setTextSize(3);
-  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle2_txt1_color, presetNumberStyle2_txt1_BGcolor);}
+{
+if (auditionMode == true)
+ {preset_auditionMode_ACTIVEbezel(); tft.setTextSize(3);
+  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle2_txt1_auditionMode_color, presetNumberStyle2_txt1_auditionMode_BGcolor);
+  }
+ else
+{ preset_ACTIVEbezel(); tft.setTextSize(3);
+  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle2_txt1_color, presetNumberStyle2_txt1_BGcolor);
+  }
+}
 
 void presetNameStyle2()
-{ tft.setTextSize(2);  tft.setCursor(0, 10); tft.setTextColor(presetNameStyle2_txt1_color, presetNameStyle2_txt1_BGcolor);}
+{ tft.setTextSize(3);  tft.setCursor(3, 10); tft.setTextColor(presetNameStyle2_txt1_color, presetNameStyle2_txt1_BGcolor);}
 
 
 /*===========================================================================================================================
@@ -856,7 +889,6 @@ void tapTempo_flash_OFF()
   tempoflash.pushSprite(0, 0);
   digitalWrite (CS14, HIGH);      
 }
-
 
 
 /*===========================================================================================================================
