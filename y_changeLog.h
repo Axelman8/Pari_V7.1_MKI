@@ -148,6 +148,7 @@
 *                           - CHANGE preset names on the TFT. Now all presetnames are centered                -> DONE 
 *                           - CHANGE preset_range.h  ->  now using switch statement instead of IF()  
 *                             This speeds up the program                                                      -> DONE
+*               19-05-2022  - FIX presetname on screen 13 when coming from TUNER                              -> DONE  
 *                            
 *             
 ========================================================================================================================*/

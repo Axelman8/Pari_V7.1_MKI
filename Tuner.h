@@ -19,7 +19,7 @@ void onlyTuner()
           tempoflash.deleteSprite();
           Axe.toggleTuner();
           debugln(); debug(" Switch-18 ");
-        delay(200);
+          delay(200);
           }
           break;
        }

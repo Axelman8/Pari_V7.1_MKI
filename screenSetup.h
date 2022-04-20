@@ -241,13 +241,13 @@ void ampName_buildup()
       switch (AMPnumber) {
 
       case 1: ampName_helper(Amp); A_11 = amp_1.length(); A_12 = amp_2.length(); A_13 = amp_3.length(); amp_1.toCharArray(amp11, A_11 + 1); amp_2.toCharArray(amp12, A_12 + 1); amp_3.toCharArray(amp13, A_13 + 1); 
-      debugln(); debug("AMP11 = "); debug(amp11); debug(", ");debug("AMP12 = "); debug(amp12); debug(", ");debug("AMP13 = "); debug(amp13); break;
+              debugln(); debug("AMP11 = "); debug(amp11); debug(", ");debug("AMP12 = "); debug(amp12); debug(", ");debug("AMP13 = "); debug(amp13); break;
       case 2: ampName_helper(Amp); A_21 = amp_1.length(); A_22 = amp_2.length(); A_23 = amp_3.length(); amp_1.toCharArray(amp21, A_21 + 1); amp_2.toCharArray(amp22, A_22 + 1); amp_3.toCharArray(amp23, A_23 + 1); break;
-      debugln(); debug("AMP21 = "); debug(amp21); debug(", ");debug("AMP22 = "); debug(amp22); debug(", ");debug("AMP23 = "); debug(amp23); break;
+              debugln(); debug("AMP21 = "); debug(amp21); debug(", ");debug("AMP22 = "); debug(amp22); debug(", ");debug("AMP23 = "); debug(amp23); break;
       case 3: ampName_helper(Amp); A_31 = amp_1.length(); A_32 = amp_2.length(); A_33 = amp_3.length(); amp_1.toCharArray(amp31, A_31 + 1); amp_2.toCharArray(amp32, A_32 + 1); amp_3.toCharArray(amp33, A_33 + 1); break;
-      debugln(); debug("AMP31 = "); debug(amp31); debug(", ");debug("AMP32 = "); debug(amp32); debug(", ");debug("AMP33 = "); debug(amp33); break;
+              debugln(); debug("AMP31 = "); debug(amp31); debug(", ");debug("AMP32 = "); debug(amp32); debug(", ");debug("AMP33 = "); debug(amp33); break;
       case 4: ampName_helper(Amp); A_41 = amp_1.length(); A_42 = amp_2.length(); A_43 = amp_3.length(); amp_1.toCharArray(amp41, A_41 + 1); amp_2.toCharArray(amp42, A_42 + 1); amp_3.toCharArray(amp43, A_43 + 1); break;
-      debugln(); debug("AMP41 = "); debug(amp41); debug(", ");debug("AMP42 = "); debug(amp42); debug(", ");debug("AMP43 = "); debug(amp43); break;
+              debugln(); debug("AMP41 = "); debug(amp41); debug(", ");debug("AMP42 = "); debug(amp42); debug(", ");debug("AMP43 = "); debug(amp43); break;
     }
 }
 

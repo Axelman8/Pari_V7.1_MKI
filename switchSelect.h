@@ -79,7 +79,7 @@ void numberPage_selection()
   if (auditionMode != true)
   {numberTopscreens();}  
   Counter = 0;
-  strcpy(page, "numbers");
+  //strcpy(page, "numbers");
   ini_numbers();
   delay(50);
  }
@@ -351,9 +351,8 @@ void bankDown_selection()
           bankDown_LCD_text();
           getScenes = true;
           effectCycle = true;
-          strcpy(page, "scene");
-          Axe.sendPresetChange(CurPreset);
           sceneTopscreens();
+          Axe.sendPresetChange(CurPreset);
           
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
@@ -406,9 +405,8 @@ void bankUp_selection()
           bankUp_LCD_text();
           getScenes = true;
           effectCycle = true;
-          Axe.sendPresetChange(PresetNumb);
-          strcpy(page, "scene");
           sceneTopscreens();
+          Axe.sendPresetChange(PresetNumb);
           
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
           debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);

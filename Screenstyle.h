@@ -948,11 +948,11 @@ void sceneTopscreens()
 void auditionmodeTopscreens()
 {
   strcpy(page, "preset");
+  debugln(); debug(" * PAGE is set to -> ");  debug(page); debug(" <- while in auditionMode");
   digitalWrite (CS11, LOW); presetScreen_11; digitalWrite (CS11, HIGH);
   digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH); 
   tapTempo_flash_selection_screen();
   tuner_selectionScreen();   
-  debugln(); debug(" * PAGE is set to -> ");  debug(page); debug(" <- while in auditionMode");
 }
 
 void exit_auditionmodeTopscreens()
@@ -965,60 +965,59 @@ void exit_auditionmodeTopscreens()
 
 void presetTopscreens()  
 {
-
+//Set the page to PRESET.  If we do not set it to preset, then the presetpage will not function conrrectly with a preset selection.  
+    strcpy(page, "preset"); 
+    debugln(); debug(" * PAGE is set to: "); debug(page);  
 if (preset_Topscreen11 == true){ digitalWrite (CS11, LOW); presetScreen_11; digitalWrite (CS11, HIGH);}
 if (preset_Topscreen12 == true){ digitalWrite (CS12, LOW); presetScreen_12; digitalWrite (CS12, HIGH);}
 if (preset_Topscreen14 == true){ digitalWrite (CS14, LOW); presetScreen_14; digitalWrite (CS14, HIGH);}
 if (preset_Topscreen15 == true){ digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH);}
 
-//Set the page to PRESET.  If we do not set it to preset, then the presetpage will not function conrrectly with a preset selection.  
-    strcpy(page, "preset"); 
-    debugln(); debug(" * PAGE is set to: "); debug(page);    
   }
 
 
 void effectTopscreens()
 {
+    strcpy(page, "effect");
+    debugln(); debug(" * PAGE is set to: ");debug(page);
 if (effect_Topscreen11 == true){ digitalWrite (CS11, LOW); effectScreen_11;  digitalWrite (CS11, HIGH);}
 if (effect_Topscreen12 == true){ digitalWrite (CS12, LOW); effectScreen_12;  digitalWrite (CS12, HIGH);}
 if (effect_Topscreen14 == true){ digitalWrite (CS14, LOW); effectScreen_14;  digitalWrite (CS14, HIGH);}
 if (effect_Topscreen15 == true){ digitalWrite (CS15, LOW); effectScreen_15;  digitalWrite (CS15, HIGH);}
-    strcpy(page, "effect");
-    debugln(); debug(" * PAGE is set to: ");debug(page);
   }
 
 
 void abcdTopscreens()
 {
+    strcpy(page, "AMP_effect");
+    debugln(); debug(" * PAGE is set to: "); debug(page);
 if (AMP_ABCD_Topscreen11 == true){ digitalWrite (CS11, LOW); AMP_effectScreen_11;  digitalWrite (CS11, HIGH);}
 if (AMP_ABCD_Topscreen12 == true){ digitalWrite (CS12, LOW); AMP_effectScreen_12;  digitalWrite (CS12, HIGH);}
 if (AMP_ABCD_Topscreen14 == true){ digitalWrite (CS14, LOW); AMP_effectScreen_14;  digitalWrite (CS14, HIGH);}
 if (AMP_ABCD_Topscreen15 == true){ digitalWrite (CS15, LOW); AMP_effectScreen_15;  digitalWrite (CS15, HIGH);}
-    strcpy(page, "AMP_effect");
-    debugln(); debug(" * PAGE is set to: "); debug(page);
   }
   
 
 //    tft.fillScreen(TFT_BLACK); // additional not used screens goto black
 void looperTopscreens()
 {
+    strcpy(page, "looper");
+    debugln(); debug(" * PAGE is set to: ");debug(page);
 if (looper_Topscreen11 == true){ digitalWrite(CS11, LOW); looperScreen_11; digitalWrite(CS11, HIGH);}
 if (looper_Topscreen12 == true){ digitalWrite(CS12, LOW); looperScreen_12; digitalWrite(CS12, HIGH);}
 if (looper_Topscreen14 == true){ digitalWrite(CS14, LOW); looperScreen_14; digitalWrite(CS14, HIGH);}
 if (looper_Topscreen15 == true){ digitalWrite(CS15, LOW); looperScreen_15; digitalWrite(CS15, HIGH);}
-    strcpy(page, "looper");
-    debugln(); debug(" * PAGE is set to: ");debug(page);
   }
 
 
 void numberTopscreens()
 {
+    strcpy(page, "numbers");
+    debugln(); debug(" * PAGE is set to: "); debug(page);
 if (number_Topscreen11 == true){ digitalWrite(CS11, LOW); numberScreen_11; digitalWrite(CS11, HIGH);}
 if (number_Topscreen12 == true){ digitalWrite(CS12, LOW); numberScreen_12; digitalWrite(CS12, HIGH);}
 if (number_Topscreen14 == true){ digitalWrite(CS14, LOW); numberScreen_14; digitalWrite(CS14, HIGH);}
 if (number_Topscreen15 == true){ digitalWrite(CS15, LOW); numberScreen_15; digitalWrite(CS15, HIGH);}
-    strcpy(page, "numbers");
-    debugln(); debug(" * PAGE is set to: "); debug(page);
  } 
   
 /*===================================================================================*/
