@@ -97,95 +97,6 @@ void onSystemChange()
  }
 
 
-/*==========================================================================================================================
-         Helper for better view of the names
-  ==========================================================================================================================*/
-
-void SceneName_helper(const char *name)
-{
-  stringScene = name;
-  stringScene.trim();
-  row1 = stringScene.indexOf(' ');  //frows location of first ,
-  str1 = stringScene.substring(0, row1);   //captures first data String
-  row2 = stringScene.indexOf(' ', row1 + 1 ); //frows location of second ,
-  str2 = stringScene.substring(row1 + 1, row2 + 1); //captures second data String
-  row3 = stringScene.indexOf(' ', row2 + 1 );
-  str3 = stringScene.substring(row2 + 1, row3 + 1);
-}
-
-void PresetName_helper()
-{
-  stringPreset = active_PresetName;
-  stringPreset.trim();
-  prow1 = stringPreset.indexOf(' ');  //frows location of first ,
-  pre1 = stringPreset.substring(0, prow1);   //captures first data String
-  prow2 = stringPreset.indexOf(' ', prow1 + 1 ); //frows location of second ,
-  pre2 = stringPreset.substring(prow1 + 1, prow2 + 1); //captures second data String
-  prow3 = stringPreset.indexOf(' ', prow2 + 1 );
-  pre3 = stringPreset.substring(prow2 + 1, prow3 + 1);
-
-  P11 = pre1.length(); P12 = pre2.length(); P13 = pre3.length();
-  pre1.toCharArray(PRE11, P11 + 1); pre2.toCharArray(PRE12, P12 + 1); pre3.toCharArray(PRE13, P13 + 1);
-}
-
-void presetNames_buildup()
-{
-    if (P11 > 10)
-    {  tft.setCursor(1, 10); }
-    else
-    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle1_txt1_color);
-      tft.println(PRE11);
-
-    //row 2
-    if (P12 > 10)
-    { tft.setCursor(1, 39); }
-    else
-    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle1_txt1_color);
-      tft.println(PRE12);
-
-    //row 3
-    if (P13 > 10)
-    { tft.setCursor(1, 68); }    
-    else
-    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle1_txt1_color);
-      tft.println(PRE13);
-} 
-
-void active_presetNames_buildup()
-{
-    if (P11 > 10)
-    {  tft.setCursor(1, 10); }
-    else
-    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle2_txt1_color);
-      tft.println(PRE11);
-
-    //row 2
-    if (P12 > 10)
-    { tft.setCursor(1, 39); }
-    else
-    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle2_txt1_color);
-      tft.println(PRE12);
-
-    //row 3
-    if (P13 > 10)
-    { tft.setCursor(1, 68); }    
-    else
-    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
-      tft.setTextSize(3);
-      tft.setTextColor(presetNameStyle2_txt1_color);
-      tft.println(PRE13);
-} 
-
 /*=========================================================================================================================
        Set active presetname in screen 13
   =========================================================================================================================*/
@@ -530,12 +441,9 @@ void effectvariable_reset()
  effect11= 0; effect12= 0; effect13= 0; effect14= 0; effect15= 0; effect16= 0; effect17= 0; effect18= 0; effect19 = 0; 
 }
 
-
-
 /*=========================================================================================================================
        Fetch all scenes 
   =========================================================================================================================*/
-
 
 void onSceneName(const SceneNumber number, const char* name, const byte length)
 {
@@ -596,7 +504,6 @@ void onSceneName(const SceneNumber number, const char* name, const byte length)
 }
 
 
-
 /*=========================================================================================================================
        EFFECT FILTER and LOOPER SETTINGS
   =========================================================================================================================*/
@@ -612,7 +519,7 @@ bool onEffectFilter(const PresetNumber number, AxeEffect effect) {
   {
     return  effect.isDrive() || effect.isDelay() || effect.isPhaser() || effect.isMulticomp() || effect.isChorus() || effect.isPitch() || 
             effect.isReverb() || effect.isPlex() || effect.isCompressor() || effect.isFlanger() || effect.isMultitap() || effect.isMegatap() ||
-            effect.isMulticomp() || effect.isLooper() ||  effect.isWah() || effect.isParaEQ() || effect.isDistort();
+            effect.isMulticomp() || effect.isLooper() ||  effect.isWah() || effect.isParaEQ(); /*|| effect.isDistort()*/
 
     /* This is a test for getting AMP1 to be shown...  it still doesnt work *26-6-2021
                 effect.isGrapheqEQ() || effect.isParaEQ() || effect.isRotary() || effect.isFormant() || effect.isVolume() || 
@@ -660,19 +567,90 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
       EffectId effectId = effectindex;
       effect.isBypassed();
 
+//==============================================================================================================
+//================    IF ENABLED, RESET EFFECT BYPASS STATE WHEN GOING BACK TO SCENEPAGE    ====================
+//==============================================================================================================
+        if (reset_effectbypass_state == true)  //setting available in SD_ini.h
+        {
+           switch (effectindex) 
+            {
+        case 1: thisEffect = effect1; effectbypass = effect1_bypass; thisEffect = (effect.getEffectId()); 
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect1_bypass status?: "); debug(effectbypass); break; 
+
+        case 2: thisEffect = effect2; effectbypass = effect2_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect2_bypass status?: "); debug(effectbypass); break; 
+
+        case 3: thisEffect = effect3; effectbypass = effect3_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect3_bypass status?: "); debug(effectbypass); break;
+ 
+        case 4: thisEffect = effect4; effectbypass = effect4_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect4_bypass status?: "); debug(effectbypass); break;
+
+        case 5: thisEffect = effect5; effectbypass = effect5_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect5_bypass status?: "); debug(effectbypass); break;
+
+        case 6: thisEffect = effect6; effectbypass = effect6_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect6_bypass status?: "); debug(effectbypass); break;    
+
+        case 7: thisEffect = effect7; effectbypass = effect7_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect7_bypass status?: "); debug(effectbypass); break;
+
+        case 8: thisEffect = effect8; effectbypass = effect8_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect8_bypass status?: "); debug(effectbypass); break;
+
+        case 9: thisEffect = effect9; effectbypass = effect9_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect9_bypass status?: "); debug(effectbypass); break;
+
+        case 10: thisEffect = effect10; effectbypass = effect10_bypass; thisEffect = (effect.getEffectId());
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect10_bypass status?: "); debug(effectbypass);break;
+            }
+                 
+          }
+//======================================================================================================
+
 
       if (strcmp(page, "effect") == 0)  //Only if page is effect,  than get the effects to print on screen.
       {
         tft.setTextWrap(false);
         switch (effectindex)
         {
-          case 1:
+       case 1:
             effect1 = (effect.getEffectId());
             digitalWrite (CS1, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect1_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect1_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS1, HIGH);
             break;
 
@@ -680,9 +658,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect2 = (effect.getEffectId());
             digitalWrite (CS2, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect2_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect2_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS2, HIGH);
             break;
 
@@ -691,9 +669,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect3 = (effect.getEffectId());
             digitalWrite (CS3, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect3_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect3_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS3, HIGH);
             break;
 
@@ -702,9 +680,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect4 = (effect.getEffectId());
             digitalWrite (CS4, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect4_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect4_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS4, HIGH);
             break;
 
@@ -712,9 +690,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect5 = (effect.getEffectId());
             digitalWrite (CS5, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect5_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect5_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS5, HIGH);
             break;
 
@@ -722,9 +700,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect6 = (effect.getEffectId());
             digitalWrite (CS6, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect6_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect6_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS6, HIGH);
             break;
 
@@ -732,9 +710,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect7 = (effect.getEffectId());
             digitalWrite (CS7, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect7_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect7_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS7, HIGH);
             break;
 
@@ -742,9 +720,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect8 = (effect.getEffectId());
             digitalWrite (CS8, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect8_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect8_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS8, HIGH);
             break;
 
@@ -752,9 +730,9 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect9 = (effect.getEffectId());
             digitalWrite (CS9, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect9_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect9_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS9, HIGH);
             break;
 
@@ -762,17 +740,18 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
             effect10 = (effect.getEffectId());
             digitalWrite (CS10, LOW);
             if (effect.isBypassed()) 
-            {effectStyle1();effect.printEffectName(tft);}
+            {effect10_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
-            {effectStyle2();effect.printEffectName(tft);}
+            {effect10_bypass = false; effectStyle2();effect.printEffectName(tft);}
             digitalWrite (CS10, HIGH);
             break;
         }
       }
 
-      /*==============================================================
-        ======  HERE we go with the ABCD settings on AMP and CAB =====
-        ==============================================================*/
+//==============================================================================================================
+//=========================   HERE we go with the ABCD settings on AMP and CAB   ===============================
+//==============================================================================================================
+
       if  (strcmp(page, "AMP_effect") == 0)
      {
         debugln(); debugln(); debug(" * function AMP_effect started on axe_handler.h");
@@ -833,11 +812,11 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
       }
 
            /*                                  WAH or LOOPER AVAILABLE?
-              ==========================================================================================
+===============================================================================================================
                Setting the parameters for screen 11 and 12:  is Wah or Looper available?
                if looper = true:  here we check if looper is available and print in screen 12 (id = 166)
                if wah = true:     here we check if wah is available and print in screen 11 (id = 94)
-              ==========================================================================================*/
+===============================================================================================================*/
 
         switch (effectindex)
         {
@@ -1050,16 +1029,19 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
               looperActive = true;
             }
             break;
-        
+        }
       }
-    }
+
         if (getScenes != true) 
           { 
-  debugln(); debugln();   debug(" * function wah_looper is started from onEffectsReceived() on axe_handler.h");
+            debugln(); debugln();   debug(" * function wah_looper is started from onEffectsReceived() on axe_handler.h");
             wah_looper();
             }
+      reset_effectbypass_state = false;  
+      debugln(""); debug(" reset_effectbypass_state is set to: "); debug(reset_effectbypass_state);
   }
 }
+
 
 /*=========================================================================================================================
        PRESET VIEW SETTINGS

@@ -52,6 +52,124 @@ void buttonpressed()
 { currentMillis = millis();}   //for ?
 
 
+/*==========================================================================================================================
+     Helper for better view of SCENE and PRESET names
+  ==========================================================================================================================*/
+
+void SceneName_helper(const char *name)
+{
+  stringScene = name;
+  stringScene.trim();
+  row1 = stringScene.indexOf(' ');  //frows location of first ,
+  str1 = stringScene.substring(0, row1);   //captures first data String
+  row2 = stringScene.indexOf(' ', row1 + 1 ); //frows location of second ,
+  str2 = stringScene.substring(row1 + 1, row2 + 1); //captures second data String
+  row3 = stringScene.indexOf(' ', row2 + 1 );
+  str3 = stringScene.substring(row2 + 1, row3 + 1);
+}
+
+void PresetName_helper()
+{
+  stringPreset = active_PresetName;
+  stringPreset.trim();
+  prow1 = stringPreset.indexOf(' ');  //frows location of first ,
+  pre1 = stringPreset.substring(0, prow1);   //captures first data String
+  prow2 = stringPreset.indexOf(' ', prow1 + 1 ); //frows location of second ,
+  pre2 = stringPreset.substring(prow1 + 1, prow2 + 1); //captures second data String
+  prow3 = stringPreset.indexOf(' ', prow2 + 1 );
+  pre3 = stringPreset.substring(prow2 + 1, prow3 + 1);
+
+  P11 = pre1.length(); P12 = pre2.length(); P13 = pre3.length();
+  pre1.toCharArray(PRE11, P11 + 1); pre2.toCharArray(PRE12, P12 + 1); pre3.toCharArray(PRE13, P13 + 1);
+}
+
+void presetNames_buildup()
+{
+    if (P11 > 10)
+    {  tft.setCursor(1, 10); }
+    else
+    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE11);
+
+    //row 2
+    if (P12 > 10)
+    { tft.setCursor(1, 39); }
+    else
+    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE12);
+
+    //row 3
+    if (P13 > 10)
+    { tft.setCursor(1, 68); }    
+    else
+    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle1_txt1_color);
+      tft.println(PRE13);
+} 
+
+void active_presetNames_buildup()
+{
+    if (P11 > 10)
+    {  tft.setCursor(1, 10); }
+    else
+    { tft.setCursor((80 - ((P11 * 9) - 6)), 10); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE11);
+
+    //row 2
+    if (P12 > 10)
+    { tft.setCursor(1, 39); }
+    else
+    { tft.setCursor((80 - ((P12 * 9) - 6)), 39); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE12);
+
+    //row 3
+    if (P13 > 10)
+    { tft.setCursor(1, 68); }    
+    else
+    { tft.setCursor((80 - ((P13 * 9) - 6)), 68); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetNameStyle2_txt1_color);
+      tft.println(PRE13);
+} 
+
+void preset_UP_DOWN_Names_buildup()
+{
+    if (P11 > 10)
+    {  tft.setCursor(1, 50); }
+    else
+    { tft.setCursor((80 - ((P11 * 9) - 6)), 50); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetUpDown_screen_txt2_color,presetUpDown_screen_txt2_BGcolor);
+      tft.println(PRE11);
+
+    //row 2
+    if (P12 > 10)
+    { tft.setCursor(1, 39); }
+    else
+    { tft.setCursor((80 - ((P12 * 9) - 6)), 78); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetUpDown_screen_txt2_color,presetUpDown_screen_txt2_BGcolor);
+      tft.println(PRE12);
+
+    //row 3
+    if (P13 > 10)
+    { tft.setCursor(1, 68); }    
+    else
+    { tft.setCursor((80 - ((P13 * 9) - 6)), 106); }
+      tft.setTextSize(3);
+      tft.setTextColor(presetUpDown_screen_txt2_color,presetUpDown_screen_txt2_BGcolor);
+      tft.println(PRE13);
+} 
+
 
 /*===========================================================================================================================
      16*2 LCD BUILT TEXT on screen         
@@ -216,8 +334,8 @@ void screen13Style()
   ===========================================================================================================================*/ 
 void presetDown_Style()
 {
-  tft.fillScreen(presetDown_screen_fillscreen);
-  tft.setTextColor(presetDown_screen_txt1_color,presetDown_screen_txt1_BGcolor);
+  tft.fillScreen(presetUpDown_screen_fillscreen);
+  tft.setTextColor(presetUpDown_screen_txt1_color,presetUpDown_screen_txt1_BGcolor);
   if (previousPreset < 10)
   { Cursor = 65;  }
   else if ((previousPreset >= 10) && (previousPreset < 100))
@@ -227,25 +345,25 @@ void presetDown_Style()
   tft.setTextSize(6); tft.setCursor(Cursor, 2);
 }
 
-void presetDown_Style1()
-{ tft.setTextSize(2);  tft.setCursor(2, 65); tft.setTextColor(presetDown_screen_txt2_color,presetDown_screen_txt2_BGcolor);} 
-
-
 void presetUp_Style()
 {
-  tft.fillScreen(presetUp_screen_fillscreen);
-  tft.setTextColor(presetUp_screen_txt1_color,presetUp_screen_txt1_BGcolor);
+  tft.fillScreen(presetUpDown_screen_fillscreen);
+  tft.setTextColor(presetUpDown_screen_txt1_color,presetUpDown_screen_txt1_BGcolor);
   if (nextPreset < 10)
   { Cursor = 65;  }
   else if ((nextPreset >= 10) && (nextPreset < 100))
   { Cursor = 50;  }
   else if ((nextPreset >= 100) && (nextPreset < 1000))
-  { Cursor = 29;  }
+  { Cursor = 29;  } 
   tft.setTextSize(6); tft.setCursor(Cursor, 2);
 }
 
-void presetUp_Style1()
-{ tft.setTextSize(2);  tft.setCursor(2, 60); tft.setTextColor(presetUp_screen_txt2_color,presetUp_screen_txt2_BGcolor);} 
+
+void presetUpDown_Style1()
+{ tft.setTextSize(2);  tft.setCursor(2, 65); tft.setTextColor(presetUpDown_screen_txt2_color,presetUpDown_screen_txt2_BGcolor);} 
+
+
+
 
 /*===========================================================================================================================
     PRESET STYLE
@@ -518,29 +636,30 @@ void presetUp_screen()
   {
     nextPresetnr = (nextPreset % 10);
     presetUp_handler();
-    presetRange(); delay(200); 
-    preset_Names(); delay(200);
+    presetRange(); delay(10); 
+    preset_Names(); delay(10);
     
   switch (nextPresetnr)
   {
-  case 0:  strcpy(nextPresetName, PresetName0); debugln(); debug(" nextPresetName = "); debug(PresetName0); break;
-  case 1:  strcpy(nextPresetName, PresetName1); debugln(); debug(" nextPresetName = "); debug(PresetName1); break;
-  case 2:  strcpy(nextPresetName, PresetName2); debugln(); debug(" nextPresetName = "); debug(PresetName2); break;
-  case 3:  strcpy(nextPresetName, PresetName3); debugln(); debug(" nextPresetName = "); debug(PresetName3); break;
-  case 4:  strcpy(nextPresetName, PresetName4); debugln(); debug(" nextPresetName = "); debug(PresetName4); break;
-  case 5:  strcpy(nextPresetName, PresetName5); debugln(); debug(" nextPresetName = "); debug(PresetName5); break;
-  case 6:  strcpy(nextPresetName, PresetName6); debugln(); debug(" nextPresetName = "); debug(PresetName6); break;
-  case 7:  strcpy(nextPresetName, PresetName7); debugln(); debug(" nextPresetName = "); debug(PresetName7); break;
-  case 8:  strcpy(nextPresetName, PresetName8); debugln(); debug(" nextPresetName = "); debug(PresetName8); break;
-  case 9:  strcpy(nextPresetName, PresetName9); debugln(); debug(" nextPresetName = "); debug(PresetName9); break;
+  case 0:  strcpy(active_PresetName, PresetName0); debugln(); debug(" nextPresetName = "); debug(PresetName0); break;
+  case 1:  strcpy(active_PresetName, PresetName1); debugln(); debug(" nextPresetName = "); debug(PresetName1); break;
+  case 2:  strcpy(active_PresetName, PresetName2); debugln(); debug(" nextPresetName = "); debug(PresetName2); break;
+  case 3:  strcpy(active_PresetName, PresetName3); debugln(); debug(" nextPresetName = "); debug(PresetName3); break;
+  case 4:  strcpy(active_PresetName, PresetName4); debugln(); debug(" nextPresetName = "); debug(PresetName4); break;
+  case 5:  strcpy(active_PresetName, PresetName5); debugln(); debug(" nextPresetName = "); debug(PresetName5); break;
+  case 6:  strcpy(active_PresetName, PresetName6); debugln(); debug(" nextPresetName = "); debug(PresetName6); break;
+  case 7:  strcpy(active_PresetName, PresetName7); debugln(); debug(" nextPresetName = "); debug(PresetName7); break;
+  case 8:  strcpy(active_PresetName, PresetName8); debugln(); debug(" nextPresetName = "); debug(PresetName8); break;
+  case 9:  strcpy(active_PresetName, PresetName9); debugln(); debug(" nextPresetName = "); debug(PresetName9); break;
   }
     debugln(); debug(" nextPresetnr = "); debug(nextPreset);  
     debugln(); debug(" Nextpreset PresetNumb = "); debug(PresetNumb);
       
-    tft.setTextWrap(true);
+
     presetUp_Style();  tft.println(nextPreset);
-    presetUp_Style1(); tft.println(nextPresetName);
-    tft.setTextWrap(false);
+    presetUpDown_Style1();
+    PresetName_helper();
+    preset_UP_DOWN_Names_buildup(); 
     PresetNumb = active_Preset;
   }
 }
@@ -554,28 +673,29 @@ void presetDown_screen()
   {
   previousPresetnr = (previousPreset % 10); 
     presetDown_handler();
-    presetRange(); delay(200);
-    preset_Names(); delay(200);
+    presetRange(); delay(10);
+    preset_Names(); delay(10);
         
   switch (previousPresetnr)
   {
-  case 0:  strcpy(previousPresetName, PresetName0); debugln(); debug(" previousPresetName = "); debug(PresetName0); break;
-  case 1:  strcpy(previousPresetName, PresetName1); debugln(); debug(" previousPresetName = "); debug(PresetName1); break;
-  case 2:  strcpy(previousPresetName, PresetName2); debugln(); debug(" previousPresetName = "); debug(PresetName2); break;
-  case 3:  strcpy(previousPresetName, PresetName3); debugln(); debug(" previousPresetName = "); debug(PresetName3); break;
-  case 4:  strcpy(previousPresetName, PresetName4); debugln(); debug(" previousPresetName = "); debug(PresetName4); break;
-  case 5:  strcpy(previousPresetName, PresetName5); debugln(); debug(" previousPresetName = "); debug(PresetName5); break;
-  case 6:  strcpy(previousPresetName, PresetName6); debugln(); debug(" previousPresetName = "); debug(PresetName6); break;
-  case 7:  strcpy(previousPresetName, PresetName7); debugln(); debug(" previousPresetName = "); debug(PresetName7); break;
-  case 8:  strcpy(previousPresetName, PresetName8); debugln(); debug(" previousPresetName = "); debug(PresetName8); break;
-  case 9:  strcpy(previousPresetName, PresetName9); debugln(); debug(" previousPresetName = "); debug(PresetName9); break;
+  case 0:  strcpy(active_PresetName, PresetName0); debugln(); debug(" previousPresetName = "); debug(PresetName0); break;
+  case 1:  strcpy(active_PresetName, PresetName1); debugln(); debug(" previousPresetName = "); debug(PresetName1); break;
+  case 2:  strcpy(active_PresetName, PresetName2); debugln(); debug(" previousPresetName = "); debug(PresetName2); break;
+  case 3:  strcpy(active_PresetName, PresetName3); debugln(); debug(" previousPresetName = "); debug(PresetName3); break;
+  case 4:  strcpy(active_PresetName, PresetName4); debugln(); debug(" previousPresetName = "); debug(PresetName4); break;
+  case 5:  strcpy(active_PresetName, PresetName5); debugln(); debug(" previousPresetName = "); debug(PresetName5); break;
+  case 6:  strcpy(active_PresetName, PresetName6); debugln(); debug(" previousPresetName = "); debug(PresetName6); break;
+  case 7:  strcpy(active_PresetName, PresetName7); debugln(); debug(" previousPresetName = "); debug(PresetName7); break;
+  case 8:  strcpy(active_PresetName, PresetName8); debugln(); debug(" previousPresetName = "); debug(PresetName8); break;
+  case 9:  strcpy(active_PresetName, PresetName9); debugln(); debug(" previousPresetName = "); debug(PresetName9); break;
   }
     debugln(); debug(" previousPresetnr = "); debug(previousPreset);
     debugln(); debug(" PreviousPreset PresetNumb = "); debug(PresetNumb); 
-    tft.setTextWrap(true);
+
     presetDown_Style();  tft.println(previousPreset);
-    presetDown_Style1(); tft.println(previousPresetName);
-    tft.setTextWrap(false);  
+    presetUpDown_Style1();
+    PresetName_helper();
+    preset_UP_DOWN_Names_buildup();     
     PresetNumb = active_Preset;
   }
 }
@@ -953,6 +1073,7 @@ void auditionmodeTopscreens()
   digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH); 
   tapTempo_flash_selection_screen();
   tuner_selectionScreen();   
+
 }
 
 void exit_auditionmodeTopscreens()
@@ -967,9 +1088,13 @@ void presetTopscreens()
 {
 //Set the page to PRESET.  If we do not set it to preset, then the presetpage will not function conrrectly with a preset selection.  
     strcpy(page, "preset"); 
-    debugln(); debug(" * PAGE is set to: "); debug(page);  
+    debugln(); debug(" * PAGE is set to: "); debug(page);       
+
 if (preset_Topscreen11 == true){ digitalWrite (CS11, LOW); presetScreen_11; digitalWrite (CS11, HIGH);}
 if (preset_Topscreen12 == true){ digitalWrite (CS12, LOW); presetScreen_12; digitalWrite (CS12, HIGH);}
+
+    digitalWrite (CS13, LOW);  auditionMode_screen(); digitalWrite (CS13, HIGH);
+    
 if (preset_Topscreen14 == true){ digitalWrite (CS14, LOW); presetScreen_14; digitalWrite (CS14, HIGH);}
 if (preset_Topscreen15 == true){ digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH);}
 

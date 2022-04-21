@@ -21,12 +21,6 @@ void scenePage_selection()
   debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);  
   debugln(); debugln(); debug(" * function scenePage_selection started on switchSelect.h");
 
-  if (auditionMode == true)
-  {exit_auditionmodeTopscreens();}
-  else
-  {sceneTopscreens();}
-  if (strcmp(page, "effect") != 0)
-  {
   auditionMode = false;
   debugln();debug(" -> auditionmode set to: ");debug(auditionMode);
   currentEffect = 0;
@@ -35,9 +29,20 @@ void scenePage_selection()
   effectCycle = true;
   debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
   debugln(); debug(" -> getScenes set to: "); debug(getScenes);  
-  ini_scenes();
+  if (strcmp(page, "effect") == 0)
+  {
+    if (RESET_EFFECT == true)  // when going to scenepage, reset effects true or false? 
+    {
+      reset_effectbypass_state = true;
+      Axe.refresh();  
+      }
   }
-  delay(50);
+  if (auditionMode == true)
+  {exit_auditionmodeTopscreens();}
+  else
+  {sceneTopscreens();}
+  ini_scenes();
+  delay(20);
 }
 
 /*==================   OR  ========================*/
@@ -55,7 +60,7 @@ void presetPage_selection()
   debugln(); debug(" -> getScenes set to: ");   debug(getScenes); 
   presetRange();
   ini_preset();
-  delay(50);
+  delay(20);
 }
 
 
@@ -67,7 +72,7 @@ void looperPage_selection()
   
   looperTopscreens();
   ini_looper();
-  delay(50);
+  delay(20);
 }
 
 /*==================   OR  ========================*/
@@ -79,9 +84,8 @@ void numberPage_selection()
   if (auditionMode != true)
   {numberTopscreens();}  
   Counter = 0;
-  //strcpy(page, "numbers");
   ini_numbers();
-  delay(50);
+  delay(20);
  }
 
 /*==================   OR  ========================*/
@@ -113,14 +117,17 @@ void ampabcdPage_selection()
   digitalWrite(CS1, HIGH); digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
   digitalWrite(CS6, HIGH); digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10, HIGH);  
 
-    if (strcmp(page,"AMP_effect") !=0)  {abcdTopscreens();}
+    if (strcmp(page,"AMP_effect") !=0)  
+    {abcdTopscreens();}
     getScenes = false;
     effectCycle = true;
     debugln(); debug(" -> getScenes set to: "); debug(getScenes);
     debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
-    delay(50);
+    delay(20);
     currentEffect = 0;
     debugln(); debug(" currenteffect = 0");
+    AxePreset preset = (Axe.getCurrentPreset());
+    presetName_setting(preset);
     AMP_ABCD();
     Axe.refresh(); 
   }
@@ -255,8 +262,6 @@ void presetSelection()
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);        
           Axe.sendPresetChange(CurPreset);
           presetRange();
-          tapTempo_flash_selection_screen();
-          tuner_selectionScreen();
           debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
           }
             else
@@ -275,7 +280,6 @@ void presetSelection()
               debugln(); debug(" -> getScenes set to: "); debug(getScenes);
               debugln(); debug(" -> effectcycle set to: ");  debug(effectCycle);
               Axe.sendPresetChange(CurPreset);
-              tapTempo_screen();
               debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
               }
 }
@@ -351,7 +355,6 @@ void bankDown_selection()
           bankDown_LCD_text();
           getScenes = true;
           effectCycle = true;
-          sceneTopscreens();
           Axe.sendPresetChange(CurPreset);
           
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);
@@ -405,7 +408,6 @@ void bankUp_selection()
           bankUp_LCD_text();
           getScenes = true;
           effectCycle = true;
-          sceneTopscreens();
           Axe.sendPresetChange(PresetNumb);
           
           debugln(); debug(" -> getScenes set to: "); debug(getScenes);

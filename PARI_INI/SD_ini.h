@@ -83,6 +83,11 @@ bool tempoflash_bar = false;  // true  = show   90x30px | single BAR on top of s
                               // false = show   30x20px | 4 NOTES on top of screen 14
 
 
+/*=======================================================================================================================================*/
+//    RESET_EFFECT  = RESET ALL EFFECTS TO DEFAULT WHEN GOING TO SCENE PAGE  
+/*=======================================================================================================================================*/
+
+#define RESET_EFFECT true
 
 
 /* ======================================================================================================================================= 
@@ -140,7 +145,7 @@ presetScenes_Tuner_selection()
 // You want to refresh the screen on page build-up YES / NO? -> These are my default settings:
 #define scene_Topscreen11 true
 #define scene_Topscreen12 true
-#define scene_Topscreen14 false
+#define scene_Topscreen14 true
 #define scene_Topscreen15 true
 #define sceneScreen_5  presetDown_screen()
 #define sceneswitch_5  presetDown_selection()
@@ -461,19 +466,13 @@ presetScenes_Tuner_selection()
 #define presetNumberStyle2_txt1_auditionMode_color TFT_YELLOW
 #define presetNumberStyle2_txt1_auditionMode_BGcolor presetStyle_auditionMode_ACTIVEbezel
 
-// PRESET DOWN screen (Screen 5) ->  1 screen configuration of the screen background and txt1(number) and txt2(name) color
-#define presetDown_screen_fillscreen TFT_BLACK
-#define presetDown_screen_txt1_color TFT_YELLOW
-#define presetDown_screen_txt1_BGcolor presetDown_screen_fillscreen
-#define presetDown_screen_txt2_color TFT_YELLOW
-#define presetDown_screen_txt2_BGcolor presetDown_screen_fillscreen
+// PRESET DOWN - UP screen (Screen 5 and 10) ->  1 screen configuration of the screen background and txt1(number) and txt2(name) color
+#define presetUpDown_screen_fillscreen TFT_DARKCYAN
+#define presetUpDown_screen_txt1_color TFT_ORANGE
+#define presetUpDown_screen_txt1_BGcolor presetUpDown_screen_fillscreen
+#define presetUpDown_screen_txt2_color TFT_YELLOW
+#define presetUpDown_screen_txt2_BGcolor presetUpDown_screen_fillscreen
 
-// PRESET UP screen (Screen 10) ->  1 screen configuration of the screen background and txt1(number) and txt2(name) color
-#define presetUp_screen_fillscreen TFT_BLACK
-#define presetUp_screen_txt1_color TFT_YELLOW
-#define presetUp_screen_txt1_BGcolor presetUp_screen_fillscreen
-#define presetUp_screen_txt2_color TFT_YELLOW
-#define presetUp_screen_txt2_BGcolor presetUp_screen_fillscreen
 
 /*=======================================================================================================================================*/
 

@@ -203,6 +203,11 @@ byte tempo_Counter = 0; // For the "4 balls" tempo sprite
 bool tapSwitch;
 bool getScenes;
 bool effectCycle;
+bool effect1_bypass = false; bool effect2_bypass = false; bool effect3_bypass = false; bool effect4_bypass = false;
+bool effect5_bypass = false; bool effect6_bypass = false; bool effect7_bypass = false; bool effect8_bypass = false;
+bool effect9_bypass = false; bool effect10_bypass = false;
+bool effectbypass;
+bool reset_effectbypass_state = false;
 bool auditionMode;
 bool looperActive;
 bool wahActive;

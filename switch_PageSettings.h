@@ -57,15 +57,15 @@ void scenes_settings()
         case 5: sceneSelection(); delay(200);  break; // Switch 6.  Scene 5
         case 6: sceneSelection(); delay(200);  break; // Switch 7.  Scene 6
         case 7: sceneSelection(); delay(200);  break; // Switch 8.  Scene 7
-        case 8: sceneSelection(); delay(200);  break; // Switch 10. Scene 8
-        case 9: sceneswitch_10;  delay(200);   break; // Switch 11. 
-        case 10: sceneswitch_11; delay(200);   break; // Switch 13. 
-        case 11: sceneswitch_12; delay(200);   break; // Switch 14. 
-        case 12: sceneswitch_13; delay(200);   break; // Switch 15. 
-        case 13: sceneswitch_14; break; // Switch 16. 
-        case 14: sceneswitch_15; delay(200);   break; // Switch 17. 
-        case 15: sceneswitch_16; delay(50);   break; // Switch 16. /*strcpy(page, "scene");*/ 
-        case 16: sceneswitch_17; delay(50);   break; // Switch 17. /*strcpy(page, "scene");*/
+        case 8: sceneSelection(); delay(200);  break; // Switch 9.  Scene 8
+        case 9: sceneswitch_10;  delay(200);   break; // Switch 10. 
+        case 10: sceneswitch_11; delay(200);   break; // Switch 11. 
+        case 11: sceneswitch_12; delay(200);   break; // Switch 12. 
+        case 12: sceneswitch_13; delay(200);   break; // Switch 13. 
+        case 13: sceneswitch_14; break; // Switch 14. 
+        case 14: sceneswitch_15; delay(200);   break; // Switch 15. 
+        case 15: sceneswitch_16; delay(50);   break; // Switch 16. 
+        case 16: sceneswitch_17; delay(50);   break; // Switch 17. 
         case 17: sceneswitch_18; delay(200);   break; // Switch 18. TUNER
         }
       }
@@ -88,23 +88,59 @@ void preset_settings()
         case 2:  presetSelection(); delay(200);  break; // Switch 3. preset 3
         case 3:  presetSelection(); delay(200);  break; // Switch 4. preset 4
         case 4:  presetSelection(); delay(200);  break; // Switch 5. Preset 5
-        case 5:  presetSelection(); delay(200);  break; // Switch 7. preset 6
-        case 6:  presetSelection(); delay(200);  break; // Switch 8. preset 7
-        case 7:  presetSelection(); delay(200);  break; // Switch 9. preset 8
-        case 8:  presetSelection(); delay(200);  break; // Switch 10.preset 9
-        case 9:  presetSelection(); delay(200);  break; // Switch 11.preset 10
-        case 10: presetswitch_11; delay(200);   break;  // Switch 13. 
-        case 11: presetswitch_12; delay(200);   break;  // Switch 14. 
-        case 12: presetswitch_13; delay(200);   break;  // Switch 15. 
-        case 13: presetswitch_14; break;  // Switch 16. 
-        case 14: presetswitch_15; delay(200);   break;  // Switch 17. 
-        case 15: presetswitch_16; delay(50);   break;  // Switch 16. /*strcpy(page, "preset");*/
-        case 16: presetswitch_17; delay(50);   break;  // Switch 17. /*strcpy(page, "preset");*/
+        case 5:  presetSelection(); delay(200);  break; // Switch 6. preset 6
+        case 6:  presetSelection(); delay(200);  break; // Switch 7. preset 7
+        case 7:  presetSelection(); delay(200);  break; // Switch 8. preset 8
+        case 8:  presetSelection(); delay(200);  break; // Switch 9. preset 9
+        case 9:  presetSelection(); delay(200);  break; // Switch 10.preset 10
+        case 10: presetswitch_11; delay(200);   break;  // Switch 11. 
+        case 11: presetswitch_12; delay(200);   break;  // Switch 12. 
+        case 12: presetswitch_13; delay(200);   break;  // Switch 13. 
+        case 13: presetswitch_14; break;  // Switch 14. 
+        case 14: presetswitch_15; delay(200);   break;  // Switch 15. 
+        case 15: presetswitch_16; delay(50);   break;  // Switch 16. 
+        case 16: presetswitch_17; delay(50);   break;  // Switch 17.
         case 17: presetswitch_18; delay(200);  break;  // Switch 18. TUNER
     }
     switchState[currentSwitch] = digitalRead( switches[currentSwitch] );
    }
   }
+}
+
+/*================================================================================================================================*/
+/*   EFFECT  BUTTONS
+/*================================================================================================================================*/
+void effect_settings()
+{
+  for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
+    if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
+      switch ( currentSwitch ) {
+    
+    // NOTES: Currently the issue is we get a copy of effect so modifying it doesn't update state, we need to modify the actual state of the preset;
+
+        case 0: {effectSelection(); delay(200); break;}     // Switch 1. Effect 1
+        case 1: {effectSelection(); delay(200); break;}     // Switch 2. Effect 2
+        case 2: {effectSelection(); delay(200); break;}     // Switch 3. Effect 3
+        case 3: {effectSelection(); delay(200); break;}     // Switch 4. Effect 4
+        case 4: {effectSelection(); delay(200); break;}     // Switch 5. Effect 5
+        case 5: {effectSelection(); delay(200); break;}     // Switch 6. Effect 6
+        case 6: {effectSelection(); delay(200); break;}     // Switch 7. Effect 7
+        case 7: {effectSelection(); delay(200); break;}     // Switch 8. Effect 8
+        case 8: {effectSelection(); delay(200); break;}     // Switch 9. Effect 9
+        case 9: {effectSelection(); delay(200); break;}     // Switch 10. Effect 10
+        case 10: effectswitch_11;   delay(200); break;      // Switch 11. 
+        case 11: effectswitch_12;   delay(200); break;      // Switch 12. 
+        case 12: effectswitch_13;   delay(200); break;      // Switch 13. 
+        case 13: effectswitch_14;   break;      // Switch 14. 
+        case 14: effectswitch_15;   delay(200); break;      // Switch 15. 
+        case 15: effectswitch_16; delay(50); break;         // Switch 16. 
+        case 16: effectswitch_17; delay(50); break;         // Switch 17. 
+        case 17: effectswitch_18;   delay(200); break;      // Switch 18. TUNER
+      }
+      break;
+    }
+    switchState[currentSwitch] = digitalRead( switches[currentSwitch] );
+ }
 }
 
 
@@ -381,8 +417,8 @@ void AMP_effect_settings()
         case 12:  AMP_effectswitch_13; delay(200);    break;     // Switch 13. 
         case 13:  AMP_effectswitch_14; break;     // Switch 14. 
         case 14:  AMP_effectswitch_15; delay(200);    break;     // Switch 15.  
-        case 15:  AMP_effectswitch_16; delay(50);  /*strcpy(page, "scene"); */break; // Switch 16. BANK DOWN
-        case 16:  AMP_effectswitch_17; delay(50);  /*strcpy(page, "scene");*/ break; // Switch 17. BANK UP
+        case 15:  AMP_effectswitch_16; delay(50);  break; // Switch 16. BANK DOWN
+        case 16:  AMP_effectswitch_17; delay(50);  break; // Switch 17. BANK UP
         case 17:  AMP_effectswitch_18; delay(200);    break;     // Switch 18. TUNER
       }
       break;
@@ -390,45 +426,6 @@ void AMP_effect_settings()
     switchState[currentSwitch] = digitalRead( switches[currentSwitch] );
   }
 }
-
-
-/*================================================================================================================================*/
-/*   EFFECT  BUTTONS
-/*================================================================================================================================*/
-void effect_settings()
-{
-  for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
-    if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
-    
-    // NOTES: Currently the issue is we get a copy of effect so modifying it doesn't update state, we need to modify the actual state of the preset;
-
-        case 0: {effectSelection(); delay(200); break;}     // Switch 1. Effect 1
-        case 1: {effectSelection(); delay(200); break;}     // Switch 2. Effect 2
-        case 2: {effectSelection(); delay(200); break;}     // Switch 3. Effect 3
-        case 3: {effectSelection(); delay(200); break;}     // Switch 4. Effect 4
-        case 4: {effectSelection(); delay(200); break;}     // Switch 5. Effect 5
-        case 5: {effectSelection(); delay(200); break;}     // Switch 7. Effect 6
-        case 6: {effectSelection(); delay(200); break;}     // Switch 8. Effect 7
-        case 7: {effectSelection(); delay(200); break;}     // Switch 9. Effect 8
-        case 8: {effectSelection(); delay(200); break;}     // Switch 10. Effect 9
-        case 9: {effectSelection(); delay(200); break;}     // Switch 11. Effect 10
-        case 10: effectswitch_11;   delay(200); break;      // Switch 13. 
-        case 11: effectswitch_12;   delay(200); break;      // Switch 14. 
-        case 12: effectswitch_13;   delay(200); break;      // Switch 15. 
-        case 13: effectswitch_14;   break;      // Switch 16. 
-        case 14: effectswitch_15;   delay(200); break;      // Switch 17. 
-        case 15: effectswitch_16; delay(50); break;  /*strcpy(page, "scene");*/ 
-        case 16: effectswitch_17; delay(50); break;  /*strcpy(page, "scene");*/
-        case 17: effectswitch_18;   delay(200); break;      // Switch 18. TUNER
-      }
-      break;
-    }
-    switchState[currentSwitch] = digitalRead( switches[currentSwitch] );
- }
-}
-
-
 
 /*================================================================================================================================*/
 /*   LOOPER  BUTTONS
@@ -513,7 +510,6 @@ void looper_settings()
     switchState[currentSwitch] = digitalRead( switches[currentSwitch] );
   }
 }
-
 
 
 /*================================================================================================================================*/

@@ -75,6 +75,32 @@ void bootscreen_setup()  // This shows the AXE FX III on the bootup
 }
 
 
+/*=========================================================================================================================
+      First start initializing screens
+  ========================================================================================================================*/
+
+void ini_screens()  //clear all screens after 1st boot
+
+{ 
+  debugln();  debugln();  debug(" * function ini_screens started on screenSetup.h");
+  digitalWrite(CS1, LOW);  digitalWrite(CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW);  
+  digitalWrite(CS6, LOW);  digitalWrite(CS7, LOW);  digitalWrite(CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10,LOW);  
+  digitalWrite(CS11, LOW); digitalWrite(CS12, LOW); digitalWrite(CS13,LOW);  digitalWrite(CS14,LOW);  digitalWrite(CS15,LOW);
+
+  tft.fillScreen(TFT_BLACK);
+
+  digitalWrite(CS1, HIGH);  digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
+  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10,HIGH);  
+  digitalWrite(CS11,HIGH);  digitalWrite(CS12,HIGH);  digitalWrite(CS13,HIGH);  digitalWrite(CS14,HIGH);  digitalWrite(CS15,HIGH);
+
+// First initial setup screen 13 "NO INFO" text
+  digitalWrite (CS11, LOW); sceneScreen_11;  digitalWrite (CS11, HIGH);
+  digitalWrite (CS12, LOW); sceneScreen_12;  digitalWrite (CS12, HIGH);
+  digitalWrite (CS13, LOW); sceneScreen_13;  digitalWrite (CS13, HIGH);
+  digitalWrite (CS14, LOW); sceneScreen_14;  digitalWrite (CS14, HIGH);
+  digitalWrite (CS15, LOW); sceneScreen_15;  digitalWrite (CS15, HIGH);  
+}
+
 
 /*=========================================================================================================================
       PRESET initializing screens
@@ -91,13 +117,11 @@ void ini_preset()
     }
     else
       {
-      digitalWrite (CS13, LOW);  auditionMode_screen(); digitalWrite (CS13, HIGH);
       presetBank_settings(); // go to the page Axe_handler.h for building the preset screens
       preset_LCD_text();
       }
       debugln();debug(" -> ini_preset has succesfully loaded");
 }
-
 
 
 /*=========================================================================================================================
@@ -257,7 +281,6 @@ void ampName_buildup()
 
 void AMP_ABCD()
 {
-    AxePreset preset = (Axe.getCurrentPreset());
     
 	  if (select_AMP_1 == false || select_AMP_2 == false )
   {
@@ -272,7 +295,6 @@ void AMP_ABCD()
   digitalWrite (CS4, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   C   ");  digitalWrite (CS4, HIGH);
   digitalWrite (CS5, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   D   ");  digitalWrite (CS5, HIGH);
   ampabcdStyle4();
-  presetName_setting(preset);
    }
 
   
@@ -401,36 +423,6 @@ void channelSwitch()
     case 19: {digitalWrite(CS7, LOW); effectchannelswitchStyle1(); digitalWrite(CS7, HIGH);} break;
   }
 }
-
-
-
-
-/*=========================================================================================================================
-      First start initializing screens
-  ========================================================================================================================*/
-
-void ini_screens()  //clear all screens after 1st boot
-
-{ 
-  debugln();  debugln();  debug(" * function ini_screens started on screenSetup.h");
-  digitalWrite(CS1, LOW);  digitalWrite(CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW);  
-  digitalWrite(CS6, LOW);  digitalWrite(CS7, LOW);  digitalWrite(CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10,LOW);  
-  digitalWrite(CS11, LOW); digitalWrite(CS12, LOW); digitalWrite(CS13,LOW);  digitalWrite(CS14,LOW);  digitalWrite(CS15,LOW);
-
-  tft.fillScreen(TFT_BLACK);
-
-  digitalWrite(CS1, HIGH);  digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
-  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10,HIGH);  
-  digitalWrite(CS11,HIGH);  digitalWrite(CS12,HIGH);  digitalWrite(CS13,HIGH);  digitalWrite(CS14,HIGH);  digitalWrite(CS15,HIGH);
-
-// First initial setup screen 13 "NO INFO" text
-  digitalWrite (CS11, LOW); sceneScreen_11;  digitalWrite (CS11, HIGH);
-  digitalWrite (CS12, LOW); sceneScreen_12;  digitalWrite (CS12, HIGH);
-  digitalWrite (CS13, LOW); sceneScreen_13;  digitalWrite (CS13, HIGH);
-  digitalWrite (CS14, LOW); sceneScreen_14;  digitalWrite (CS14, HIGH);
-  digitalWrite (CS15, LOW); sceneScreen_15;  digitalWrite (CS15, HIGH);  
-}
-
 
 /*===================================================================================*/
 /*Axelman8*/
