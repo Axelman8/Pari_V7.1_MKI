@@ -111,11 +111,11 @@ void ampabcdPage_selection()
   debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1); 
   debugln(); debugln(); debug(" * function ampabcdPage_selection started on switchSelect.h");
   
-  digitalWrite(CS1, LOW); digitalWrite(CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW); 
-  digitalWrite(CS6, LOW); digitalWrite(CS7, LOW);  digitalWrite(CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10, LOW);  
+  CS1L; CS2L;  CS3L;  CS4L;  CS5L; 
+  CS6L; CS7L;  CS8L;  CS9L;  CS10L;  
   tft.fillScreen(TFT_BLACK);
-  digitalWrite(CS1, HIGH); digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
-  digitalWrite(CS6, HIGH); digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10, HIGH);  
+  CS1H; CS2H;  CS3H;  CS4H;  CS5H;  
+  CS6H; CS7H;  CS8H;  CS9H;  CS10H;  
 
     if (strcmp(page,"AMP_effect") !=0)  
     {abcdTopscreens();}
@@ -165,17 +165,17 @@ void taptempoPage_selection()
     tempoflash_bar == false;
     Axe.sendTap();
     tapSwitch = true;
-    digitalWrite (CS14, LOW);
+    CS14L;
     tapTempo_selectionScreen();
-    digitalWrite (CS14, HIGH);
+    CS14H;
   }
   else
   {
     Axe.sendTap();
     tapSwitch = false;
-    digitalWrite (CS14, LOW);
+    CS14L;
     tapTempo_screen();
-    digitalWrite (CS14, HIGH);
+    CS14H;
     tempoflash_bar == true;
   }
     }

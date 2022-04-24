@@ -1,41 +1,41 @@
-/* 
-=======================================================================================================================
-======================================================================================================================= 
- 
-                                              ██████╗░░█████╗░██████╗░██╗
-                                              ██╔══██╗██╔══██╗██╔══██╗██║
-                                              ██████╔╝███████║██████╔╝██║
-                                              ██╔═══╝░██╔══██║██╔══██╗██║
-                                              ██║░░░░░██║░░██║██║░░██║██║
-                                              ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝
-                                                                  परी
+  /* 
+  =======================================================================================================================================
+  ======================================================================================================================================= 
+   
+                                                ██████╗░░█████╗░██████╗░██╗
+                                                ██╔══██╗██╔══██╗██╔══██╗██║
+                                                ██████╔╝███████║██████╔╝██║
+                                                ██╔═══╝░██╔══██║██╔══██╗██║
+                                                ██║░░░░░██║░░██║██║░░██║██║
+                                                ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝
+                                                                    परी
+                                                                                                                               
                                                                                                                              
-                                                                                                                           
-
-                                                  Axe-FXIII midi sysex foot controller
-
-
-                                                Axelman8 |  - Rotterdam -  | Netherlands
-                                                   
-
-=========================================================================================================================
-using AxeFxControl libriary from @tysonIT -> Without this libriary, this project would be just a bunch of useless code.
-Started from scratch with help of the shared programming of: @prongs_386 | @tysonIT | @Piing from the Fractal audio forum.
-=========================================================================================================================
-
-(on SD_ini.h)
-@@@  DEBUGGING the program:  
-  -> DEBUG (serial) code OFF = 0  | DEBUG output is very usefull to see the flow of the program code 
-  -> Set to DEBUG and flash to Arduino to see program output in the Serial monitor  
-  -> The Serial.begin = baudrate...   make sure that the serial monitor has the same baudrate as the uncommented baudrate.
-     For best serial and program use,  9600 or 115200 is advized.
   
-  NOTE to the reader:   
-  -> See y_changeLog.h for any changes in this or previous versions
+                                                    Axe-FXIII midi sysex foot controller
+  
+  
+                                                  Axelman8 |  - Rotterdam -  | Netherlands
+                                                     
+  
+  =======================================================================================================================================
+  using AxeFxControl libriary from @tysonIT -> Without this libriary, this project would be just a bunch of useless code.
+  Started from scratch with help of the shared programming of: @prongs_386 | @tysonIT | @Piing from the Fractal audio forum.
+  =======================================================================================================================================
+  
+  (on SD_ini.h)
+  @@@  DEBUGGING the program:  
+    -> DEBUG (serial) code OFF = 0  | DEBUG output is very usefull to see the flow of the program code 
+    -> Set to DEBUG and flash to Arduino to see program output in the Serial monitor  
+    -> The Serial.begin = baudrate...   make sure that the serial monitor has the same baudrate as the uncommented baudrate.
+       For best serial and program use,  9600 or 115200 is advized.
+    
+    NOTE to the reader:   
+    -> See y_changeLog.h for any changes in this or previous versions
 
-/*=======================================================================================================================================*/
-//    INCLUDE LIBRIARY'S
-/*=======================================================================================================================================*/
+  =======================================================================================================================================
+      INCLUDE LIBRIARY'S
+  =======================================================================================================================================*/
 
 // USE the libriary
 #include <Timer.h>
@@ -192,16 +192,6 @@ void setup()
   getScenes = true;   // axe_handler.h first time getting scenes from the AxeFXIII to show on the display's.
   effectCycle = true; // axe_handler.h first time getting effects from the AxeFXIII for Wah and Looper information.
   serialprint_memory_info();
-}
-
-void PinHigh()
-{
-  for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ )
-    {
-    if (digitalRead (switches [currentSwitch]) != HIGH)
-    {digitalWrite( switches[currentSwitch], HIGH );      // Turn on all pins with internal pullup HIGH UNLESS it is allready high}
-    }
-  }
 }
 
 /*=======================================================================================================================================*/

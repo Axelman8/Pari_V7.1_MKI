@@ -151,6 +151,8 @@
 *               19-05-2022  - FIX presetname on screen 13 when coming from TUNER                              -> DONE  
 *               20-05-2022  - ADD RESET EFFECT boolean to SD_ini.h                                            -> DONE
 *                           - ADD RESET EFFECT to default when going to SCENEPAGE from EFFECTPAGE             -> DONE 
+*               24-4-2022   - REBUILD Screen port addressing.  Now using the Arduino DUE REG_PIO
+*                             Screen refresh rate is faster.                                                  -> DONE            
 *                            
 *             
 ========================================================================================================================*/

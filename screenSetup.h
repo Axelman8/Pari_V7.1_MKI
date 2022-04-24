@@ -32,45 +32,40 @@ void bootscreen_setup()  // This shows the AXE FX III on the bootup
   debug(" ====================    BOOTUP   ===================");  
   debugln(); debug(" * function boot_screensetup started on screenSetup.h");
 
-  //one FLASHled,  going to activate it now:
-  pinMode(29, OUTPUT);
+ //one FLASHled,  going to activate it now:
+ // pinMode(29, OUTPUT);
 
   //setup the 15 LCD screens
-  pinMode(CS1, OUTPUT);  pinMode(CS2, OUTPUT);  pinMode(CS3, OUTPUT);  pinMode(CS4, OUTPUT); pinMode(CS5, OUTPUT);  
-  pinMode(CS6, OUTPUT);  pinMode(CS7, OUTPUT);  pinMode(CS8, OUTPUT);  pinMode(CS9, OUTPUT); pinMode(CS10,OUTPUT);  
-  pinMode(CS11,OUTPUT);  pinMode(CS12,OUTPUT);  pinMode(CS13,OUTPUT);  pinMode(CS14,OUTPUT); pinMode(CS15,OUTPUT);
+  pinMode(CS1, OUTPUT),  pinMode(CS2, OUTPUT),  pinMode(CS3, OUTPUT),  pinMode(CS4, OUTPUT), pinMode(CS5, OUTPUT),  
+  pinMode(CS6, OUTPUT),  pinMode(CS7, OUTPUT), pinMode(CS8, OUTPUT),  pinMode(CS9, OUTPUT), pinMode(CS10,OUTPUT),  
+  pinMode(CS11,OUTPUT),  pinMode(CS12,OUTPUT),  pinMode(CS13,OUTPUT),  pinMode(CS14,OUTPUT), pinMode(CS15,OUTPUT);
   tft.begin();
   tft.setRotation(1);         //screen is rotated to width 160 x  hight 128 (landscape)
 
-  digitalWrite(CS1,  LOW);  digitalWrite(CS2,  LOW);  digitalWrite(CS3,  LOW);  digitalWrite(CS4,  LOW);  digitalWrite(CS5,  LOW);  
-  digitalWrite(CS6,  LOW);  digitalWrite(CS7,  LOW);  digitalWrite(CS8,  LOW);  digitalWrite(CS9,  LOW);  digitalWrite(CS10, LOW); 
-  digitalWrite(CS11, LOW);  digitalWrite(CS12, LOW);  digitalWrite(CS13, LOW);  digitalWrite(CS14, LOW);  digitalWrite(CS15, LOW);
-
+  CS1L; CS2L; CS3L; CS4L; CS5L; CS6L; CS7L; CS8L; CS9L; CS10L; CS11L; CS12L; CS13L; CS14L; CS15L;
   
   tft.fillScreen(TFT_BLACK);  // screen is all black
   tft.setTextWrap(false);     // text is not wrapped on multi lines, but goes straight on.  That is correct, as the code will optimize the text in the screens
 
-
-  digitalWrite(CS1, HIGH);  digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
-  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10,HIGH);  
-  digitalWrite(CS11,HIGH);  digitalWrite(CS12,HIGH);  digitalWrite(CS13,HIGH);  digitalWrite(CS14,HIGH);  digitalWrite(CS15,HIGH);
+  CS1H, CS2H, CS3H, CS4H, CS5H, CS6H, CS7H, CS8H, CS9H, CS10H, CS11H, CS12H, CS13H, CS14H, CS15H;
+   
 
 
-  digitalWrite (CS12, LOW);bootupStyle1();tft.println("A");digitalWrite (CS12, HIGH);
-  digitalWrite (CS13, LOW);bootupStyle1();tft.println("X");digitalWrite (CS13, HIGH); 
-  digitalWrite (CS14, LOW);bootupStyle1();tft.println("E");digitalWrite (CS14, HIGH);
+  CS12L; bootupStyle1();tft.println("A"); CS12H;
+  CS13L; bootupStyle1();tft.println("X"); CS13H; 
+  CS14L; bootupStyle1();tft.println("E"); CS14H;
 
 
-                                digitalWrite (CS8, LOW);
+                                CS8L;
                                 bootupStyle5();
                                 tft.println("FX");
-                                digitalWrite (CS8, HIGH);
+                                CS8H;
 
 
 
-  digitalWrite (CS2, LOW);bootupStyle2();tft.println("I");digitalWrite (CS2, HIGH); delay;
-  digitalWrite (CS3, LOW);bootupStyle3();tft.println("I");digitalWrite (CS3, HIGH); delay;
-  digitalWrite (CS4, LOW);bootupStyle4();tft.println("I");digitalWrite (CS4, HIGH); delay;
+  CS2L; bootupStyle2();tft.println("I"); CS2H; 
+  CS3L; bootupStyle3();tft.println("I"); CS3H; 
+  CS4L; bootupStyle4();tft.println("I"); CS4H; 
   delay(1500);
 }
 
@@ -83,22 +78,18 @@ void ini_screens()  //clear all screens after 1st boot
 
 { 
   debugln();  debugln();  debug(" * function ini_screens started on screenSetup.h");
-  digitalWrite(CS1, LOW);  digitalWrite(CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW);  
-  digitalWrite(CS6, LOW);  digitalWrite(CS7, LOW);  digitalWrite(CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10,LOW);  
-  digitalWrite(CS11, LOW); digitalWrite(CS12, LOW); digitalWrite(CS13,LOW);  digitalWrite(CS14,LOW);  digitalWrite(CS15,LOW);
+  CS1L; CS2L; CS3L; CS4L; CS5L; CS6L; CS7L; CS8L; CS9L; CS10L; CS11L; CS12L; CS13L; CS14L; CS15L;
 
   tft.fillScreen(TFT_BLACK);
-
-  digitalWrite(CS1, HIGH);  digitalWrite(CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  
-  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10,HIGH);  
-  digitalWrite(CS11,HIGH);  digitalWrite(CS12,HIGH);  digitalWrite(CS13,HIGH);  digitalWrite(CS14,HIGH);  digitalWrite(CS15,HIGH);
+  
+  CS1H, CS2H, CS3H, CS4H, CS5H, CS6H, CS7H, CS8H, CS9H, CS10H, CS11H, CS12H, CS13H, CS14H, CS15H;
 
 // First initial setup screen 13 "NO INFO" text
-  digitalWrite (CS11, LOW); sceneScreen_11;  digitalWrite (CS11, HIGH);
-  digitalWrite (CS12, LOW); sceneScreen_12;  digitalWrite (CS12, HIGH);
-  digitalWrite (CS13, LOW); sceneScreen_13;  digitalWrite (CS13, HIGH);
-  digitalWrite (CS14, LOW); sceneScreen_14;  digitalWrite (CS14, HIGH);
-  digitalWrite (CS15, LOW); sceneScreen_15;  digitalWrite (CS15, HIGH);  
+  CS11L; sceneScreen_11;  CS11H;
+  CS12L; sceneScreen_12;  CS12H;
+  CS13L; sceneScreen_13;  CS13H;
+  CS14L; sceneScreen_14;  CS14H;
+  CS15L; sceneScreen_15;  CS15H; 
 }
 
 
@@ -133,19 +124,16 @@ void ini_looper()
 
   debugln(); debugln();   debug(" * function ini_looper started on screenSetup.h");  
 
-  digitalWrite (CS1, LOW);  digitalWrite (CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW);
-  digitalWrite(CS6, LOW);  digitalWrite(CS7, LOW);  digitalWrite (CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10, LOW);
+  CS1L,  CS2L,  CS3L,  CS4L,  CS5L, CS6L,  CS7L,  CS8L,  CS9L,  CS10L,
   tft.fillScreen(looper_screen_fillscreen);
-  digitalWrite (CS1, HIGH);  digitalWrite (CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);
-  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10, HIGH);
+  CS1H,  CS2H,  CS3H,  CS4H,  CS5H, CS6H,  CS7H,  CS8H,  CS9H,  CS10H,
 
-
-  digitalWrite(CS1, LOW);  looperStyle1();  tft.println("RECORD");  digitalWrite(CS1, HIGH);
-  digitalWrite(CS3, LOW);  looperStyle1();  tft.println("PLAY");    digitalWrite(CS3, HIGH);
-  digitalWrite(CS5, LOW);  looperStyle1();  tft.println("UNDO");    digitalWrite(CS5, HIGH);
-  digitalWrite(CS6, LOW);  looperStyle1();  tft.println("ONCE");    digitalWrite(CS6, HIGH);
-  digitalWrite(CS8, LOW);  looperStyle1();  tft.println("REVERSE"); digitalWrite(CS8, HIGH);
-  digitalWrite(CS10, LOW);  looperStyle1();  tft.println("HALFSPD"); digitalWrite(CS10, HIGH);
+  CS1L;  looperStyle1();  tft.println("RECORD");  CS1H;
+  CS3L;  looperStyle1();  tft.println("PLAY");    CS3H;
+  CS5L;  looperStyle1();  tft.println("UNDO");    CS5H;
+  CS6L;  looperStyle1();  tft.println("ONCE");    CS6H;
+  CS8L;  looperStyle1();  tft.println("REVERSE"); CS8H;
+  CS10L;  looperStyle1();  tft.println("HALFSPD"); CS10H;
 
 }
 
@@ -160,22 +148,20 @@ void ini_numbers()
   debugln();debugln();  debug(" * function ini_numbers started on screenSetup.h");
   lcd.setCursor(0, 1); lcd.print(" Number =        ");
 
-  digitalWrite (CS1, LOW);  digitalWrite (CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW);  digitalWrite(CS6, LOW);
-  digitalWrite(CS7, LOW);  digitalWrite(CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10, LOW);  
+  CS1L,  CS2L,  CS3L,  CS4L,  CS5L,  CS6L, CS7L,  CS8L,  CS9L,  CS10L;  
   tft.fillScreen(numberSelect_screen_fillscreen);
-  digitalWrite (CS1, HIGH);  digitalWrite (CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);  digitalWrite(CS6, HIGH);
-  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10, HIGH);  
+  CS1H,  CS2H,  CS3H,  CS4H,  CS5H,  CS6H, CS7H,  CS8H,  CS9H,  CS10H;  
   
-  digitalWrite(CS1, LOW);  numbersStyle1();  tft.println("0");  digitalWrite(CS1, HIGH);
-  digitalWrite(CS2, LOW);  numbersStyle1();  tft.println("1");  digitalWrite(CS2, HIGH);
-  digitalWrite(CS3, LOW);  numbersStyle1();  tft.println("2");  digitalWrite(CS3, HIGH);
-  digitalWrite(CS4, LOW);  numbersStyle1();  tft.println("3");  digitalWrite(CS4, HIGH);
-  digitalWrite(CS5, LOW);  numbersStyle1();  tft.println("4");  digitalWrite(CS5, HIGH);
-  digitalWrite(CS6, LOW);  numbersStyle1();  tft.println("5");  digitalWrite(CS6, HIGH);
-  digitalWrite(CS7, LOW);  numbersStyle1();  tft.println("6");  digitalWrite(CS7, HIGH);
-  digitalWrite(CS8, LOW);  numbersStyle1();  tft.println("7");  digitalWrite(CS8, HIGH);
-  digitalWrite(CS9, LOW);  numbersStyle1();  tft.println("8");  digitalWrite(CS9, HIGH);
-  digitalWrite(CS10,LOW);  numbersStyle1();  tft.println("9");  digitalWrite(CS10, HIGH);
+  CS1L;  numbersStyle1();  tft.println("0");  CS1H;
+  CS2L;  numbersStyle1();  tft.println("1");  CS2H;
+  CS3L;  numbersStyle1();  tft.println("2");  CS3H;
+  CS4L;  numbersStyle1();  tft.println("3");  CS4H;
+  CS5L;  numbersStyle1();  tft.println("4");  CS5H;
+  CS6L;  numbersStyle1();  tft.println("5");  CS6H;
+  CS7L;  numbersStyle1();  tft.println("6");  CS7H;
+  CS8L;  numbersStyle1();  tft.println("7");  CS8H;
+  CS9L;  numbersStyle1();  tft.println("8");  CS9H;
+  CS10L; numbersStyle1();  tft.println("9"); CS10H;
 }
 
 /*=========================================================================================================================
@@ -219,11 +205,9 @@ void ini_effect()
 {
 
   //================== EFFECTS ===========================
-  digitalWrite(CS1, LOW);  digitalWrite (CS2, LOW);  digitalWrite(CS3, LOW);  digitalWrite(CS4, LOW);  digitalWrite(CS5, LOW); 
-  digitalWrite(CS6, LOW);  digitalWrite(CS7, LOW);  digitalWrite (CS8, LOW);  digitalWrite(CS9, LOW);  digitalWrite(CS10, LOW);
+  CS1L,  CS2L,  CS3L,  CS4L,  CS5L,  CS6L, CS7L,  CS8L,  CS9L,  CS10L;  
   tft.fillScreen(TFT_BLACK);
-  digitalWrite(CS1, HIGH);  digitalWrite (CS2, HIGH);  digitalWrite(CS3, HIGH);  digitalWrite(CS4, HIGH);  digitalWrite(CS5, HIGH);
-  digitalWrite(CS6, HIGH);  digitalWrite(CS7, HIGH);  digitalWrite(CS8, HIGH);  digitalWrite(CS9, HIGH);  digitalWrite(CS10, HIGH);
+  CS1H,  CS2H,  CS3H,  CS4H,  CS5H,  CS6H, CS7H,  CS8H,  CS9H,  CS10H; 
   
   switch (effectindex)
   {
@@ -286,14 +270,14 @@ void AMP_ABCD()
   {
   debugln();debugln();  debug(" * function AMP ABCD started on screenSetup.h");
   
-  digitalWrite (CS1, LOW);  digitalWrite (CS2, LOW);  digitalWrite (CS6, LOW);  digitalWrite (CS7, LOW);
+  CS1L,  CS2L,  CS6L,  CS7L;
   ampabcdStyle_blackBezelLine();
-  digitalWrite (CS1, HIGH);  digitalWrite (CS2, HIGH);  digitalWrite (CS6, HIGH);  digitalWrite (CS7, HIGH);
+  CS1H,  CS2H,  CS6H,  CS7H;
 
-  digitalWrite (CS9, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   A   ");  digitalWrite (CS9, HIGH);
-  digitalWrite (CS10,LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   B   ");  digitalWrite (CS10,HIGH);
-  digitalWrite (CS4, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   C   ");  digitalWrite (CS4, HIGH);
-  digitalWrite (CS5, LOW); ampabcdStyle4(); ampabcdStyle3(); tft.println("   D   ");  digitalWrite (CS5, HIGH);
+  CS9L; ampabcdStyle4(); ampabcdStyle3(); tft.println("   A   ");  CS9H;
+  CS10L; ampabcdStyle4(); ampabcdStyle3(); tft.println("   B   "); CS10H;
+  CS4L; ampabcdStyle4(); ampabcdStyle3(); tft.println("   C   ");  CS4H;
+  CS5L; ampabcdStyle4(); ampabcdStyle3(); tft.println("   D   ");  CS5H;
   ampabcdStyle4();
    }
 
@@ -305,48 +289,48 @@ void AMP_ABCD()
     strcpy (Amp, AMP1_A); 
     AMPnumber = 1;
     ampName_buildup();
-          digitalWrite (CS9, LOW); 
+          CS9L; 
           if (A_11 >= 9){ ampabcdStyle5(); tft.println(amp11);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_11 * 9) - 5), 40); tft.println(amp11);}
           tft.setCursor(80 - ((A_12 * 9) - 5), 70); tft.println(amp12); tft.setCursor(80 - ((A_13 * 9) - 5), 100); tft.println(amp13);  
-          digitalWrite (CS9, HIGH);
+          CS9H;
 
 //  -->> AMP 2      
     strcpy (Amp, AMP1_B); 
     AMPnumber = 2;
     ampName_buildup();
-          digitalWrite (CS10,LOW);
+          CS10L;
           if 
           (A_21 >= 9){ ampabcdStyle5(); tft.println(amp21);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_21 * 9) - 5), 40); tft.println(amp21);}
           tft.setCursor(80 - ((A_22 * 9) - 5), 70); tft.println(amp22); tft.setCursor(80 - ((A_23 * 9) - 5), 100); tft.println(amp23);  
-          digitalWrite (CS10,HIGH);
+          CS10H;
   
 //  -->> AMP 3
     strcpy (Amp, AMP1_C); 
     AMPnumber = 3;
     ampName_buildup();  
-         digitalWrite (CS4, LOW);
+         CS4L;
           if 
           (A_11 >= 9){ ampabcdStyle5(); tft.println(amp31);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_31 * 9) - 5), 40); tft.println(amp31);}
           tft.setCursor(80 - ((A_32 * 9) - 5), 70); tft.println(amp32); tft.setCursor(80 - ((A_33 * 9) - 5), 100); tft.println(amp33);   
-         digitalWrite (CS4, HIGH);
+         CS4H;
 
 //  -->> AMP 4
     strcpy (Amp, AMP1_D); 
     AMPnumber = 4;
     ampName_buildup();
-        digitalWrite (CS5, LOW);
+        CS5L;
           if 
           (A_11 >= 9){ ampabcdStyle5(); tft.println(amp41);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_41 * 9) - 5), 40); tft.println(amp41);}
             tft.setCursor(80 - ((A_42 * 9) - 5), 70); tft.println(amp42); tft.setCursor(80 - ((A_43 * 9) - 5), 100); tft.println(amp43);   
-        digitalWrite (CS5, HIGH);
+        CS5H;
   select_AMP_start = false;
   select_AMP_1 = false;
   }
@@ -360,48 +344,48 @@ void AMP_ABCD()
     strcpy (Amp, AMP2_A); 
     AMPnumber = 1;
     ampName_buildup();
-          digitalWrite (CS9, LOW); 
+          CS9L;
           if (A_11 >= 9){ ampabcdStyle5(); tft.println(amp11);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_11 * 9) - 5), 40); tft.println(amp11);}
           tft.setCursor(80 - ((A_12 * 9) - 5), 70); tft.println(amp12); tft.setCursor(80 - ((A_13 * 9) - 5), 100); tft.println(amp13);  
-          digitalWrite (CS9, HIGH);
+          CS9H;
 
 //  -->> AMP 2      
     strcpy (Amp, AMP2_B); 
     AMPnumber = 2;
     ampName_buildup();
-          digitalWrite (CS10,LOW);
+          CS10L;
           if 
           (A_21 >= 9){ ampabcdStyle5(); tft.println(amp21);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_21 * 9) - 5), 40); tft.println(amp21);}
           tft.setCursor(80 - ((A_22 * 9) - 5), 70); tft.println(amp22); tft.setCursor(80 - ((A_23 * 9) - 5), 100); tft.println(amp23);  
-          digitalWrite (CS10,HIGH);
+          CS10H;
   
 //  -->> AMP 3
     strcpy (Amp, AMP2_C); 
     AMPnumber = 3;
     ampName_buildup();  
-         digitalWrite (CS4, LOW);
+         CS4L;
           if 
           (A_11 >= 9){ ampabcdStyle5(); tft.println(amp31);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_31 * 9) - 5), 40); tft.println(amp31);}
           tft.setCursor(80 - ((A_32 * 9) - 5), 70); tft.println(amp32); tft.setCursor(80 - ((A_33 * 9) - 5), 100); tft.println(amp33);   
-         digitalWrite (CS4, HIGH);
+         CS4H;
 
 //  -->> AMP 4
     strcpy (Amp, AMP2_D); 
     AMPnumber = 4;
     ampName_buildup();
-        digitalWrite (CS5, LOW);
+        CS5L;
           if 
           (A_11 >= 9){ ampabcdStyle5(); tft.println(amp41);}
           else
           {ampabcdStyle5(); tft.setCursor(80 - ((A_41 * 9) - 5), 40); tft.println(amp41);}
             tft.setCursor(80 - ((A_42 * 9) - 5), 70); tft.println(amp42); tft.setCursor(80 - ((A_43 * 9) - 5), 100); tft.println(amp43);   
-        digitalWrite (CS5, HIGH);
+        CS5H;
   select_AMP_2 = false;
   }
   
@@ -417,10 +401,10 @@ void channelSwitch()
   debugln();  debugln();  debug(" * function channelSwitch started on screenSetup.h");
   switch (changeCurrentEffect)
   {
-    case 58: {digitalWrite(CS1, LOW); effectchannelswitchStyle1(); digitalWrite(CS1, HIGH);} break;
-    case 17: {digitalWrite(CS2, LOW); effectchannelswitchStyle1(); digitalWrite(CS2, HIGH);} break;
-    case 18: {digitalWrite(CS6, LOW); effectchannelswitchStyle1(); digitalWrite(CS6, HIGH);} break;
-    case 19: {digitalWrite(CS7, LOW); effectchannelswitchStyle1(); digitalWrite(CS7, HIGH);} break;
+    case 58: {CS1L; effectchannelswitchStyle1(); CS1H;} break;
+    case 17: {CS2L; effectchannelswitchStyle1(); CS2H;} break;
+    case 18: {CS6L; effectchannelswitchStyle1(); CS6H;} break;
+    case 19: {CS7L; effectchannelswitchStyle1(); CS7H;} break;
   }
 }
 

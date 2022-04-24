@@ -815,7 +815,7 @@ void auditionMode_screen()
 
 void auditionMode_ON_screen() 
 {
-            digitalWrite (CS13, LOW);
+            CS13L;
             tft.fillScreen(TFT_BLACK);
             tft.setTextColor(TFT_RED);
             tft.setTextSize(3); tft.setCursor(10, 30);
@@ -823,7 +823,7 @@ void auditionMode_ON_screen()
             tft.setTextSize(4); tft.setCursor(60, 80);
             tft.println("ON");
             tft.drawRect(0, 0, 160, 128, TFT_RED); // Draw bezel line
-            digitalWrite (CS13, HIGH);
+            CS13H;
           delay(50);
   }
 
@@ -833,7 +833,7 @@ void auditionMode_ON_screen()
 
 void tuner_selectionScreen()
 {
-    digitalWrite (CS12, LOW);
+    CS12L;
     tft.fillScreen(tuner_screen_fillscreen);
     tft.setTextColor(tuner_screen_txt1_color, tuner_screen_txt1_BGcolor);
     tft.setTextSize(3); tft.setCursor(5, 25);
@@ -844,7 +844,7 @@ void tuner_selectionScreen()
     tft.setTextColor(tuner_screen_txt2_color, tuner_screen_txt2_BGcolor);
     tft.setTextSize(3); tft.setCursor(5, 95);
     tft.println(tuner_type);
-    digitalWrite (CS12, HIGH); 
+    CS12H;
   }
 
 void tuner_circleSelection()
@@ -872,7 +872,7 @@ void tapTempo_screen()
   else
   {flashhight_tempo_Text = 40;}
   
-    digitalWrite (CS14, LOW);
+    CS14L;
     Axe.requestTempo();
     tft.fillScreen(tapTempo_screen_fillscreen);
     tft.setTextColor(tapTempo_screen_txt1_color, tapTempo_screen_txt1_BGcolor);
@@ -881,14 +881,14 @@ void tapTempo_screen()
     tft.setTextColor(tapTempo_screen_txt2_color, tapTempo_screen_txt2_BGcolor);
     tft.setTextSize(4); tft.setCursor(53, 90);
     tft.println(Axe.getTempo());  
-    digitalWrite (CS14, HIGH);
+    CS14H;
 }
 
 /* ========== IN AUDITIONMODE - CHANGE FLASH IN SCREEN 14 ===============*/
 
 void tapTempo_flash_selection_screen()
 {
-    digitalWrite (CS14, LOW);
+    CS14L;
     Axe.requestTempo();
     tft.fillScreen(tapTempo_screen_fillscreen);
     tft.setTextColor(tapTempo_screen_txt1_color, tapTempo_screen_txt1_BGcolor);
@@ -900,7 +900,7 @@ void tapTempo_flash_selection_screen()
     tft.setTextColor(tapTempo_screen_txt2_color, tapTempo_screen_txt2_BGcolor);
     tft.setTextSize(3); tft.setCursor(5, 95);
     tft.println("  FLASH ");  
-    digitalWrite (CS14, HIGH);  
+    CS14H; 
   }
 
 void tapTempo_selectionScreen()
@@ -913,7 +913,7 @@ void tapTempo_selectionScreen()
   {tapTempo_flash_selection_screen();}
   else
   {
-    digitalWrite (CS14, LOW);
+    CS14L;
     tft.fillScreen(tapTempo_selectionScreen_fillscreen);
     tft.setTextColor(tapTempo_selectionScreen_txt1_color, tapTempo_selectionScreen_txt1_BGcolor);
     tft.setTextSize(5); tft.setCursor(5, flashhight_tempo_Text);
@@ -921,7 +921,7 @@ void tapTempo_selectionScreen()
     tft.setTextColor(tapTempo_selectionScreen_txt2_color, tapTempo_selectionScreen_txt2_BGcolor);
     tft.setTextSize(4); tft.setCursor(53, 80);
     tft.println(Axe.getTempo());
-    digitalWrite (CS14, HIGH);
+    CS14H;
   }
 }
 
@@ -952,9 +952,9 @@ void tapTempo_flash_ON()
     //(x,y,w,h,lenth,radius)
   tempoflash.drawRoundRect(35, 0, 90, 20, 6, tapTempo_screen_sprite_color);
   tempoflash.fillRoundRect(37, 2, 86, 16, 6, tapTempo_screen_flash_color);
-  digitalWrite (CS14, LOW);
+  CS14L;
   tempoflash.pushSprite(0, 0);
-  digitalWrite (CS14, HIGH);
+  CS14H;
     }
   else
   {
@@ -981,9 +981,9 @@ void tapTempo_flash_ON()
   tempoflash.fillRoundRect(131, 2, 26, 16, 6, tapTempo_screen_flash_color);  
   break;
     }
-  digitalWrite (CS14, LOW);
+  CS14L;
   tempoflash.pushSprite(0, 0);
-  digitalWrite (CS14, HIGH);    
+  CS14H;   
   }
 }
 
@@ -994,9 +994,9 @@ void tapTempo_flash_OFF()
   {  
   tempoflash.drawRoundRect(35, 0, 90, 20, 6, tapTempo_screen_sprite_color);
   tempoflash.fillRoundRect(37, 2, 86, 16, 6, tapTempo_screen_fillscreen);
-  digitalWrite (CS14, LOW);
+  CS14L;
   tempoflash.pushSprite(0, 0);
-  digitalWrite (CS14, HIGH);
+  CS14H;
   }
   else
   {
@@ -1005,9 +1005,9 @@ void tapTempo_flash_OFF()
   tempoflash.fillRoundRect(88, 2, 26, 16, 6, tapTempo_screen_fillscreen);
   tempoflash.fillRoundRect(131, 2, 26, 16, 6, tapTempo_screen_fillscreen);  
   }
-  digitalWrite (CS14, LOW);
+  CS14L;
   tempoflash.pushSprite(0, 0);
-  digitalWrite (CS14, HIGH);      
+  CS14H;      
 }
 
 
@@ -1016,21 +1016,21 @@ void tapTempo_flash_OFF()
   ===========================================================================================================================*/
 
 void presetMin100_screen()
-{ digitalWrite (CS11, LOW);  presetStyle1();  tft.println("-100");  digitalWrite (CS11, HIGH);}
+{ CS11L;  presetStyle1();  tft.println("-100");  CS11H;}
     
 void presetMin50_screen()
-{ digitalWrite (CS12, LOW);  presetStyle1();  tft.println("-50");   digitalWrite (CS12, HIGH);}
+{ CS12L;  presetStyle1();  tft.println("-50");   CS12H;}
    
 void presetPlus50_screen()
-{ digitalWrite (CS14, LOW);  presetStyle1(); tft.println("+50");    digitalWrite (CS14, HIGH);}
+{ CS14L;  presetStyle1(); tft.println("+50");    CS14H;}
       
 void presetPlus100_screen()
-{ digitalWrite (CS15, LOW);  presetStyle1(); tft.println("+100");   digitalWrite (CS15, HIGH);}
+{ CS15L;  presetStyle1(); tft.println("+100");   CS15H;}
 
 void presetUpDownscreens()
 {
-    digitalWrite (CS5, LOW);  sceneScreen_5;   digitalWrite (CS5, HIGH);
-    digitalWrite (CS10, LOW); sceneScreen_10;  digitalWrite (CS10, HIGH);
+    CS5L;  sceneScreen_5;   CS5H;
+    CS10L; sceneScreen_10;  CS10H;
   }
 
 /*===========================================================================================================================
@@ -1038,17 +1038,15 @@ void presetUpDownscreens()
   ===========================================================================================================================*/
 
 void tuner_startScreens()
-{
-    digitalWrite(CS1, LOW); digitalWrite(CS2, LOW); digitalWrite(CS3, LOW); digitalWrite(CS4, LOW); digitalWrite(CS5, LOW); 
-    digitalWrite(CS8, LOW); digitalWrite(CS11, LOW); digitalWrite(CS12, LOW); digitalWrite(CS14, LOW); digitalWrite(CS15, LOW);
+{   CS1L, CS2L, CS3L, CS4L, CS5L,CS8L, CS11L, CS12L, CS14L, CS15L;
     tft.fillScreen(TFT_BLACK); 
-    digitalWrite(CS1, HIGH); digitalWrite(CS2, HIGH); digitalWrite(CS3, HIGH); digitalWrite(CS4, HIGH); digitalWrite(CS5, HIGH); 
-    digitalWrite(CS8, HIGH); digitalWrite(CS11, HIGH); digitalWrite(CS12, HIGH); digitalWrite(CS14, HIGH); digitalWrite(CS15, HIGH);
+    CS1H, CS2H, CS3H, CS4H, CS5H,CS8H, CS11H, CS12H, CS14H, CS15H;
   
-    digitalWrite(CS6, LOW); tunerscreenStyle1(); tft.println("T"); digitalWrite(CS6, HIGH);
-    digitalWrite(CS7, LOW); tunerscreenStyle1(); tft.println("U"); digitalWrite(CS7, HIGH);
-    digitalWrite(CS9, LOW); tunerscreenStyle1(); tft.println("N"); digitalWrite(CS9, HIGH);
-    digitalWrite(CS10,LOW); tunerscreenStyle1(); tft.println("E"); digitalWrite(CS10,HIGH);
+    CS6L; tunerscreenStyle1(); tft.println("T"); CS6H;
+    CS7L; tunerscreenStyle1(); tft.println("U"); CS7H;
+    CS9L; tunerscreenStyle1(); tft.println("N"); CS9H;
+    CS10L; tunerscreenStyle1(); tft.println("E"); CS10H;
+
 }
 /*===========================================================================================================================
      TOPSCREENS BUILT UP | ALL SEPARATE PAGE'S         
@@ -1058,10 +1056,10 @@ void sceneTopscreens()
 {
     strcpy(page, "scene");
     debugln(); debug(" * PAGE is set to: "); debug(page);
-  if (scene_Topscreen11 == true){ digitalWrite (CS11, LOW); sceneScreen_11;  digitalWrite (CS11, HIGH);}
-  if (scene_Topscreen12 == true){ digitalWrite (CS12, LOW); sceneScreen_12;  digitalWrite (CS12, HIGH);}
-  if (scene_Topscreen14 == true){ digitalWrite (CS14, LOW); sceneScreen_14;  digitalWrite (CS14, HIGH);}
-  if (scene_Topscreen15 == true){ digitalWrite (CS15, LOW); sceneScreen_15;  digitalWrite (CS15, HIGH);}
+  if (scene_Topscreen11 == true){ CS11L; sceneScreen_11;  CS11H;}
+  if (scene_Topscreen12 == true){ CS12L; sceneScreen_12;  CS12H;}
+  if (scene_Topscreen14 == true){ CS14L; sceneScreen_14;  CS14H;}
+  if (scene_Topscreen15 == true){ CS15L; sceneScreen_15;  CS15H;}
   }
 
 
@@ -1069,8 +1067,8 @@ void auditionmodeTopscreens()
 {
   strcpy(page, "preset");
   debugln(); debug(" * PAGE is set to -> ");  debug(page); debug(" <- while in auditionMode");
-  digitalWrite (CS11, LOW); presetScreen_11; digitalWrite (CS11, HIGH);
-  digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH); 
+  CS11L; presetScreen_11; CS11H;
+  CS15L; presetScreen_15; CS15H; 
   tapTempo_flash_selection_screen();
   tuner_selectionScreen();   
 
@@ -1090,13 +1088,13 @@ void presetTopscreens()
     strcpy(page, "preset"); 
     debugln(); debug(" * PAGE is set to: "); debug(page);       
 
-if (preset_Topscreen11 == true){ digitalWrite (CS11, LOW); presetScreen_11; digitalWrite (CS11, HIGH);}
-if (preset_Topscreen12 == true){ digitalWrite (CS12, LOW); presetScreen_12; digitalWrite (CS12, HIGH);}
+if (preset_Topscreen11 == true){ CS11L; presetScreen_11; CS11H;}
+if (preset_Topscreen12 == true){ CS12L; presetScreen_12; CS12H;}
 
-    digitalWrite (CS13, LOW);  auditionMode_screen(); digitalWrite (CS13, HIGH);
+    CS13L;  auditionMode_screen(); CS13H;
     
-if (preset_Topscreen14 == true){ digitalWrite (CS14, LOW); presetScreen_14; digitalWrite (CS14, HIGH);}
-if (preset_Topscreen15 == true){ digitalWrite (CS15, LOW); presetScreen_15; digitalWrite (CS15, HIGH);}
+if (preset_Topscreen14 == true){ CS14L; presetScreen_14; CS14H;}
+if (preset_Topscreen15 == true){ CS15L; presetScreen_15; CS15H;}
 
   }
 
@@ -1105,10 +1103,10 @@ void effectTopscreens()
 {
     strcpy(page, "effect");
     debugln(); debug(" * PAGE is set to: ");debug(page);
-if (effect_Topscreen11 == true){ digitalWrite (CS11, LOW); effectScreen_11;  digitalWrite (CS11, HIGH);}
-if (effect_Topscreen12 == true){ digitalWrite (CS12, LOW); effectScreen_12;  digitalWrite (CS12, HIGH);}
-if (effect_Topscreen14 == true){ digitalWrite (CS14, LOW); effectScreen_14;  digitalWrite (CS14, HIGH);}
-if (effect_Topscreen15 == true){ digitalWrite (CS15, LOW); effectScreen_15;  digitalWrite (CS15, HIGH);}
+if (effect_Topscreen11 == true){ CS11L; effectScreen_11;  CS11H;}
+if (effect_Topscreen12 == true){ CS12L; effectScreen_12;  CS12H;}
+if (effect_Topscreen14 == true){ CS14L; effectScreen_14;  CS14H;}
+if (effect_Topscreen15 == true){ CS15L; effectScreen_15;  CS15H;}
   }
 
 
@@ -1116,10 +1114,10 @@ void abcdTopscreens()
 {
     strcpy(page, "AMP_effect");
     debugln(); debug(" * PAGE is set to: "); debug(page);
-if (AMP_ABCD_Topscreen11 == true){ digitalWrite (CS11, LOW); AMP_effectScreen_11;  digitalWrite (CS11, HIGH);}
-if (AMP_ABCD_Topscreen12 == true){ digitalWrite (CS12, LOW); AMP_effectScreen_12;  digitalWrite (CS12, HIGH);}
-if (AMP_ABCD_Topscreen14 == true){ digitalWrite (CS14, LOW); AMP_effectScreen_14;  digitalWrite (CS14, HIGH);}
-if (AMP_ABCD_Topscreen15 == true){ digitalWrite (CS15, LOW); AMP_effectScreen_15;  digitalWrite (CS15, HIGH);}
+if (AMP_ABCD_Topscreen11 == true){ CS11L; AMP_effectScreen_11;  CS11H;}
+if (AMP_ABCD_Topscreen12 == true){ CS12L; AMP_effectScreen_12;  CS12H;}
+if (AMP_ABCD_Topscreen14 == true){ CS14L; AMP_effectScreen_14;  CS14H;}
+if (AMP_ABCD_Topscreen15 == true){ CS15L; AMP_effectScreen_15;  CS15H;}
   }
   
 
@@ -1128,10 +1126,10 @@ void looperTopscreens()
 {
     strcpy(page, "looper");
     debugln(); debug(" * PAGE is set to: ");debug(page);
-if (looper_Topscreen11 == true){ digitalWrite(CS11, LOW); looperScreen_11; digitalWrite(CS11, HIGH);}
-if (looper_Topscreen12 == true){ digitalWrite(CS12, LOW); looperScreen_12; digitalWrite(CS12, HIGH);}
-if (looper_Topscreen14 == true){ digitalWrite(CS14, LOW); looperScreen_14; digitalWrite(CS14, HIGH);}
-if (looper_Topscreen15 == true){ digitalWrite(CS15, LOW); looperScreen_15; digitalWrite(CS15, HIGH);}
+if (looper_Topscreen11 == true){ CS11L; looperScreen_11; CS11H;}
+if (looper_Topscreen12 == true){ CS12L; looperScreen_12; CS12H;}
+if (looper_Topscreen14 == true){ CS14L; looperScreen_14; CS14H;}
+if (looper_Topscreen15 == true){ CS15L; looperScreen_15; CS15H;}
   }
 
 
@@ -1139,10 +1137,10 @@ void numberTopscreens()
 {
     strcpy(page, "numbers");
     debugln(); debug(" * PAGE is set to: "); debug(page);
-if (number_Topscreen11 == true){ digitalWrite(CS11, LOW); numberScreen_11; digitalWrite(CS11, HIGH);}
-if (number_Topscreen12 == true){ digitalWrite(CS12, LOW); numberScreen_12; digitalWrite(CS12, HIGH);}
-if (number_Topscreen14 == true){ digitalWrite(CS14, LOW); numberScreen_14; digitalWrite(CS14, HIGH);}
-if (number_Topscreen15 == true){ digitalWrite(CS15, LOW); numberScreen_15; digitalWrite(CS15, HIGH);}
+if (number_Topscreen11 == true){ CS11L; numberScreen_11; CS11H;}
+if (number_Topscreen12 == true){ CS12L; numberScreen_12; CS12H;}
+if (number_Topscreen14 == true){ CS14L; numberScreen_14; CS14H;}
+if (number_Topscreen15 == true){ CS15L; numberScreen_15; CS15H;}
  } 
   
 /*===================================================================================*/

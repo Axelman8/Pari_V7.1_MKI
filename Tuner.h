@@ -52,9 +52,9 @@ void drawArrow( int32_t xpos, int32_t ypos, int32_t h, int32_t w, int32_t r, uin
   y2 = ypos - (h / 2);
 
  
-  digitalWrite(CS8,  LOW);
+  CS8L;
   tft.fillTriangle(x0, y0, x1, y1, x2, y2, color);
-  digitalWrite(CS8,  HIGH);
+  CS8H;
 }
 
 
@@ -67,7 +67,7 @@ void displayTuner(TFT_eSPI* screen, const char *note, const byte string, const b
 {
    if (tunerScreen8 == true)  // determine if we want the Tuner on screen 8 to start 
   {
-  digitalWrite(CS8,  LOW);
+  CS8L;
 
   tft.setRotation(1);
   if (tunerNoteCanvas == NULL) 
@@ -130,7 +130,7 @@ void displayTuner(TFT_eSPI* screen, const char *note, const byte string, const b
     else {drawArrow(x, 145, tft_h - 25, tft_h - 25, 50, tunerColour);}
    }
   tft.fillRect(0, tft_h-53,160, 2, TFT_YELLOW);  // yellow line because of problem with screen width  
-  digitalWrite(CS8,  HIGH);
+  CS8H;
  }
 }
 

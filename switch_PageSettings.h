@@ -30,22 +30,18 @@ void scenes_settings()
   for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
 
-      digitalWrite(CS1, LOW), digitalWrite(CS2, LOW), digitalWrite(CS3, LOW), digitalWrite(CS4, LOW),
-      digitalWrite(CS6, LOW), digitalWrite(CS7, LOW), digitalWrite(CS8, LOW), digitalWrite(CS9, LOW);
-
+      CS1L, CS2L, CS3L, CS4L,CS6L, CS7L, CS8L, CS9L;
       sceneStyle4();
+      CS1H, CS2H, CS3H, CS4H,CS6H, CS7H, CS8H, CS9H;
 
-      digitalWrite(CS1, HIGH), digitalWrite(CS2, HIGH), digitalWrite(CS3, HIGH), digitalWrite(CS4, HIGH),
-      digitalWrite(CS6, HIGH), digitalWrite(CS7, HIGH), digitalWrite(CS8, HIGH), digitalWrite(CS9, HIGH);
-
-      digitalWrite(CS1, LOW); sceneStyle1(); tft.println("1"); digitalWrite(CS1, HIGH);
-      digitalWrite(CS2, LOW); sceneStyle1(); tft.println("2"); digitalWrite(CS2, HIGH);
-      digitalWrite(CS3, LOW); sceneStyle1(); tft.println("3"); digitalWrite(CS3, HIGH);
-      digitalWrite(CS4, LOW); sceneStyle1(); tft.println("4"); digitalWrite(CS4, HIGH);
-      digitalWrite(CS6, LOW); sceneStyle1(); tft.println("5"); digitalWrite(CS6, HIGH);
-      digitalWrite(CS7, LOW); sceneStyle1(); tft.println("6"); digitalWrite(CS7, HIGH);
-      digitalWrite(CS8, LOW); sceneStyle1(); tft.println("7"); digitalWrite(CS8, HIGH);
-      digitalWrite(CS9, LOW); sceneStyle1(); tft.println("8"); digitalWrite(CS9, HIGH);
+      CS1L; sceneStyle1(); tft.println("1"); CS1H;
+      CS2L; sceneStyle1(); tft.println("2"); CS2H;
+      CS3L; sceneStyle1(); tft.println("3"); CS3H;
+      CS4L; sceneStyle1(); tft.println("4"); CS4H;
+      CS6L; sceneStyle1(); tft.println("5"); CS6H;
+      CS7L; sceneStyle1(); tft.println("6"); CS7H;
+      CS8L; sceneStyle1(); tft.println("7"); CS8H;
+      CS9L; sceneStyle1(); tft.println("8"); CS9H;
 
         switch (currentSwitch) {
         
@@ -160,7 +156,7 @@ void AMP_effect_settings()
             preset_amp();
             AMP_ABCD();  //reset the state of the amp ABCD settings
             AxeEffect *effect = Axe.getCurrentPreset().getEffectById(58);
-            digitalWrite (CS1, LOW);
+            CS1L;
 
 
             /* is AMP-CAB selected? if yes, Toggle and bypass  */
@@ -196,7 +192,7 @@ void AMP_effect_settings()
             ampabcdStyle_greenBezelLine();
             }
           }
-          digitalWrite (CS1, HIGH);
+          CS1H;
           delay(200);
           break;
 
@@ -207,7 +203,7 @@ void AMP_effect_settings()
             AMP_ABCD();
             AxeEffect *effect = Axe.getCurrentPreset().getEffectById(effect17);
   
-            digitalWrite (CS2, LOW);
+            CS2L;
             /* is AMP-CAB selected? if yes, Toggle and bypass  */
             if (currentEffect == effect17)
             {
@@ -246,7 +242,7 @@ void AMP_effect_settings()
               }
 
             }
-            digitalWrite (CS2, HIGH);
+            CS2H;
             delay(200);
             break;
 
@@ -258,10 +254,10 @@ void AMP_effect_settings()
                 channel = "C";                
                 effect->switchChannel(2);
 
-                digitalWrite(CS4, LOW); ampabcdStyle2(); tft.println("   C   "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
+                CS4L; ampabcdStyle2(); tft.println("   C   "); CS4H;
+                CS5L; ampabcdStyle3(); tft.println("   D   "); CS5H;
+                CS9L; ampabcdStyle3(); tft.println("   A   "); CS9H;
+                CS10L;ampabcdStyle3(); tft.println("   B   "); CS10H;
                 channelSwitch();
               }
 
@@ -275,10 +271,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "D";
                 effect->switchChannel(3);
-                digitalWrite(CS5, LOW); ampabcdStyle2(); tft.println("   D   "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
+                CS5L; ampabcdStyle2(); tft.println("   D   "); CS5H;
+                CS4L; ampabcdStyle3(); tft.println("   C   "); CS4H;
+                CS9L; ampabcdStyle3(); tft.println("   A   "); CS9H;
+                CS10L;ampabcdStyle3(); tft.println("   B   "); CS10H;
                 channelSwitch();
               }
 
@@ -292,7 +288,7 @@ void AMP_effect_settings()
               AMP_ABCD();
               AxeEffect *effect = Axe.getCurrentPreset().getEffectById(effect18);
 
-              digitalWrite (CS6, LOW);
+              CS6L;
               /* is AMP-CAB selected? if yes, Toggle and bypass  */
               if (currentEffect == effect18)
               {
@@ -328,7 +324,7 @@ void AMP_effect_settings()
             ampabcdStyle_greenBezelLine();
               }
             }
-            digitalWrite (CS6, HIGH);
+            CS6H;
             delay(200);
             break;
 
@@ -338,7 +334,7 @@ void AMP_effect_settings()
             {
               AMP_ABCD();
               AxeEffect *effect = Axe.getCurrentPreset().getEffectById(effect19);
-              digitalWrite (CS7, LOW);
+              CS7L;
 
               /* is AMP-CAB selected? if yes, Toggle and bypass  */
               if (currentEffect == effect19)
@@ -375,7 +371,7 @@ void AMP_effect_settings()
             ampabcdStyle_greenBezelLine();
               }
             }
-            digitalWrite (CS7, HIGH);
+            CS7H;
             delay(200);
             break;
 
@@ -387,10 +383,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "A";
                 effect->switchChannel(0);
-                digitalWrite(CS9, LOW); ampabcdStyle2(); tft.println("   A   "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
-                digitalWrite(CS10, LOW);ampabcdStyle3(); tft.println("   B   "); digitalWrite(CS10, HIGH);
+                CS9L; ampabcdStyle2(); tft.println("   A   "); CS9H;
+                CS5L; ampabcdStyle3(); tft.println("   D   "); CS5H;
+                CS4L; ampabcdStyle3(); tft.println("   C   "); CS4H;
+                CS10L;ampabcdStyle3(); tft.println("   B   "); CS10H;
                 channelSwitch(); 
               }
             }
@@ -403,10 +399,10 @@ void AMP_effect_settings()
                 AxeEffect *effect = Axe.getCurrentPreset().getEffectById(currentEffect);
                 channel = "B";
                 effect->switchChannel(1);
-                digitalWrite(CS10, LOW);ampabcdStyle2(); tft.println("   B   "); digitalWrite(CS10, HIGH);
-                digitalWrite(CS5, LOW); ampabcdStyle3(); tft.println("   D   "); digitalWrite(CS5, HIGH);
-                digitalWrite(CS9, LOW); ampabcdStyle3(); tft.println("   A   "); digitalWrite(CS9, HIGH);
-                digitalWrite(CS4, LOW); ampabcdStyle3(); tft.println("   C   "); digitalWrite(CS4, HIGH);
+                CS10L;ampabcdStyle2(); tft.println("   B   "); CS10H;
+                CS5L; ampabcdStyle3(); tft.println("   D   "); CS5H;
+                CS9L; ampabcdStyle3(); tft.println("   A   "); CS9H;
+                CS4L; ampabcdStyle3(); tft.println("   C   "); CS4H;
                 channelSwitch(); 
               }
             }
@@ -441,7 +437,7 @@ void looper_settings()
             debugln(); debug(" record");
             Axe.getLooper().record();
             ini_looper();
-            digitalWrite (CS1, LOW); looperStyle2(); tft.println("RECORD"); digitalWrite (CS1, HIGH);
+            CS1L; looperStyle2(); tft.println("RECORD"); CS1H;
           }
           delay(200);
           break;
@@ -451,7 +447,7 @@ void looper_settings()
             debugln(); debug(" play");
             Axe.getLooper().play();
             ini_looper();
-            digitalWrite (CS3, LOW); looperStyle2(); tft.println("PLAY"); digitalWrite (CS3, HIGH);
+            CS3L; looperStyle2(); tft.println("PLAY"); CS3H;
           }
           delay(200);
           break;
@@ -461,7 +457,7 @@ void looper_settings()
             debugln(); debug(" undo");
             Axe.getLooper().undo();
             ini_looper();
-            digitalWrite(CS5, LOW); looperStyle2(); tft.println("UNDO"); digitalWrite(CS5, HIGH);
+            CS5L; looperStyle2(); tft.println("UNDO"); CS5H;
           }
           delay(200);
           break;
@@ -471,7 +467,7 @@ void looper_settings()
             debugln(); debug(" once");
             Axe.getLooper().once();
             ini_looper();
-            digitalWrite(CS6, LOW); looperStyle2(); tft.println("ONCE"); digitalWrite(CS6, HIGH);
+            CS6L; looperStyle2(); tft.println("ONCE"); CS6H;
           }
           delay(200);
           break;
@@ -481,7 +477,7 @@ void looper_settings()
             debugln(); debug(" reverse");
             Axe.getLooper().reverse();
             ini_looper();
-            digitalWrite(CS8, LOW); looperStyle2(); tft.println("REVERSE"); digitalWrite(CS8, HIGH);
+            CS8L; looperStyle2(); tft.println("REVERSE"); CS8H;
           }
           delay(200);
           break;
@@ -492,7 +488,7 @@ void looper_settings()
             debugln(); debug(" halfSpeed");
             Axe.getLooper().halfSpeed();
             ini_looper();
-            digitalWrite(CS10, LOW); looperStyle2(); tft.println("HALFSPD"); digitalWrite(CS10, HIGH);
+            CS10L; looperStyle2(); tft.println("HALFSPD"); CS10H;
           }
           delay(200);
           break;

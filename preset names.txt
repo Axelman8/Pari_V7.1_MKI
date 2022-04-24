@@ -13,7 +13,7 @@
 012  	Mark's Recto 2
 013  	Mark Journey Set
 014  	L.O.G.
-015  	L.O.G. To Rest
+015  	L.O.G.  W.A.R.
 016  	L.O.G 11th Hour
 017  	L.O.G 11th Hour
 018  	Mark Morton Mesa
@@ -54,7 +54,7 @@
 053  	NKP guns N roses
 054  	NKP Slayer
 055  	NKP AC DC
-056  	DJENT La Tempesta
+056  	<EMPTY>
 057  	Bag Pipes drone
 058  	<EMPTY>
 059  	<EMPTY>
@@ -63,8 +63,8 @@
 062  	Ambient Djentymist
 063  	6160 Rhythm
 064  	GHoffman's Djent Scenes
-065  	GOJIRA
-066  	<EMPTY>
+065  	chris' djent tone
+066  	DJENT La Tempesta
 067  	<EMPTY>
 068  	<EMPTY>
 069  	<EMPTY>
