@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <Arduino.h>
 #include <Timer.h>
 #include <DS3231.h>
@@ -628,90 +627,3 @@ presetScenes_Tuner_selection()
 #define tuner_screen_txt2_color TFT_YELLOW
 #define tuner_screen_txt2_BGcolor tuner_screen_fillscreen
 
-
-
-
-
-
-
-/* ===========================================================================================================================
-//  SCREEN and PIN BUILT UP | SETTINGS        
-// ===========================================================================================================================
-
-                  controller buildup  buttons and screens
-          
-                                     - TOP -              
-               -------------------------------------------              
-               PIN screen     48 | 47 | 44 | 45 | 41 | lcd
-              *switch nr      11 | 12 | 13 | 14 | 15 | 18        
-               PIN switch     27 | 26 | 23 | 24 | 22 | 32
-               ------------------+----+----+----+----+----       
-               PIN screen     43 | 37 | 35 | 33 | 49 | 
-              *switch nr      06 | 07 | 08 | 09 | 10 | 17        
-               PIN switch     9  | 11 | 12 | 13 | 28 | 31
-               ------------------+----+----+----+----+----       
-               PIN screen     34 | 36 | 40 | 42 | 46 | 
-              *switch nr      01 | 02 | 03 | 04 | 05 | 16        
-               PIN switch     3  | 5  | 6  | 7  | 25 | 30
-               -------------------------------------------       
-                                   - BOTTOM -                    
-
-             
-               16 x 2 lcd =    SDA  pin -> 20
-                               SCL  pin -> 21
-               led =                pin -> 29
-               DS3231:         SDA1 pin -> 70
-                               SCL1 pin -> 71
-
-================================================================================================================================= */
-
-#define M_SIZE 1
-#define SWITCH1 3
-#define SWITCH2 5
-#define SWITCH3 6
-#define SWITCH4 7
-#define SWITCH5 25
-#define SWITCH6 9
-#define SWITCH7 11
-#define SWITCH8 12
-#define SWITCH9 13
-#define SWITCH10 28
-#define SWITCH11 27
-#define SWITCH12 26
-#define SWITCH13 23
-#define SWITCH14 24
-#define SWITCH15 22
-
-#define SWITCH16 30
-#define SWITCH17 31
-#define SWITCH18 32
-
-
-//Screens pinnumbers with CS number:
-#define CS1 34
-#define CS2 36
-#define CS3 40
-#define CS4 42
-#define CS5 46
-#define CS6 43
-#define CS7 37
-#define CS8 35
-#define CS9 33
-#define CS10 49
-#define CS11 48
-#define CS12 47
-#define CS13 44
-#define CS14 45
-#define CS15 41
-
-/*=======================================================================================================================================*/
-//    PEDDLEBOARD CONFIG WITH 15 OR 18 BUTTONS 
-/*=======================================================================================================================================*/
-
-byte switches[18] = { SWITCH1, SWITCH2, SWITCH3, SWITCH4, SWITCH5, SWITCH6, SWITCH7, SWITCH8, SWITCH9,  
-                      SWITCH10,SWITCH11, SWITCH12, SWITCH13, SWITCH14, SWITCH15, SWITCH16, SWITCH17, SWITCH18};
-byte switchState[18] = {HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH};
-
-//byte switches[15] = { SWITCH1, SWITCH2, SWITCH3, SWITCH4, SWITCH5, SWITCH6, SWITCH7, SWITCH8,  
-//                      SWITCH9, SWITCH10, SWITCH11, SWITCH12, SWITCH13, SWITCH14, SWITCH15};    
-//byte switchState[15] = { HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH};

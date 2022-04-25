@@ -12,7 +12,6 @@
 
 /*===========================================   -  Include library's  -  ================================================*/
 
-#include <SD_ini.h>
 #include <preset_amp_ini.h>
 
 #include "Screenstyle.h"
@@ -75,10 +74,12 @@ void scenes_settings()
 /*================================================================================================================================*/
 void preset_settings()
 {
-  for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
+  for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) 
+  { 
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
-
+      
+      switch (currentSwitch) 
+      {
         case 0:  presetSelection(); delay(200);  break; // Switch 1. preset 1
         case 1:  presetSelection(); delay(200);  break; // Switch 2. preset 2
         case 2:  presetSelection(); delay(200);  break; // Switch 3. preset 3
@@ -110,7 +111,7 @@ void effect_settings()
 {
   for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
+      switch (currentSwitch) {
     
     // NOTES: Currently the issue is we get a copy of effect so modifying it doesn't update state, we need to modify the actual state of the preset;
 
@@ -147,7 +148,7 @@ void AMP_effect_settings()
 {
   for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
+      switch (currentSwitch) {
 
         
         case 0: // Switch 1.  =AMP 1
@@ -430,7 +431,7 @@ void looper_settings()
 {
   for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
+      switch (currentSwitch) {
 
         case 0:
           {
@@ -515,7 +516,7 @@ void numbers_settings()
 {
   for ( currentSwitch = 0; currentSwitch < 18; currentSwitch++ ) {
     if ((digitalRead(switches[currentSwitch]) != switchState[currentSwitch] ) && (switchState[currentSwitch] == HIGH)) {
-      switch ( currentSwitch ) {
+      switch (currentSwitch) {
 
         //Switch 1-10
         case 0:

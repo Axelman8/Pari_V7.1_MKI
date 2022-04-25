@@ -153,6 +153,7 @@
 *                           - ADD RESET EFFECT to default when going to SCENEPAGE from EFFECTPAGE             -> DONE 
 *               24-4-2022   - REBUILD Screen port addressing.  Now using the Arduino DUE REG_PIO
 *                             Screen refresh rate is faster.                                                  -> DONE            
+*               25-4-2022   - NEW lib file.  PIN_ini.h for pinsettings.  Deleted from SD_ini.h                -> DONE              
 *                            
 *             
 ========================================================================================================================*/

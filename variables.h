@@ -21,6 +21,7 @@
 #include <SPI.h>
 #include <DS3231.h>
 #include <SD_ini.h>
+#include <PIN_ini.h>
 
 
 #define midichannelSet 1
@@ -220,10 +221,6 @@ long previousMillis = 0;              //for ?
 long interval = 1000;                 //for ?
 byte presetBank;
 
-/*=======================================================================================================================================*/
 
-byte SWITCH;  //universal name that gets assigned with a SWITCH in a loop
-byte CS;      //universal name that gets assigned with a CS*NUMBER* in a loop
-
-/*===================================================================================*/
+/* ================================================================================================================================= */
 /*Axelman8*/

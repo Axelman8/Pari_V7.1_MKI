@@ -44,6 +44,7 @@
 #include <Wire.h>
 #include <malloc.h>
 #include <SD_ini.h>
+#include <PIN_ini.h>
 
 //RAM usage shown in the serial monitor
 #include <MemoryFree.h>;
@@ -174,6 +175,7 @@ void setup()
   {
     pinMode( switches[currentSwitch], INPUT_PULLUP);    // Set all pins for switch
     digitalWrite( switches[currentSwitch], HIGH );      // Turn on all pins with internal pullup HIGH
+//    switches[currentSwitch];
   }
 
 

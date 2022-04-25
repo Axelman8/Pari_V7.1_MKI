@@ -12,7 +12,7 @@
 /*===========================================   -  Include library's  -  ================================================*/
 #include <Timer.h>
 #include <AxeFxControl.h>
-#include <SD_ini.h>
+
 
 #include "Screenstyle.h"
 #include "preset_range.h"
@@ -48,14 +48,14 @@ void onPresetChanging(const PresetNumber number)
 
 
 void turnOffFlashingLed()
-{  if (flashScreen14 != true) {digitalWrite(29, LOW );} 
-    else
+{  /*if (flashScreen14 != true) {digitalWrite(29, LOW );} 
+    else*/
   {tapTempo_flash_OFF();}  //flashing screen 14
 }
 
 void flashLed(int ledPin, int flashDelay)
-{  if (flashScreen14 != true) {digitalWrite(29, HIGH);} 
-    else
+{ /* if (flashScreen14 != true) {digitalWrite(29, HIGH);} 
+    else*/
   {tapTempo_flash_ON();}   //flashing screen 14
   timer.after(flashDelay, turnOffFlashingLed);
 }

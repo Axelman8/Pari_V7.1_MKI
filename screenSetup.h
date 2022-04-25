@@ -15,7 +15,7 @@
 /*===========================================   -  Include library's  -  ================================================*/
 
 #include <AxeFxControl.h>
-#include <SD_ini.h>
+
 
 
 #include "axe_handler.h"
@@ -42,7 +42,7 @@ void bootscreen_setup()  // This shows the AXE FX III on the bootup
   tft.begin();
   tft.setRotation(1);         //screen is rotated to width 160 x  hight 128 (landscape)
 
-  CS1L; CS2L; CS3L; CS4L; CS5L; CS6L; CS7L; CS8L; CS9L; CS10L; CS11L; CS12L; CS13L; CS14L; CS15L;
+  CS1L, CS2L, CS3L, CS4L, CS5L, CS6L, CS7L, CS8L, CS9L, CS10L, CS11L, CS12L, CS13L, CS14L, CS15L;
   
   tft.fillScreen(TFT_BLACK);  // screen is all black
   tft.setTextWrap(false);     // text is not wrapped on multi lines, but goes straight on.  That is correct, as the code will optimize the text in the screens
@@ -78,7 +78,7 @@ void ini_screens()  //clear all screens after 1st boot
 
 { 
   debugln();  debugln();  debug(" * function ini_screens started on screenSetup.h");
-  CS1L; CS2L; CS3L; CS4L; CS5L; CS6L; CS7L; CS8L; CS9L; CS10L; CS11L; CS12L; CS13L; CS14L; CS15L;
+  CS1L, CS2L, CS3L, CS4L, CS5L, CS6L, CS7L, CS8L, CS9L, CS10L, CS11L, CS12L, CS13L, CS14L, CS15L;
 
   tft.fillScreen(TFT_BLACK);
   
