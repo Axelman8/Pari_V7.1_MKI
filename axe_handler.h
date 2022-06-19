@@ -124,13 +124,16 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
 
     if (strcmp(page, "scene") == 0) // On scenepage
     {
-    previousPreset = (CurPreset -1);
-    if (previousPreset < 0){previousPreset = maxPreset;}
-    nextPreset = (CurPreset +1);
-    if (nextPreset > maxPreset){ nextPreset = 0;}
-    debugln(); debug(" active_Preset = "); debug(active_Preset); 
-    debugln(); debug(" previousPreset = "); debug(previousPreset); 
-    debugln(); debug(" nextPreset = "); debug(nextPreset);
+    debugln(); debug(" variable CurPreset = "); debug(CurPreset); 
+    previousPreset = (CurPreset - 1);
+    debugln(); debug(" variable CurPreset - 1 =  "); debug(CurPreset - 1); 
+    if (CurPreset - 1 < 0){previousPreset = 511;}
+    nextPreset = (CurPreset + 1);
+    debugln(); debug(" variable CurPreset + 1 =  "); debug(CurPreset + 1);
+    if (CurPreset + 1 > 511){nextPreset = 0;}
+    debugln(); debug(" variable active_Preset = "); debug(active_Preset); 
+    debugln(); debug(" variable previousPreset = "); debug(previousPreset); 
+    debugln(); debug(" variable nextPreset = "); debug(nextPreset);
     }
 
     CS13L;
@@ -163,13 +166,16 @@ void presetName_setting(AxePreset preset)   //Set active presetname in screen 13
  
     if (strcmp(page, "scene") == 0) // On scenepage
     {
-    previousPreset = (CurPreset -1);
-    if (previousPreset < 0){previousPreset = maxPreset;}
-    nextPreset = (CurPreset +1);
-    if (nextPreset > maxPreset){ nextPreset = 0;}
-    debugln(); debug(" active_Preset = "); debug(active_Preset); 
-    debugln(); debug(" previousPreset = "); debug(previousPreset); 
-    debugln(); debug(" nextPreset = "); debug(nextPreset);
+    debugln(); debug(" variable CurPreset = "); debug(CurPreset);   
+    previousPreset = (CurPreset - 1);
+    debugln(); debug(" variable CurPreset - 1 =  "); debug(CurPreset - 1);
+    if (CurPreset -1 < 0){previousPreset = 511;}
+    nextPreset = (CurPreset + 1);
+    debugln(); debug(" variable CurPreset + 1 =  "); debug(CurPreset + 1);
+    if (CurPreset + 1 > 511){nextPreset = 0;}
+    debugln(); debug(" variable active_Preset = "); debug(active_Preset); 
+    debugln(); debug(" variable previousPreset = "); debug(previousPreset); 
+    debugln(); debug(" variable nextPreset = "); debug(nextPreset);
     }
 
     CS13L;
@@ -432,8 +438,8 @@ void ini_scenes()  //setup scene screens
 
 void effectvariable_reset()
 {
- effect1 = 0; effect2= 0;  effect3= 0;  effect4= 0;  effect5= 0;  effect6= 0;  effect7= 0;  effect8= 0;  effect9= 0; effect10= 0;
- effect11= 0; effect12= 0; effect13= 0; effect14= 0; effect15= 0; effect16= 0; effect17= 0; effect18= 0; effect19 = 0; 
+ effect0 = 0; effect1 = 0; effect2= 0;  effect3= 0;  effect4= 0;  effect5= 0;  effect6= 0;  effect7= 0;  effect8= 0;  effect9= 0; 
+ effect10= 0; effect11= 0; effect12= 0; effect13= 0; effect14= 0; effect15= 0; effect16= 0; effect17= 0; effect18= 0; effect19 = 0; 
 }
 
 /*=========================================================================================================================
@@ -512,19 +518,18 @@ bool onEffectFilter(const PresetNumber number, AxeEffect effect) {
   }
   else
   {
-    return  effect.isDrive() || effect.isDelay() || effect.isPhaser() || effect.isMulticomp() || effect.isChorus() || effect.isPitch() || 
+    return  effect.isDelay() || effect.isPhaser() || effect.isMulticomp() || effect.isChorus() || effect.isDrive() || effect.isPitch() || 
             effect.isReverb() || effect.isPlex() || effect.isCompressor() || effect.isFlanger() || effect.isMultitap() || effect.isMegatap() ||
-            effect.isMulticomp() || effect.isLooper() ||  effect.isWah() || effect.isParaEQ(); /*|| effect.isDistort()*/
+            effect.isMulticomp() || effect.isLooper() ||  effect.isWah() || effect.isGrapheqEQ() || effect.isParaEQ() /*|| effect.isDistort()*/;
+  }
+ }
 
     /* This is a test for getting AMP1 to be shown...  it still doesnt work *26-6-2021
-                effect.isGrapheqEQ() || effect.isParaEQ() || effect.isRotary() || effect.isFormant() || effect.isVolume() || 
+                effect.isParaEQ() || effect.isRotary() || effect.isFormant() || effect.isVolume() || 
                 effect.isTremolo() || effect.isFilter() || effect.isEnhancer() || effect.isMixer() || effect.isSynth() || 
                 effect.isVocoder() || effect.isCrossover() || effect.isGate() || effect.isRingmod() || effect.isTentap() || 
                 effect.isResonator() || effect.isTonematch() || effect.isRTA() || effect.isFbsend() || effect.isFbreturn() || 
                 effect.isMultiplexer() || effect.isIrplayer();*/
-  }
- }
-
 
 
 /*=========================================================================================================================
@@ -549,7 +554,7 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
     snprintf(buf, sz, "Effects[%d]: ", preset.getEffectCount());
 
 
-    for (effectindex = 1; effectindex < preset.getEffectCount(); effectindex++) {
+    for (effectindex = 0; effectindex < preset.getEffectCount(); effectindex++) {
       AxeEffect effect = preset.getEffectAt(effectindex);
       effect.copyEffectTag(tag, tagSz);
 
@@ -564,12 +569,18 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
 
 //==============================================================================================================
 //================    IF ENABLED, RESET EFFECT BYPASS STATE WHEN GOING BACK TO SCENEPAGE    ====================
-//---------->>>>>>>>>>>>>>>>>>>>>>>    @ KARLMINOX -----------  THIS IS YOUR SOLUTION    <<<<<<<<<<<<<<---------
+//---------->>>>>>>>>>>>>>>>>>>>>>>    @KARLMINOX -----------  THIS IS YOUR SOLUTION    <<<<<<<<<<<<<<----------
 //==============================================================================================================
-        if (reset_effectbypass_state == true)  //setting available in SD_ini.h
+        if (reset_effectbypass_state == 1)  //setting available in SD_ini.h
         {
            switch (effectindex) 
             {
+        case 0: thisEffect = effect0; effectbypass = effect0_bypass; thisEffect = (effect.getEffectId()); 
+                if (effect.isBypassed() != effectbypass) 
+                {effect.toggle();}
+                debugln(""); debug(" Effect bypassed?: "); debug(effect.isBypassed());
+                debugln(""); debug(" Effect0_bypass status?: "); debug(effectbypass); break; 
+                
         case 1: thisEffect = effect1; effectbypass = effect1_bypass; thisEffect = (effect.getEffectId()); 
                 if (effect.isBypassed() != effectbypass) 
                 {effect.toggle();}
@@ -640,107 +651,117 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
         tft.setTextWrap(false);
         switch (effectindex)
         {
+      case 0:
+            effect0 = (effect.getEffectId());
+            CS1L;
+            if (effect.isBypassed()) 
+            {effect0_bypass = true; effectStyle1();effect.printEffectName(tft);}
+            else 
+            {effect0_bypass = false; effectStyle2();effect.printEffectName(tft);}
+            CS1H;
+            break;
+       
        case 1:
             effect1 = (effect.getEffectId());
-            CS1L;
+            CS2L;
             if (effect.isBypassed()) 
             {effect1_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect1_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS1H;
+            CS2H;
             break;
 
           case 2:
             effect2 = (effect.getEffectId());
-            CS2L;
+            CS3L;
             if (effect.isBypassed()) 
             {effect2_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect2_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS2H;
+            CS3H;
             break;
 
 
           case 3:
             effect3 = (effect.getEffectId());
-            CS3L;
+            CS4L;
             if (effect.isBypassed()) 
             {effect3_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect3_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS3H;
+            CS4H;
             break;
 
 
           case 4:
             effect4 = (effect.getEffectId());
-            CS4L;
+            CS5L;
             if (effect.isBypassed()) 
             {effect4_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect4_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS4H;
+            CS5H;
             break;
 
           case 5:
             effect5 = (effect.getEffectId());
-            CS5L;
+            CS6L;
             if (effect.isBypassed()) 
             {effect5_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect5_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS5H;
+            CS6H;
             break;
 
           case 6:
             effect6 = (effect.getEffectId());
-            CS6L;
+            CS7L;
             if (effect.isBypassed()) 
             {effect6_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect6_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS6H;
+            CS7H;
             break;
 
           case 7:
             effect7 = (effect.getEffectId());
-            CS7L;
+            CS8L;
             if (effect.isBypassed()) 
             {effect7_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect7_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS7H;
+            CS8H;
             break;
 
           case 8:
             effect8 = (effect.getEffectId());
-            CS8L;
+            CS9L;
             if (effect.isBypassed()) 
             {effect8_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect8_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS8H;
+            CS9H;
             break;
 
           case 9:
             effect9 = (effect.getEffectId());
-            CS9L;
+            CS10L;
             if (effect.isBypassed()) 
             {effect9_bypass = true; effectStyle1();effect.printEffectName(tft);}
             else 
             {effect9_bypass = false; effectStyle2();effect.printEffectName(tft);}
-            CS9H;
-            break;
-
-          case 10:
-            effect10 = (effect.getEffectId());
-            CS10L;
-            if (effect.isBypassed()) 
-            {effect10_bypass = true; effectStyle1();effect.printEffectName(tft);}
-            else 
-            {effect10_bypass = false; effectStyle2();effect.printEffectName(tft);}
             CS10H;
             break;
+
+//          case 10:
+//            effect10 = (effect.getEffectId());
+//            CS11L;
+//            if (effect.isBypassed()) 
+//            {effect10_bypass = true; effectStyle1();effect.printEffectName(tft);}
+//            else 
+//            {effect10_bypass = false; effectStyle2();effect.printEffectName(tft);}
+//            CS11H;
+//            break;
         }
       }
 
@@ -752,18 +773,32 @@ void onEffectsReceived(PresetNumber number, AxePreset preset)
      {
         debugln(); debugln(); debug(" * function AMP_effect started on axe_handler.h");
 
-        Axe.getCurrentPreset().getEffectById(58);
-        CS1L;
-        tft.fillScreen(TFT_BLACK);
-        effectchannelswitchStyle3();
-        tft.println("AMP1");
-        effectchannelswitchStyle0();
-        tft.println(effect.getChannelChar());
-        CS1H;
+//        Axe.getCurrentPreset().getEffectById(58);
+//        CS1L;
+//        tft.fillScreen(TFT_BLACK);
+//        effectchannelswitchStyle3();
+//        tft.println("AMP1");
+//        effectchannelswitchStyle0();
+//        tft.println(effect.getChannelChar());
+//        CS1H;
 
 
         switch (effectindex)
         {
+
+          case 0:
+            effect17 = (effect.getEffectId());
+            CS1L;
+            tft.fillScreen(TFT_BLACK);
+            if (effect.isBypassed()) 
+            {effectchannelswitchStyle2();effect.printEffectName(tft);}
+            else 
+            {effectchannelswitchStyle3();effect.printEffectName(tft);}
+            effectchannelswitchStyle0();
+            tft.println(effect.getChannelChar());
+            CS1H;
+            break;
+
           case 1:
             effect17 = (effect.getEffectId());
             CS2L;
@@ -1050,14 +1085,12 @@ void presetBank_settings()
   
   debugln();debugln();  debug(" * function presetBank_settings started on axe_handler.h");
   
-  CS1L, CS2L, CS3L, CS4L, CS5L,
-  CS6L, CS7L, CS8L, CS9L, CS10L;
+  CS1L, CS2L, CS3L, CS4L, CS5L, CS6L, CS7L, CS8L, CS9L, CS10L;
 
   tft.fillScreen(presetNumberStyle1_fillscreen);
   tft.setTextWrap(false); // we dont need this anymore
 
-  CS1H, CS2H, CS3H, CS4H, CS5H,
-  CS6H, CS7H, CS8H, CS9H, CS10H;
+  CS1H, CS2H, CS3H, CS4H, CS5H, CS6H, CS7H, CS8H, CS9H, CS10H;
 
 
   if (auditionMode == true)

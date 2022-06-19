@@ -151,10 +151,10 @@
 *               19-05-2022  - FIX presetname on screen 13 when coming from TUNER                              -> DONE  
 *               20-05-2022  - ADD RESET EFFECT boolean to SD_ini.h                                            -> DONE
 *                           - ADD RESET EFFECT to default when going to SCENEPAGE from EFFECTPAGE             -> DONE 
-*               24-4-2022   - REBUILD Screen port addressing.  Now using the Arduino DUE REG_PIO
+*               24-04-2022  - REBUILD Screen port addressing.  Now using the Arduino DUE REG_PIO
 *                             Screen refresh rate is faster.                                                  -> DONE            
-*               25-4-2022   - NEW lib file.  PIN_ini.h for pinsettings.  Deleted from SD_ini.h                -> DONE              
-*                            
+*               25-04-2022  - NEW lib file.  PIN_ini.h for pinsettings.  Deleted from SD_ini.h                -> DONE              
+*               19-06-2022  - Fix AMP1 not showing on tft1                                                    -> DONE             
 *             
 ========================================================================================================================*/
 /*Axelman8*/

@@ -304,16 +304,16 @@ void auditionmodeEnd_Selection()
 void effectSelection()
 {
   switch (currentSwitch) {
-    case 0: CS = CS1; thisEffect = effect1; break;
-    case 1: CS = CS2; thisEffect = effect2; break;
-    case 2: CS = CS3; thisEffect = effect3; break;
-    case 3: CS = CS4; thisEffect = effect4; break;
-    case 4: CS = CS5; thisEffect = effect5; break;
-    case 5: CS = CS6; thisEffect = effect6; break;    
-    case 6: CS = CS7; thisEffect = effect7; break;
-    case 7: CS = CS8; thisEffect = effect8; break;
-    case 8: CS = CS9; thisEffect = effect9; break;
-    case 9: CS = CS10; thisEffect = effect10; break;
+    case 0: CS = CS1; thisEffect = effect0; break;
+    case 1: CS = CS2; thisEffect = effect1; break;
+    case 2: CS = CS3; thisEffect = effect2; break;
+    case 3: CS = CS4; thisEffect = effect3; break;
+    case 4: CS = CS5; thisEffect = effect4; break;
+    case 5: CS = CS6; thisEffect = effect5; break;    
+    case 6: CS = CS7; thisEffect = effect6; break;
+    case 7: CS = CS8; thisEffect = effect7; break;
+    case 8: CS = CS9; thisEffect = effect8; break;
+    case 9: CS = CS10; thisEffect = effect9; break;
   }            
             
     debugln(); debug(" -> Pressed Switch = "); debug(currentSwitch + 1);
@@ -399,7 +399,7 @@ void bankUp_selection()
          if (strcmp(page, "preset") != 0) // NOT on presetpage
           {
             PresetNumb = (PresetNumb + 10);  
-          if (PresetNumb > maxPreset) 
+          if (PresetNumb > 511) 
           {
             PresetNumb = (PresetNumb - 510); // 520 is first passible number in the next bank, but doesnt exist
             } 
@@ -417,7 +417,7 @@ void bankUp_selection()
           else  // ON presetpage
           {
             PresetNumb = (PresetNumb + 10);  
-          if (PresetNumb > maxPreset) 
+          if (PresetNumb > 511) 
           {
             PresetNumb = (PresetNumb - (520)); // 520 is first passible number in the next bank, but doesnt exist
             }   
@@ -445,9 +445,9 @@ void presetDown_selection()
 {
           if (CurPreset == 0)
           {
-            CurPreset = maxPreset;
+            CurPreset = 511;
             debugln(); debug(" presetDown CurPreset = "); debug(CurPreset);             
-            PresetNumb = maxPreset;
+            PresetNumb = 511;
           }
           else 
            {

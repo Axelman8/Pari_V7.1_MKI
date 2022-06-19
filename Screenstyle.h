@@ -402,7 +402,7 @@ void presetStyle1()   // is not used at the moment
 
 void presetNumberStyle1() 
 { preset_notACTIVEbezel(); tft.setTextSize(3);
-  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle1_txt1_color, presetNumberStyle1_txt1_BGcolor);}
+  tft.setCursor(PNtxtWidth, /*PNtxtHeight*/100); tft.setTextColor(presetNumberStyle1_txt1_color, presetNumberStyle1_txt1_BGcolor);}
 
 void presetNameStyle1()  //Not active preset settings
 {  tft.setTextSize(3);  tft.setCursor(3, 10); tft.setTextColor(presetNameStyle1_txt1_color, presetNameStyle1_txt1_BGcolor);}
@@ -411,11 +411,11 @@ void presetNumberStyle2()
 {
 if (auditionMode == true)
  {preset_auditionMode_ACTIVEbezel(); tft.setTextSize(3);
-  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle2_txt1_auditionMode_color, presetNumberStyle2_txt1_auditionMode_BGcolor);
+  tft.setCursor(PNtxtWidth, /*PNtxtHeight*/100); tft.setTextColor(presetNumberStyle2_txt1_auditionMode_color, presetNumberStyle2_txt1_auditionMode_BGcolor);
   }
  else
 { preset_ACTIVEbezel(); tft.setTextSize(3);
-  tft.setCursor(PNtxtWidth, PNtxtHeight); tft.setTextColor(presetNumberStyle2_txt1_color, presetNumberStyle2_txt1_BGcolor);
+  tft.setCursor(PNtxtWidth, /*PNtxtHeight*/100); tft.setTextColor(presetNumberStyle2_txt1_color, presetNumberStyle2_txt1_BGcolor);
   }
 }
 
@@ -599,7 +599,7 @@ void presetNameNumber_screen()
 
 void presetDown_handler()
 {
-    if ((previousPreset) != maxPreset)
+    if ((previousPreset) != 511)
       {    
     PresetNumb = active_Preset;
     if ((previousPreset % 10) == 9)
@@ -607,7 +607,7 @@ void presetDown_handler()
       }
     else
         {
-      PresetNumb = maxPreset;
+      PresetNumb = 511;
         }
 }
 
@@ -1054,6 +1054,7 @@ void tuner_startScreens()
 
 void sceneTopscreens()
 {
+  debugln(); debug(" * sceneTopscreens started on Screenstyle.h");
     strcpy(page, "scene");
     debugln(); debug(" * PAGE is set to: "); debug(page);
   if (scene_Topscreen11 == true){ CS11L; sceneScreen_11;  CS11H;}
@@ -1065,6 +1066,7 @@ void sceneTopscreens()
 
 void auditionmodeTopscreens()
 {
+  debugln(); debug(" * auditionmodeTopscreens started on Screenstyle.h");
   strcpy(page, "preset");
   debugln(); debug(" * PAGE is set to -> ");  debug(page); debug(" <- while in auditionMode");
   CS11L; presetScreen_11; CS11H;
@@ -1076,6 +1078,7 @@ void auditionmodeTopscreens()
 
 void exit_auditionmodeTopscreens()
 {
+  debugln(); debug(" * exit_auditionmodeTopscreen started on Screenstyle.h");
   auditionMode = false;
   strcpy(page, "scene");
   debugln(); debug(" * PAGE is set to ->  "); debug(page); debug(" <- after exiting auditionMode");
@@ -1085,6 +1088,7 @@ void exit_auditionmodeTopscreens()
 void presetTopscreens()  
 {
 //Set the page to PRESET.  If we do not set it to preset, then the presetpage will not function conrrectly with a preset selection.  
+    debugln(); debug(" * presetTopscreen started on Screenstyle.h");
     strcpy(page, "preset"); 
     debugln(); debug(" * PAGE is set to: "); debug(page);       
 
@@ -1101,6 +1105,7 @@ if (preset_Topscreen15 == true){ CS15L; presetScreen_15; CS15H;}
 
 void effectTopscreens()
 {
+  debugln(); debug(" * effectTopscreen started on Screenstyle.h");
     strcpy(page, "effect");
     debugln(); debug(" * PAGE is set to: ");debug(page);
 if (effect_Topscreen11 == true){ CS11L; effectScreen_11;  CS11H;}
@@ -1112,6 +1117,7 @@ if (effect_Topscreen15 == true){ CS15L; effectScreen_15;  CS15H;}
 
 void abcdTopscreens()
 {
+  debugln(); debug(" abcdTopscreen started on Screenstyle.h");
     strcpy(page, "AMP_effect");
     debugln(); debug(" * PAGE is set to: "); debug(page);
 if (AMP_ABCD_Topscreen11 == true){ CS11L; AMP_effectScreen_11;  CS11H;}
@@ -1124,6 +1130,7 @@ if (AMP_ABCD_Topscreen15 == true){ CS15L; AMP_effectScreen_15;  CS15H;}
 //    tft.fillScreen(TFT_BLACK); // additional not used screens goto black
 void looperTopscreens()
 {
+    debugln(); debug(" * looperTopscreen started on Screenstyle.h");
     strcpy(page, "looper");
     debugln(); debug(" * PAGE is set to: ");debug(page);
 if (looper_Topscreen11 == true){ CS11L; looperScreen_11; CS11H;}
@@ -1135,6 +1142,7 @@ if (looper_Topscreen15 == true){ CS15L; looperScreen_15; CS15H;}
 
 void numberTopscreens()
 {
+      debugln(); debug(" * numberTopscreen started on Screenstyle.h");
     strcpy(page, "numbers");
     debugln(); debug(" * PAGE is set to: "); debug(page);
 if (number_Topscreen11 == true){ CS11L; numberScreen_11; CS11H;}

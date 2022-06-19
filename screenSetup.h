@@ -174,16 +174,16 @@ void effectSettings()
  if (effectindex ==0)
  {  //this gets rid of the useless effect that crashes the peddleboard :) 
  switch (effectindex) {
-    case 1: CS = CS1; thisEffect = effect1; break;
-    case 2: CS = CS2; thisEffect = effect2; break;
-    case 3: CS = CS3; thisEffect = effect3; break;
-    case 4: CS = CS4; thisEffect = effect4; break;
-    case 5: CS = CS5; thisEffect = effect5; break;
-    case 6: CS = CS6; thisEffect = effect6; break;    
-    case 7: CS = CS7; thisEffect = effect7; break;
-    case 8: CS = CS8; thisEffect = effect8; break;
-    case 9: CS = CS9; thisEffect = effect9; break;
-    case 10: CS = CS10; thisEffect = effect10; break;
+    case 1: CS = CS1; thisEffect = effect0; break;
+    case 2: CS = CS2; thisEffect = effect1; break;
+    case 3: CS = CS3; thisEffect = effect2; break;
+    case 4: CS = CS4; thisEffect = effect3; break;
+    case 5: CS = CS5; thisEffect = effect4; break;
+    case 6: CS = CS6; thisEffect = effect5; break;    
+    case 7: CS = CS7; thisEffect = effect6; break;
+    case 8: CS = CS8; thisEffect = effect7; break;
+    case 9: CS = CS9; thisEffect = effect8; break;
+    case 10: CS = CS10; thisEffect = effect9; break;
   }           
       digitalWrite (CS, LOW);
       thisEffect = (effect->getEffectId());

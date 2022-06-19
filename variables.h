@@ -186,7 +186,7 @@ byte loopPreset;
 
 
 byte  effect17, effect18, effect19,     // effects 17-19 used for "AMP CAB abcd" settings
-      thisEffect, effect1, effect2, effect3, effect4, effect5, effect6, effect7,effect8, effect9, effect10, //effect 1-10 used for effect settings on screen 1-10
+      thisEffect, effect0, effect1, effect2, effect3, effect4, effect5, effect6, effect7,effect8, effect9, effect10, //effect 1-10 used for effect settings on screen 1-10
       effect11, effect12, effect13, effect14,effect15, effect16;   // effects 1-10 and 11-16 are used for the LOOPER and WAH available function
       
 byte active_Scene;  // active scene number
@@ -204,9 +204,8 @@ byte tempo_Counter = 0; // For the "4 balls" tempo sprite
 bool tapSwitch;
 bool getScenes;
 bool effectCycle;
-bool effect1_bypass = false; bool effect2_bypass = false; bool effect3_bypass = false; bool effect4_bypass = false;
-bool effect5_bypass = false; bool effect6_bypass = false; bool effect7_bypass = false; bool effect8_bypass = false;
-bool effect9_bypass = false; bool effect10_bypass = false;
+bool effect0_bypass = false; bool effect1_bypass = false; bool effect2_bypass = false; bool effect3_bypass = false; bool effect4_bypass = false; bool effect5_bypass = false;
+bool effect6_bypass = false; bool effect7_bypass = false; bool effect8_bypass = false; bool effect9_bypass = false; bool effect10_bypass = false;
 bool effectbypass;
 bool reset_effectbypass_state = false;
 bool auditionMode;

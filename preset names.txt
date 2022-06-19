@@ -57,20 +57,20 @@
 056  	<EMPTY>
 057  	Bag Pipes drone
 058  	<EMPTY>
-059  	<EMPTY>
+059  	Savage
 060  	8 String Djent
 061  	FAS Me!
 062  	Ambient Djentymist
 063  	6160 Rhythm
 064  	GHoffman's Djent Scenes
 065  	chris' djent tone
-066  	DJENT La Tempesta
-067  	<EMPTY>
-068  	<EMPTY>
-069  	<EMPTY>
-070  	<EMPTY>
-071  	<EMPTY>
-072  	<EMPTY>
+066  	2dor
+067  	Devil's bleeding crown
+068  	USA 2C++ (Anthony Thiessen '22)
+069  	MG jp2c  mids
+070  	JPIIC+ Scene Ignore - CCFF#23
+071  	MP Van Halen 90's
+072  	MP Synth
 073  	<EMPTY>
 074  	<EMPTY>
 075  	<EMPTY>
